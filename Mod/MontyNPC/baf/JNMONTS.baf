@@ -1,0 +1,86 @@
+IF
+    See([PC])
+    NumTimesTalkedTo(0)
+THEN
+    RESPONSE #100
+        Dialogue([PC])
+END
+
+// Standard Talks while Joined
+
+IF 
+	InParty(Myself)
+	Global("JNMONTTalk","GLOBAL",0)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)
+		SetGlobal("JNMONTTalk","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	RealGlobalTimerExpired("JNMONTTimer","GLOBAL")
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(4)
+	Global("JNMONTTalk","GLOBAL",1)
+	Global("JNMONTTalk","GLOBAL",3)
+	Global("JNMONTTalk","GLOBAL",5)
+	Global("JNMONTTalk","GLOBAL",7)
+THEN
+	RESPONSE #100
+		IncrementGlobal("JNMONTTalk","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(15)
+	Global("JNMONTTalk","GLOBAL",2)
+	Global("JNMONTTalk","GLOBAL",4)
+	Global("JNMONTTalk","GLOBAL",6)
+	Global("JNMONTTalk","GLOBAL",8)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+// Talk for Xzars Death
+
+IF
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("JNMONTXzarTalk","AR0300",0)
+	NearLocation(Myself,2362,2489,15)
+	CombatCounter(0)
+	!See([ENEMY])
+	AreaCheck("AR0300")		// Docks
+THEN
+	RESPONSE #100
+		SetGlobal("JNMONTXzarTalk","AR0300",1)
+		StartDialogueNoSet(Player1)
+END
+
+// Spawn Zhentarim Thief in Xzar's Hideout
+
+IF
+	InParty(Myself)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	Global("JNMONTVisitedXzarDeath","Global",1)
+	Global("JNMONTVespSpawned","AR0407",0)
+	AreaCheck("AR0407")		// Prebek's Home
+THEN
+	RESPONSE #100
+		SetGlobal("JNMONTVespSpawned","AR0407",1)
+		CreateCreature("JNVESP",[374.252],14)
+		GiveItemCreate("JNDAG01","JNVESP",0,0,0)
+END

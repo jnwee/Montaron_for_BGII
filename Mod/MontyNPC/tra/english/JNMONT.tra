@@ -1,0 +1,35 @@
+/* 0 - 99 Montaron's Lines , 100 - 199 Companions Lines , 200 - 299 Player Answers */
+
+@0 = ~Arrr!~ [jnmona5]
+@1 = ~That damned mage... always gets me in trouble.~
+@2 = ~Expect no thanks from me, 'cause ye'll no get it. Now, who be ye? Speak quick!~
+@3 = ~I 'member ye. Want to team up again, heh?~
+@4 = ~First tell me where Xzar be, so I can slit his throat. I've had it with the bastard.~
+@5 = ~Keep yer distance, ye goody-goody. I no like the smell of charity.~ [jnmonim]
+@6 = ~Now tell me where I can find a mad wizard in green robes and I'll be on me merry way.~
+@7 = ~Someone did the job for me, eh?~
+@8 = ~Matters not. I'll no believe ye till ye show me his corpse. If ye're tellin' the truth, I might just stick with ye for a while.~
+@9 = ~Did the job for me, eh? Show me his corpse then and if ye're tellin' true I might just stick with ye.~
+@10 = ~But ye better not take too long, or I'll cut yer throat.~
+@11 = ~Ye dare deny me!? Ye better sleep with one eye open from now on.~
+@12 = ~Me work's better done alone anyway.~
+
+@200 = ~<CHARNAME>. You don't remember me?~
+@201 = ~I am <CHARNAME> and I rescued you.~
+@202 = ~He's dead.~
+@203 = ~I killed him.~
+@204 = ~Xzar? I killed him.~
+@205 = ~Xzar? He's dead.~
+@206 = ~Fine by me. Come along then.~
+@207 = ~No chance! Now bugger off.~
+@208 = ~Come along then.~
+@209 = ~Not a chance. Now leave me be.~
+
+@100 = ~Boo says this one has the smell of villainy and I can only agree.~
+@101 = ~We went trough this trouble for this bloodthirsty simian?! More of such nonsense and I will seriously reconsider our alliance.~
+@102 = ~I can sense the pure evil in this scoundrel. I urge you to act with caution.~
+@103 = ~Aye. It is a thankless world we're living in and this one knows how to love in it!~
+@104 = ~I have heard nothing but wicked and evil tales about this one. I strongly advise you to reconsider your decision.~
+@105 = ~A good decision <CHARNAME>. For a second I almost thought you would take that evil creature in.~
+@106 = ~Yes! Flee wretched fiend!~
+@107 = ~For a noble band such as ours would never ally with a vile scoundrel like you are.~

@@ -1,0 +1,83 @@
+@1 = ~Install Montaron NPC for BG2 EE~
+@2 = ~Montaron~
+@3 = ~Keep yer distance, ye goody-goody. I no like the smell of charity.~ [jnmonim]
+//Initial Meeting 2 (jnmonim2) not used as of now
+@4 = ~A pox on ye! I'll no lose my neck to this lot!~ [jnmonmf]
+@5 = ~Effective. I may not kill you after all.~ [jnmonha]
+@6 = ~Ye goody goodies make me sick!~ [jnmonua]
+@7 = ~Any more of yer nice-nice and I'm gone!~ [jnmonus]
+@8 = ~I'll suffer this group no more! Best ye sleep with one eye open!~ [jnmonub]
+@9 = ~I have no equal, but I prefer to work alone.~ [jnmonle]
+@10 = ~If'n I'm not allowed to sleep, our next assailants may just live.~ [jnmonti]
+@11 = ~A good blade must be fed. Find prey or I find you.~ [jnmonbo]
+@12 = ~And the rivers run red!~ [jnmonbc]
+@15 = ~A death be in me if I no get help.~ [jnmonhu]
+@16 = ~I hate the woods. Prey be so much easier to find in the city.~ [jnmonfo]
+@18 = ~Dungeons! The dark be nice, but blast this damp!~ [jnmondu]
+@19 = ~I be much preferring the cover of night o'er this blasted daylight!~ [jnmonday]
+@21 = ~Ye spoke at me?~ [jnmons1]
+@22 = ~This better be good.~ [jnmons2]
+@23 = ~What need ye dead?~ [jnmons3]
+@24 = ~I'll do yer toil.~ [jnmona1]
+@25 = ~Go suck yer blade.~ [jnmona2]
+@26 = ~Sleep lightly, taskmaster.~ [jnmona3]
+@27 = ~I warrant your attention?! Oh frabjous day, callooh callay!~ [jnmona4]
+@28 = ~Arrrr!~ [jnmona5]
+@29 = ~Leave me be, lest your head leave yer neck.~ [jnmona6]
+@30 = ~What part of "I'm a loner" do ye not understand?!~[jnmona7]
+@31 = ~Good or bad, you'll go the way of all flesh.~ [jnmons4]
+@32 = ~'Tis a wonder you've lived as long as ye have.~ [jnmons5]
+@38 = ~When asked about his past, Montaron openly threatens you with bodily harm. He seems quite dangerous, and more than willing to engage in gratuitous violence. It would appear that he cares little for life, including his own.
+He works grudgingly with Xzar, even though he obviously despises the man. Whoever their employers are, they must be powerful indeed. These two would likely kill each other without a presence over their heads preventing it. Montaron might be willing to discuss the whole matter with you, but you get the feeling that you probably would not wake up the next morning.~
+@39 = ~Vesper~
+@40 = ~Is there something you seek?~ [STHMA03]
+
+//Quests (Journal Entries) related to Montaron in BG2
+
+@500 = ~Montaron's Equipment
+
+Montaron lost all of his equipment when he died to the Harpers.
+Now we need to go to Xzar's old base to get one of his tools he stashed there.~
+
+//Evil
+@501 = ~Montaron's Equipment
+
+Upon entering Xzar's old base we walked into a Zhentarim Thief looting the place.
+We killed the Thief and retrieved Montaron's Dagger.
+Montaron also abandoned his old employer and travels with me now.~
+
+// Good
+@502 = ~Montaron's Equipment
+
+Upon entering Xzar's old base we walked into a Zhentarim Thief looting the place.
+We let the Thief go upon taking Montaron's Dagger from him.
+Montaron also abandoned his old employer and travels with me now.~
+
+// Items related to Montaron
+
+@1000 = ~Montaron's Dagger~
+@1001 = ~This is one of Montaron's "tools" as he calls them lovingly.
+
+STATISTICS:
+
+Requires:
+ 3 Strength
+
+Weight: 2~
+
+@1002 = ~This is one of Montaron's "tools" as he calls them lovingly.
+
+STATISTICS:
+
+Combat abilities:
+- Hit target suffers 2 point of poison damage per second for 5 seconds (Save vs. Poison negates)
+
+THAC0: +3
+Damage: 1d4+1 (piercing)
+Speed Factor: 0
+Proficiency Type: Dagger
+Type: One-handed
+Requires:
+ 3 Strength
+
+Weight: 2~
