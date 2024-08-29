@@ -5,3 +5,21 @@ THEN
     RESPONSE #100
         StartDialogueNoSet([PC])
 END
+
+// Very basic combat script, since he shouldn't really put up a fight and I have no idea how to do it better
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+    RESPONSE #100
+        EquipRanged()
+        AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		Attack(LastAttackerOf(Myself))
+END

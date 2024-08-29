@@ -1,0 +1,137 @@
+BACKUP ~MontyNPC/Backup~
+AUTHOR ~El Loco Truco (janwburner@gmail.com)~
+VERSION ~v1.0~
+
+AUTO_TRA ~MontyNPC/tra/%s~
+
+LANGUAGE 
+    ~english~
+    ~english~
+    ~MontyNPC/tra/english/SETUP.tra~
+	
+BEGIN @1
+
+COPY ~MontyNPC/bmp/MONTYM.bmp~ ~override/MONTYM.bmp~
+COPY ~MontyNPC/bmp/MONTYL.bmp~ ~override/MONTYL.bmp~
+	
+COPY ~MontyNPC/tra/%LANGUAGE%/sound~ ~override~
+
+COPY ~MontyNPC/cre/JNMONT.cre~ ~override/JNMONT.cre~
+	SAY NAME1 @2 /* Montaron */
+	SAY NAME2 @2 /* Montaron */
+	SAY INITIAL_MEETING @3 /* Keep yer distance, ye goody-goody. I no like the smell of charity. */
+	SAY MORALE @4 /* A pox on ye! I'll no lose my neck to this lot! */
+	SAY HAPPY @5 /* Effective. I may not kill you after all. */
+	SAY UNHAPPY_ANNOYED @6 /* Ye goody goodies make me sick! */ 
+	SAY UNHAPPY_SERIOUS @7 /* Any more of yer nice-nice and I'm gone! */
+	SAY UNHAPPY_BREAKING @8 /* I'll suffer this group no more! Best ye sleep with one eye open! */
+	SAY LEADER @9 /* I have no equal, but I prefer to work alone. */
+	SAY TIRED @10 /* If'n I'm not allowed to sleep, our next assailants may just live. */
+	SAY BORED @11 /* A good blade must be fed. Find prey or I find you. */
+	SAY BATTLE_CRY1 @12 /* And the rivers run red! */
+	SAY BATTLE_CRY2 @12 /* And the rivers run red! */
+	SAY BATTLE_CRY3 @12 /* And the rivers run red! */
+	SAY BATTLE_CRY4 @12 /* And the rivers run red! */
+	SAY BATTLE_CRY5 @12 /* And the rivers run red! */
+	SAY DAMAGE ~~ [JNmonda]
+	SAY DYING ~~ [JNmondy]
+	SAY HURT @15 /* A death be in me if I no get help. */
+	SAY AREA_FOREST @16 /* I hate the woods. Prey be so much easier to find in the city. */
+	SAY AREA_DUNGEON @18 /* Dungeons! The dark be nice, but blast this damp! */
+	SAY AREA_DAY @19 /* I be much preferring the cover of night o'er this blasted daylight! */
+	SAY SELECT_COMMON1 @21 /* Ye spoke at me? */
+	SAY SELECT_COMMON2 @22 /* This better be good */
+	SAY SELECT_COMMON3 @23 /* What need ye dead? */
+	SAY SELECT_COMMON4 @21 /* Ye spoke at me? */
+	SAY SELECT_COMMON5 @22 /* This better be good */
+	SAY SELECT_COMMON6 @23 /* What need ye dead? */
+	SAY SELECT_ACTION1 @24 /* I'll do yer toil. */
+	SAY SELECT_ACTION2 @25 /* Go suck yer blade. */
+	SAY SELECT_ACTION3 @26 /* Sleep lightly, taskmaster. */
+	SAY SELECT_ACTION4 @27 /* I warrant your attention?! Oh frabjous day, callooh callay! */
+	SAY SELECT_ACTION5 @28 /* Arrrr! */
+	SAY SELECT_ACTION6 @29 /* Leave me be, lest your head leave yer neck. */
+	SAY SELECT_ACTION7 @30 /* What part of "I'm a loner" do ye not understand?! */
+	SAY SELECT_RARE1 @31 /* Good or bad, you'll go the way of all flesh. */
+	SAY SELECT_RARE2 @32 /* 'Tis a wonder you've lived as long as ye have. */
+	/*
+	Maybe use AI for these...
+	SAY CRITICAL_HIT @33
+	SAY CRITICAL_MISS @34
+	SAY TARGET_IMMUNE @35
+	SAY INVENTORY_FULL @36
+	*/
+	SAY BIO @38
+	
+WRITE_ASCII 0x248 ~JNMONTS~ #8  // override script where you put all the commands for talks.
+WRITE_ASCII 0x2cc ~JNMONT~  #8  // dialogue file where we'll put Montaron's greeting dialogue.
+WRITE_ASCII 0x280 ~JNMONT~  #32 // death variable - when we want to refer to Montaron in the game, we'll call him JNMONT. For example, InParty("JNMONT") means that Montaron is in party.
+WRITE_ASCII 0X34  ~MONTYM~ #8  // medium portrait
+WRITE_ASCII 0x3c  ~MONTYL~ #8  // large portrait
+
+COPY ~MontyNPC/cre/JNVESP.cre~ ~override/JNVESP.cre~
+	SAY NAME1 @39 /* Vesper */
+	SAY NAME2 @39 /* Vesper */
+	SAY INITIAL_MEETING @40 /* Oh, my life is in shambles. */
+	SAY SELECT_COMMON1 @40 /* Oh, my life is in shambles. */
+	SAY DYING ~~ [JNLOT04]
+
+WRITE_ASCII 0x248 ~JNVESPS~ #8
+WRITE_ASCII 0x2cc ~JNVESP~ #8
+WRITE_ASCII 0x280 ~JNVESP~  #32
+
+COMPILE ~MontyNPC/dlg~
+
+APPEND ~PDIALOG.2da~
+~JNMONT JNMONTP JNMONTJ JNMONTD~
+UNLESS ~JNMONT~
+
+APPEND ~INTERDIA.2da~
+~JNMONT JNBMONT~
+UNLESS ~JNMONT~
+
+COMPILE ~MontyNPC/baf~ // Montaron's scripts & cutscenes.
+
+ADD_JOURNAL @500 @501 @502 USING ~MontyNPC/tra/%LANGUAGE%/SETUP.tra~
+
+COPY ~MontyNPC/itm/JNDAG01.itm~ ~override/JNDAG01.itm~
+	SAY NAME1 @1000
+	SAY NAME2 @1000
+	SAY UNIDENTIFIED_DESC @1001
+	SAY DESC @1002
+	
+COPY ~MontyNPC/itm/JNSCRL1.itm~ ~override/JNSCRL1.itm~
+	SAY NAME1 @1003
+	SAY NAME2 @1003
+	SAY DESC @1004
+	
+// Modify Docks Area to spawn Montarons Corpse
+
+COPY_EXISTING "AR0300.ARE" override
+LPF fj_are_structure
+    INT_VAR
+    fj_type        = 11 // Barrel
+    fj_loc_x       = 1561
+    fj_loc_y       = 3557
+    fj_box_left    = 1561
+    fj_box_top     = 3494
+    fj_box_right   = 1591
+    fj_box_bottom  = 3542
+    fj_vertex_0    = 1562 + (3529 << 16)
+    fj_vertex_1    = 1568 + (3540 << 16)
+    fj_vertex_2    = 1573 + (3543 << 16)
+    fj_vertex_3    = 1581 + (3542 << 16)
+	fj_vertex_4    = 1588 + (3535 << 16)
+	fj_vertex_5    = 1591 + (3526 << 16)
+	fj_vertex_6    = 1590 + (3501 << 16)
+	fj_vertex_7    = 1586 + (3497 << 16)
+	fj_vertex_8    = 1578 + (3493 << 16)
+	fj_vertex_9    = 1569 + (3493 << 16)
+	fj_vertex_10	  = 1561 + (3499 << 16)
+	fj_vertex_11   = 1561 + (3525 << 16)
+    STR_VAR
+    fj_structure_type = container
+    fj_name           = ~JNBarrel~
+	fj_trap_script = ~JNMBODY~
+END
+

@@ -30,7 +30,7 @@
 @38 = ~When asked about his past, Montaron openly threatens you with bodily harm. He seems quite dangerous, and more than willing to engage in gratuitous violence. It would appear that he cares little for life, including his own.
 He works grudgingly with Xzar, even though he obviously despises the man. Whoever their employers are, they must be powerful indeed. These two would likely kill each other without a presence over their heads preventing it. Montaron might be willing to discuss the whole matter with you, but you get the feeling that you probably would not wake up the next morning.~
 @39 = ~Vesper~
-@40 = ~Is there something you seek?~ [STHMA03]
+@40 = ~Oh, my life is in shambles.~ [JNLOT02]
 
 //Quests (Journal Entries) related to Montaron in BG2
 
@@ -81,3 +81,9 @@ Requires:
  3 Strength
 
 Weight: 2~
+
+@1003 = ~Harper Orders~
+
+@1004 = ~This was the fool trying to spy on us, exactly how we planned it. According to our information he is not too high up in the Zhentarim and we only needed him to get to his partner, who is hopefully dead as you read this. Make sure to dump his body far out in the sea, since we have decided not to desecrate him.
+
+R.~
