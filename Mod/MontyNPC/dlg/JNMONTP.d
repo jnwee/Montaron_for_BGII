@@ -38,16 +38,14 @@ SAY @1 /* Oh, ye've no need o' me service anymore? */
 !AreaCheck("AR0803")~ + @4 /* Just wait here for a while. */ DO ~SetGlobal("JNMONTKickedOut","GLOBAL",1)~ EXIT
 END
 
-// If you have kicked Montaron out and told her to wait right here or in the Bridge District, here's the dialogue she is going to have(remember, JNMONTKickedOut is at 1).
-
 IF ~Global("JNMONTKickedOut","GLOBAL",1)~ b3
-SAY @5 /* So ye realised yer grave mistake? */
+SAY @5 /* Ye've need o' me again? */
 ++ @6 /* Sure, now get in line. */ + b3.1
 ++ @7 /* No. Just checking up on you. */ + b3.2
 END 
 
 IF ~~ b3.1
-SAY @8 /* Ye're in luck. I've nothing else to do right now. */
+SAY @8 /* Bah! */
 IF ~~ DO ~SetGlobal("JNMONTKickedOut","GLOBAL",0) JoinParty()~ EXIT
 END
 

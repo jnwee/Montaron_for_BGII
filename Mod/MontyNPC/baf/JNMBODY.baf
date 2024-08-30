@@ -1,0 +1,9 @@
+IF
+    Dead("Lyros")  // Xzar
+    Global("JNBodyCreation","AR0300",0)  // Harper's 2nd Floor
+THEN
+    RESPONSE #100
+		SetGlobal("JNBodyCreation","AR0300",1)
+        CreateItem("MISC5U",0,0,0)  // Montaron's Body
+		CreateItem("JNSCRL1",0,0,0) // Harper Orders
+END

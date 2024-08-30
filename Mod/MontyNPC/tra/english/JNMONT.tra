@@ -13,6 +13,16 @@
 @10 = ~But ye better not take too long, or I'll cut yer throat.~
 @11 = ~Ye dare deny me!? Ye better sleep with one eye open from now on.~
 @12 = ~Me work's better done alone anyway.~
+@13 = ~Ye did what!? Why!?~
+@14 = ~Tell me ye're jestin' wit' me.~
+@15 = ~Ye cretin! This be worse than me partnership with that damned madman.~
+@16 = ~Where is Xzar!? Did he put ye up to this?~
+@17 = ~A cruel fate ye have layed out before me. At least the mad wizard breathes no more.~
+@18 = ~I'll rather go back to the grave than to serve ye, ye scum.~
+@19 = ~So I'll be yer servant for all eternity!?~
+@20 = ~If ye're not tellin' true, I will make ye regret this on me first chance.~
+@21 = ~For now ye'll get yer wish.~
+@22 = ~And what'll ye have me do taskmaster?~
 
 @200 = ~<CHARNAME>. You don't remember me?~
 @201 = ~I am <CHARNAME> and I rescued you.~
@@ -24,6 +34,17 @@
 @207 = ~No chance! Now bugger off.~
 @208 = ~Come along then.~
 @209 = ~Not a chance. Now leave me be.~
+@210 = ~You don't remember me? I am <CHARNAME> and I just cursed you to serve me.~
+@211 = ~My name is <CHARNAME> and I just cursed you to serve me as I see fit.~
+@212 = ~I decided that it is time for you to pay for your crimes and you will do so by serving me.~
+@213 = ~I simply needed an extra pair of hands.~
+@214 = ~This is real. And from now on you will do as you are told.~
+@215 = ~I decided that it is time for you to pay for your crimes as a Zhentarim agent and you will do so by serving me.~
+@216 = ~He didn't. Xzar is dead.~
+@217 = ~The pain you suffer for betraying me, will follow you beyond the grave I was told.~
+@218 = ~You will be for as long as I see fit.~
+@219 = ~Yes. Now get in line.~
+@220 = ~For now... Step in line.~
 
 @100 = ~Boo says this one has the smell of villainy and I can only agree.~
 @101 = ~We went trough this trouble for this bloodthirsty simian?! More of such nonsense and I will seriously reconsider our alliance.~
@@ -33,3 +54,5 @@
 @105 = ~A good decision <CHARNAME>. For a second I almost thought you would take that evil creature in.~
 @106 = ~Yes! Flee wretched fiend!~
 @107 = ~For a noble band such as ours would never ally with a vile scoundrel like you are.~
+@108 = ~A more than deserved fate for one such as you! Although I wonder why you resurrected this evil creature in the first place <CHARNAME>.~
+@109 = ~Hah! Tell him the best part <CHARNAME>. Truly a grand scheme got played on ye my little friend.~

@@ -1,3 +1,10 @@
+
+/* JNMontResurrected = 1 means Montaron was resurrected and is free 
+JNMontResurrected = 2 means Montaron was cursed with a geas on his resurrection
+
+JNMontbg1 = 1 means Montaron traveled with the player in BG1
+JNMontbg1 = 0 means he didn't */
+
 IF
     See([PC])
     NumTimesTalkedTo(0)
@@ -6,7 +13,9 @@ THEN
         Dialogue([PC])
 END
 
-// Standard Talks while Joined
+/* ==========================================
+======== Standard Talks while Joined ========
+========================================== */
 
 IF 
 	InParty(Myself)
@@ -42,7 +51,7 @@ IF
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	CombatCounter(0)
 	!See([ENEMY])
-	OR(15)
+	OR(4)
 	Global("JNMONTTalk","GLOBAL",2)
 	Global("JNMONTTalk","GLOBAL",4)
 	Global("JNMONTTalk","GLOBAL",6)
@@ -52,7 +61,39 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-// Talk for Xzars Death
+/* ==============================
+======== Scripted Talks =========
+============================== */
+
+// Talk for Quest 1 Trigger
+
+IF 
+	InParty(Myself)
+	Global("JNMontQuest1Timer","GLOBAL",0)
+	Global("JNMontResurrected","GLOBAL",2)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("JNMontQuest1Timer","GLOBAL",600)
+		SetGlobal("JNMontQuest1","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	RealGlobalTimerExpired("JNMontQuest1Timer","GLOBAL")
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("JNMontQuest1","GLOBAL",1)
+	Global("JNMontResurrected","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("JNMontQuest1","GLOBAL",2)
+		StartDialogueNoSet(Player1)
+END
+
+// Talk at Xzar's place of death
 
 IF
 	InParty(Myself)
@@ -71,6 +112,8 @@ THEN
 END
 
 // Spawn Zhentarim Thief in Xzar's Hideout
+// JNVESPLives = 1 means Vesper was let go by the player
+// JNVESPLives = 2 means Vesper was killed by the player
 
 IF
 	InParty(Myself)

@@ -1,3 +1,5 @@
+// Since I am actively refining the dialogue constantly, the order in this file is not consistent.. :(
+
 @0 = ~You are a...~
 @1 = ~I've no time for yer nonsense. Quit babblin' lest I cut yer tongue.~
 @2 = ~A boy once had parents so cruel,
@@ -21,7 +23,7 @@ Now mischief and death are his tools.~
 @16 = ~Sure, let's go.~
 @17 = ~One last thing. We need to get one o' me tools from me and Xzar's old hideout, and ye better not take too long.~
 @18 = ~If.. if you're sure <CHARNAME>. But I don't like this at all.~ [AERIE32]
-@19 = ~I will not stand for this. By consorting with such a vile being you have shown me your true self. Clearly I was wrong about you. Draw your weapon!~
+@19 = ~I will not stand for this. By consorting with such a vile being you have shown me your true self.~
 @20 = ~Then get to cuttin'!~
 @21 = ~A most noble decision. I salute you <CHARNAME>.~
 @22 = ~I knew you would follow the path of rightousness <CHARNAME>. Now let us vanquish this vile creature.~
@@ -75,3 +77,27 @@ Now mischief and death are his tools.~
 @70 = ~If I catch you looking at me again, I'll end your miserable life.~
 @71 = ~Ye'll no notice me anyway.~
 @72 = ~Pah. Ye couldn't catch me in yer dreams and if ye did I'd have cut yer throat long before ye grabbed yer weapon.~
+@73 = ~Clearly I was wrong about you. Rethink your decision or draw your weapon!~
+@74 = ~I will not fight against a noble knight besides such villainy. It is your choice <CHARNAME>.~
+@75 = ~If... if you decide to split our group for this... this villain! I have no choice but to abandon your cause.~
+@76 = ~I see that I have made a too rash decision. You're on your own Montaron.~
+@77 = ~Try me old man!~
+@78 = ~Come on, give Montaron a chance.~
+@79 = ~I will forgive you and account this mistake to ignorance, but for the future I expect you to have learned your lesson.~
+@80 = ~Fine ye coward! Ye'll see no more o' me.~
+@81 = ~A poor choice and you will face the consequences right now.~
+@82 = ~We've no need of ye anyway, old man.~
+@83 = ~I will show no mercy to evil.~
+@84 = ~No! I won't watch this happen.~
+@85 = ~A sad end to your story.~
+@86 = ~Arvoreen! Guide my blade!~ [MAZZY10]
+@87 = ~Hah! The madman truly is dead... brings me at least some joy in me misery.~
+@88 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
+@89 = ~Pah! In me partnership with the mad wizard I murdered many. But no kill was as tempting as the lunatic himself.~
+@90 = ~If only me boss hadn't took a liking to him.~
+@91 = ~You truly have no heart. You... you deserve your punishment.~
+@92 = ~Ye've no idea of what I deserve girl. Now leave me to me misery!~
+@93 = ~<CHARNAME>! I'll tell ye somethin'.~
+@94 = ~For yer and me sake... I've got one o' me tools stashed in me and Xzar's old base. Ye need to get it for me.~
+@95 = ~Maybe if we are in the area.~
+@96 = ~Fine. Let's go.~

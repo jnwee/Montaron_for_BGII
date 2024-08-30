@@ -1,5 +1,5 @@
 BACKUP ~MontyNPC/Backup~
-AUTHOR ~El Loco Truco (janwburner@gmail.com)~
+AUTHOR ~jnwee (janwburner@gmail.com)~
 VERSION ~v1.0~
 
 AUTO_TRA ~MontyNPC/tra/%s~
@@ -66,13 +66,15 @@ COPY ~MontyNPC/cre/JNMONT.cre~ ~override/JNMONT.cre~
 WRITE_ASCII 0x248 ~JNMONTS~ #8  // override script where you put all the commands for talks.
 WRITE_ASCII 0x2cc ~JNMONT~  #8  // dialogue file where we'll put Montaron's greeting dialogue.
 WRITE_ASCII 0x280 ~JNMONT~  #32 // death variable - when we want to refer to Montaron in the game, we'll call him JNMONT. For example, InParty("JNMONT") means that Montaron is in party.
-WRITE_ASCII 0X34  ~MONTYM~ #8  // medium portrait
-WRITE_ASCII 0x3c  ~MONTYL~ #8  // large portrait
+WRITE_ASCII 0X34  ~MONTARM~ #8  // medium portrait
+WRITE_ASCII 0x3c  ~MONTARL~ #8  // large portrait
 
 COPY ~MontyNPC/cre/JNVESP.cre~ ~override/JNVESP.cre~
 	SAY NAME1 @39 /* Vesper */
 	SAY NAME2 @39 /* Vesper */
-	SAY INITIAL_MEETING @40 /* Is there something you seek? */
+	SAY INITIAL_MEETING @40 /* Oh, my life is in shambles. */
+	SAY SELECT_COMMON1 @40 /* Oh, my life is in shambles. */
+	SAY DYING ~~ [JNLOT04]
 
 WRITE_ASCII 0x248 ~JNVESPS~ #8
 WRITE_ASCII 0x2cc ~JNVESP~ #8
@@ -98,3 +100,38 @@ COPY ~MontyNPC/itm/JNDAG01.itm~ ~override/JNDAG01.itm~
 	SAY UNIDENTIFIED_DESC @1001
 	SAY DESC @1002
 	
+COPY ~MontyNPC/itm/JNSCRL1.itm~ ~override/JNSCRL1.itm~
+	SAY NAME1 @1003
+	SAY NAME2 @1003
+	SAY DESC @1004
+	
+// Modify Docks Area to spawn Montarons Corpse
+
+COPY_EXISTING "AR0300.ARE" override
+LPF fj_are_structure
+    INT_VAR
+    fj_type        = 11 // Barrel
+    fj_loc_x       = 1561
+    fj_loc_y       = 3557
+    fj_box_left    = 1561
+    fj_box_top     = 3494
+    fj_box_right   = 1591
+    fj_box_bottom  = 3542
+    fj_vertex_0    = 1562 + (3529 << 16)
+    fj_vertex_1    = 1568 + (3540 << 16)
+    fj_vertex_2    = 1573 + (3543 << 16)
+    fj_vertex_3    = 1581 + (3542 << 16)
+	fj_vertex_4    = 1588 + (3535 << 16)
+	fj_vertex_5    = 1591 + (3526 << 16)
+	fj_vertex_6    = 1590 + (3501 << 16)
+	fj_vertex_7    = 1586 + (3497 << 16)
+	fj_vertex_8    = 1578 + (3493 << 16)
+	fj_vertex_9    = 1569 + (3493 << 16)
+	fj_vertex_10	  = 1561 + (3499 << 16)
+	fj_vertex_11   = 1561 + (3525 << 16)
+    STR_VAR
+    fj_structure_type = container
+    fj_name           = ~JNBarrel~
+	fj_trap_script = ~JNMBODY~
+END
+
