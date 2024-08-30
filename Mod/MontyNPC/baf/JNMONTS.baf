@@ -1,3 +1,7 @@
+
+/* JNMontResurrected = 1 means Montaron was resurrected and is free 
+JNMontResurrected = 2 means Montaron was cursed with a geas on his resurrection */
+
 IF
     See([PC])
     NumTimesTalkedTo(0)
@@ -6,7 +10,9 @@ THEN
         Dialogue([PC])
 END
 
-// Standard Talks while Joined
+/* ==========================================
+======== Standard Talks while Joined ========
+========================================== */
 
 IF 
 	InParty(Myself)
@@ -52,7 +58,11 @@ THEN
 		StartDialogueNoSet(Player1)
 END
 
-// Talk for Xzars Death
+/* ==============================
+======== Scripted Talks =========
+============================== */
+
+// Talk at Xzar's place of death
 
 IF
 	InParty(Myself)
@@ -71,6 +81,8 @@ THEN
 END
 
 // Spawn Zhentarim Thief in Xzar's Hideout
+// JNVESPLives = 1 means Vesper was let go by the player
+// JNVESPLives = 2 means Vesper was killed by the player
 
 IF
 	InParty(Myself)
@@ -84,3 +96,39 @@ THEN
 		CreateCreature("JNVESP",[374.252],14)
 		GiveItemCreate("JNDAG01","JNVESP",0,0,0)
 END
+
+/* ===================================
+============ Conflicts ===============
+=================================== */
+
+// Conflict with Keldorn
+// JNMontKeldornConflict = 3 means Keldorn leaves for good
+// JNMontKeldornConflict = 4 means Montaron dies for good.
+
+IF
+	InParty(Myself)
+	InParty("Keldorn")
+	Global("JNMontKeldornConflict","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("JNMontKeldornConflictTimer","GLOBAL",1800)
+		SetGlobal("JNMontKeldornConflict","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Keldorn")
+	RealGlobalTimerExpired("JNMontKeldornConflictTimer","GLOBAL")
+	See(Player1)
+	See("Keldorn")
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!StateCheck("Keldorn",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("JNMontKeldornConflict","GLOBAL",2)
+		StartDialogueNoSet(Player1)
+END
+

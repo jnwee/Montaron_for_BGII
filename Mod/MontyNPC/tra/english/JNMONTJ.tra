@@ -1,3 +1,5 @@
+// Since I am actively refining the dialogue constantly, the order in this file is not consistent.. :(
+
 @0 = ~You are a...~
 @1 = ~I've no time for yer nonsense. Quit babblin' lest I cut yer tongue.~
 @2 = ~A boy once had parents so cruel,
@@ -85,7 +87,7 @@ Now mischief and death are his tools.~
 @80 = ~Fine ye coward! Ye'll see no more o' me.~
 @81 = ~A poor choice and you will face the consequences right now.~
 @82 = ~We've no need of ye anyway, old man.~
-@83 = ~Fall villain!~
+@83 = ~I will show no mercy to evil.~
 @84 = ~No! I won't watch this happen.~
-@85 = ~A sad end to your story. I'll try and remember the good times.~
+@85 = ~A sad end to your story.~
 @86 = ~Arvoreen! Guide my blade!~ [MAZZY10]
