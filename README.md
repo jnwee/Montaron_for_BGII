@@ -9,10 +9,6 @@ https://docs.google.com/document/d/1fwzCXzlm-aYRCAm6KZeWEVBU293cv8vJX91xHoME3og/
 
 (You can also see the mods current progress in the docs)
 
-or here
-
-https://forums.beamdog.com/discussion/88684/im-making-a-montaron-mod-for-bg2-and-id-appreciate-some-input
-
 Unhinged violent halfling from BG1 returning in BG2 now.
 
 ## Copyrights Information
