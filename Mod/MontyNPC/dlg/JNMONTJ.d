@@ -56,10 +56,31 @@ END
 CHAIN JNMONTJ xt.join
 	@17 /* One last thing. We need to get one o' me tools from me and Xzar's old hideout, and ye better not take too long. */
 	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @18 /* If.. if you're sure <CHARNAME>. But I don't like this at all. */
-	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @19 DO ~LeaveParty() Enemy()~ /* I will not stand for this. By consorting with such a vile being you have shown me your true self. Clearly I was wrong about you. Draw your weapon! */
+	== AERIEJ IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @18 /* If.. if you're sure <CHARNAME>. But I don't like this at all. */
+	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @19 /* I will not stand for this. By consorting with such a vile being you have shown me your true self. */
+	= @73 /* Clearly I was wrong about you. Rethink your decision or draw your weapon! */
+	== ANOMENJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @74 /* I will not fight against a noble knight besides such villainy. It is your choice <CHARNAME>. */
+	== AERIEJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @75 /* If... if you decide to split our group for this... this villain! I have no choice but to abandon your cause. */
+END
+IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN EXIT
++ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @76 EXTERN JNMONTJ xt.keldorn1 /* I see that I have made a too rash decision. You're on your own Montaron. */
++ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @77 EXTERN JNMONTJ xt.keldorn2 /* Try me old man! */
++ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @78 EXTERN JNMONTJ xt.keldorn2 /* Come on, give Montaron a chance. */
+
+CHAIN JNMONTJ xt.keldorn1
+	@80 DO ~LeaveParty() EscapeArea()~ /* Fine ye coward! Ye'll see no more o' me. */
+	== KELDORJ @79 /* I will forgive you and account this mistake to ignorance, but for the future I expect you to have learned your lesson. */
 EXIT
 
+CHAIN JNMONTJ xt.keldorn2
+	@82 /* We've no need of ye anyway, old man. */
+	== KELDORJ @81 DO ~LeaveParty() Enemy()~ /* A poor choice and you will face the consequences right now. */
+	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @83 DO ~LeaveParty() Enemy()~ /* Fall villain! */
+	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @84 DO ~LeaveParty() EscapeArea()~ /* No! I won't watch this happen. */
+	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @85 DO ~LeaveParty() Enemy()~ /* A sad end to your story. I'll try and remember the good times. */
+	== MAZZYJ IF ~InParty("Mazzy") InMyArea("Mazzy") !StateCheck("Mazzy",CD_STATE_NOTVALID)~ THEN @86 DO ~LeaveParty() Enemy()~ /* Arvoreen! Guide my blade! */
+EXIT
+	
 CHAIN JNMONTJ xt.fight
 	@20 /* Then get to cuttin'! */
 	DO ~LeaveParty() Enemy() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
@@ -69,7 +90,7 @@ EXIT
 
 CHAIN JNMONTJ xt.leave
 	@23 /* Me work's better done alone anyway ye cretin. */
-	DO ~EscapeArea()~
+	DO ~LeaveParty() EscapeArea() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
 	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @24 /* Off with you now, vile scoundrel! Our most noble band has no place for lowly scum as you are. */
 EXIT
 

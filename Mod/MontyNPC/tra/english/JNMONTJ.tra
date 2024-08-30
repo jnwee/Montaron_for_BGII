@@ -21,7 +21,7 @@ Now mischief and death are his tools.~
 @16 = ~Sure, let's go.~
 @17 = ~One last thing. We need to get one o' me tools from me and Xzar's old hideout, and ye better not take too long.~
 @18 = ~If.. if you're sure <CHARNAME>. But I don't like this at all.~ [AERIE32]
-@19 = ~I will not stand for this. By consorting with such a vile being you have shown me your true self. Clearly I was wrong about you. Draw your weapon!~
+@19 = ~I will not stand for this. By consorting with such a vile being you have shown me your true self.~
 @20 = ~Then get to cuttin'!~
 @21 = ~A most noble decision. I salute you <CHARNAME>.~
 @22 = ~I knew you would follow the path of rightousness <CHARNAME>. Now let us vanquish this vile creature.~
@@ -75,3 +75,17 @@ Now mischief and death are his tools.~
 @70 = ~If I catch you looking at me again, I'll end your miserable life.~
 @71 = ~Ye'll no notice me anyway.~
 @72 = ~Pah. Ye couldn't catch me in yer dreams and if ye did I'd have cut yer throat long before ye grabbed yer weapon.~
+@73 = ~Clearly I was wrong about you. Rethink your decision or draw your weapon!~
+@74 = ~I will not fight against a noble knight besides such villainy. It is your choice <CHARNAME>.~
+@75 = ~If... if you decide to split our group for this... this villain! I have no choice but to abandon your cause.~
+@76 = ~I see that I have made a too rash decision. You're on your own Montaron.~
+@77 = ~Try me old man!~
+@78 = ~Come on, give Montaron a chance.~
+@79 = ~I will forgive you and account this mistake to ignorance, but for the future I expect you to have learned your lesson.~
+@80 = ~Fine ye coward! Ye'll see no more o' me.~
+@81 = ~A poor choice and you will face the consequences right now.~
+@82 = ~We've no need of ye anyway, old man.~
+@83 = ~Fall villain!~
+@84 = ~No! I won't watch this happen.~
+@85 = ~A sad end to your story. I'll try and remember the good times.~
+@86 = ~Arvoreen! Guide my blade!~ [MAZZY10]

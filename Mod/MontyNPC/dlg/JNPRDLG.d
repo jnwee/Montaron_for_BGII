@@ -43,6 +43,8 @@ EXTEND_BOTTOM SLILMAT 0
 	+ ~PartyHasItem("MISC5U") GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)~ + ~I need you to resurrect a dear friend of mine. I have his corpse here.~ GOTO JNRM
 END
 
+// Priest of Oghma in the Docks
+
 APPEND DOGHMA
 
 IF ~~ THEN BEGIN JNRM1
@@ -81,6 +83,8 @@ END
 EXTEND_BOTTOM DOGHMA 0
 	+ ~PartyHasItem("MISC5U") GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)~ + ~I need you to resurrect a dear friend of mine. I have his corpse here.~ GOTO JNRM1
 END
+
+// Priest of Ilmater in Waukeens Promenade
 
 APPEND WILMAT
 

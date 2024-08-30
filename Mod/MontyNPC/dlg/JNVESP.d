@@ -29,7 +29,7 @@ END
 
 CHAIN JNVESP jnvesp1.1.1.1
 	@17 /* Thank you my lord. */
-	DO ~SetGlobal("JNVESPLives","GLOBAL",1) DestroyItem("JNDAG01") GiveItemCreate("JNDAG01",LastTalkedToBy,0,0,0) AddJournalEntry(@502,QUEST_DONE) EscapeArea()~
+	DO ~SetGlobal("JNVESPLives","GLOBAL",1) DestroyItem("JNDAG01") GiveItemCreate("JNDAG01",LastTalkedToBy,0,0,0) AddJournalEntry(@502,QUEST_DONE) EscapeAreaNoSee()~
 	== JNMONTJ IF ~InParty("JNMONT") InMyArea("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @18 /* Fool! Now the Zhentarim'll know I'm alive and come after me for sure. */
 EXIT
 
