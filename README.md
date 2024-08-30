@@ -2,7 +2,16 @@
 *In development*
 
 Current state of mod should be in develop branch.
-I will update the main branch as soon as I have a version 1.0.
+
+Main branch currently hosts a playable demo of the mod for which I'd greatly appreciate any feedback on here
+
+https://docs.google.com/document/d/1fwzCXzlm-aYRCAm6KZeWEVBU293cv8vJX91xHoME3og/edit?usp=sharing
+
+(You can also see the mods current progress in the docs)
+
+or here
+
+https://forums.beamdog.com/discussion/88684/im-making-a-montaron-mod-for-bg2-and-id-appreciate-some-input
 
 Unhinged violent halfling from BG1 returning in BG2 now.
 
