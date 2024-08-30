@@ -31,9 +31,29 @@ END
 
 // Quest related Talks
 
+// Talk if Montaron is serving you to guide you to his dagger
+
+CHAIN IF ~Global("JNMontQuest1","GLOBAL",2)~ THEN JNMONTJ xqt
+	@93 /* <CHARNAME>! I'll tell ye somethin'. */
+	= @94 /* For yer and me sake... I've got one o' me tools stashed in me and Xzar's old base. Ye need to get it for me. */
+	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
+END
+++ @95 EXIT
+++ @96 EXIT
+
 // Talk upon reaching Xzars place of death
 
-CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1)~ THEN JNMONTJ xt
+CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1) Global("JNMontResurrected","GLOBAL",2)~ THEN JNMONTJ xta
+	@87 /* The madman truly is dead. Brings me at least some joy in me misery. */
+	DO ~SetGlobal("JNMONTXzarTalk","AR0300",2)~
+	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @88 /* Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death? */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @89 /* Pah! In me partnership with the mad wizard I murdered many. But no kill was as tempting as the lunatic himself. */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @90 /* If only me boss hadn't took a liking to him. */
+	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @91 /* You truly have no heart. You... you deserve your punishment. */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @92 /* Ye've no idea of what I deserve girl. Now leave me to me misery! */
+EXIT
+
+CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1) Global("JNMontResurrected","GLOBAL",1)~ THEN JNMONTJ xt
 	@5 /* Ye weren't lyin' after all. Finally I'm rid o' that madman. */
 	DO ~SetGlobal("JNMONTXzarTalk","AR0300",2)~
 	== JNMONTJ @6 /* But it looks like I'm out o' a job for now. */
@@ -80,9 +100,7 @@ CHAIN JNMONTJ xt.leave
 	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @24 /* Off with you now, vile scoundrel! Our most noble band has no place for lowly scum as you are. */
 EXIT
 
-// Conflict with Keldorn
-
-// this one is achieved through one of Montaron's Dialogues (at Xzar's place of death)
+/* Conflict with Keldorn achieved through one of Montaron's Dialogues (at Xzar's place of death) */
 
 CHAIN JNMONTJ xt.keldorn1
 	@80 DO ~LeaveParty() EscapeArea()~ /* Fine ye coward! Ye'll see no more o' me. */
@@ -97,8 +115,6 @@ CHAIN JNMONTJ xt.keldorn2
 	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @85 DO ~LeaveParty() Enemy()~ /* A sad end to your story. */
 	== MAZZYJ IF ~InParty("Mazzy") InMyArea("Mazzy") !StateCheck("Mazzy",CD_STATE_NOTVALID)~ THEN @86 DO ~LeaveParty() Enemy()~ /* Arvoreen! Guide my blade! */
 EXIT
-
-// This one just happens after a while, if Montaron and Keldorn are in the party
 
 // Player private talks
 

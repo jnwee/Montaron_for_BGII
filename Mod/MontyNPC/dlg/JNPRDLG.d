@@ -200,6 +200,8 @@ EXTEND_BOTTOM WILMAT 0
 	+ ~PartyHasItem("MISC5U") GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)~ + @0 GOTO JNRM3 /* I have a dead body with me and I need your services to resurrect him. */
 END
 
+// TODO Add Priest of Helm and Lathander in Temple District here too
+
 // Priest of Talos (Who can put a curse on Montaron)
 
 APPEND TALMISS

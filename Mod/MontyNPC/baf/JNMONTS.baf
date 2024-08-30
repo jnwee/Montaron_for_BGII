@@ -1,6 +1,9 @@
 
 /* JNMontResurrected = 1 means Montaron was resurrected and is free 
-JNMontResurrected = 2 means Montaron was cursed with a geas on his resurrection */
+JNMontResurrected = 2 means Montaron was cursed with a geas on his resurrection
+
+JNMontbg1 = 1 means Montaron traveled with the player in BG1
+JNMontbg1 = 0 means he didn't */
 
 IF
     See([PC])
@@ -48,7 +51,7 @@ IF
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	CombatCounter(0)
 	!See([ENEMY])
-	OR(15)
+	OR(4)
 	Global("JNMONTTalk","GLOBAL",2)
 	Global("JNMONTTalk","GLOBAL",4)
 	Global("JNMONTTalk","GLOBAL",6)
@@ -61,6 +64,32 @@ END
 /* ==============================
 ======== Scripted Talks =========
 ============================== */
+
+// Talk for Quest 1 Trigger
+
+IF 
+	InParty(Myself)
+	Global("JNMontQuest1Timer","GLOBAL",0)
+	Global("JNMontResurrected","GLOBAL",2)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("JNMONTTimer","GLOBAL",600)
+		SetGlobal("JNMontQuest1","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("JNMontQuest1","GLOBAL",2)
+	Global("JNMontResurrected","GLOBAL",2)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
 
 // Talk at Xzar's place of death
 
@@ -96,39 +125,3 @@ THEN
 		CreateCreature("JNVESP",[374.252],14)
 		GiveItemCreate("JNDAG01","JNVESP",0,0,0)
 END
-
-/* ===================================
-============ Conflicts ===============
-=================================== */
-
-// Conflict with Keldorn
-// JNMontKeldornConflict = 3 means Keldorn leaves for good
-// JNMontKeldornConflict = 4 means Montaron dies for good.
-
-IF
-	InParty(Myself)
-	InParty("Keldorn")
-	Global("JNMontKeldornConflict","GLOBAL",0)
-THEN
-	RESPONSE #100
-		SetGlobalTimer("JNMontKeldornConflictTimer","GLOBAL",1800)
-		SetGlobal("JNMontKeldornConflict","GLOBAL",1)
-END
-
-IF
-	InParty(Myself)
-	InParty("Keldorn")
-	RealGlobalTimerExpired("JNMontKeldornConflictTimer","GLOBAL")
-	See(Player1)
-	See("Keldorn")
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	!StateCheck("Keldorn",CD_STATE_NOTVALID)
-	CombatCounter(0)
-	!See([ENEMY])
-THEN
-	RESPONSE #100
-		SetGlobal("JNMontKeldornConflict","GLOBAL",2)
-		StartDialogueNoSet(Player1)
-END
-
