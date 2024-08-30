@@ -1,5 +1,5 @@
 BACKUP ~MontyNPC/Backup~
-AUTHOR ~El Loco Truco (janwburner@gmail.com)~
+AUTHOR ~jnwee (janwburner@gmail.com)~
 VERSION ~v1.0~
 
 AUTO_TRA ~MontyNPC/tra/%s~
@@ -66,8 +66,8 @@ COPY ~MontyNPC/cre/JNMONT.cre~ ~override/JNMONT.cre~
 WRITE_ASCII 0x248 ~JNMONTS~ #8  // override script where you put all the commands for talks.
 WRITE_ASCII 0x2cc ~JNMONT~  #8  // dialogue file where we'll put Montaron's greeting dialogue.
 WRITE_ASCII 0x280 ~JNMONT~  #32 // death variable - when we want to refer to Montaron in the game, we'll call him JNMONT. For example, InParty("JNMONT") means that Montaron is in party.
-WRITE_ASCII 0X34  ~MONTYM~ #8  // medium portrait
-WRITE_ASCII 0x3c  ~MONTYL~ #8  // large portrait
+WRITE_ASCII 0X34  ~MONTARM~ #8  // medium portrait
+WRITE_ASCII 0x3c  ~MONTARL~ #8  // large portrait
 
 COPY ~MontyNPC/cre/JNVESP.cre~ ~override/JNVESP.cre~
 	SAY NAME1 @39 /* Vesper */

@@ -33,7 +33,7 @@ END
 
 // Talk if Montaron is serving you to guide you to his dagger
 
-CHAIN IF ~Global("JNMontQuest1","GLOBAL",2)~ THEN JNMONTJ xqt
+CHAIN IF ~Global("JNMontQuest1","GLOBAL",2) Global("JNMONTVisitedXzarDeath","Global",0)~ THEN JNMONTJ xqt
 	@93 /* <CHARNAME>! I'll tell ye somethin'. */
 	= @94 /* For yer and me sake... I've got one o' me tools stashed in me and Xzar's old base. Ye need to get it for me. */
 	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
@@ -122,7 +122,7 @@ APPEND JNMONTJ	// not sure if I need append but I think I read somewhere you nee
 
 // Talk 1 - about Irenicus
 
-IF ~Global("JNMONTTalk","GLOBAL",2)~ t1
+IF ~Global("JNMONTTalk","GLOBAL",2) Global("JNMontResurrected","GLOBAL",1)~ t1
 	SAY @25 /* Ye! <CHARNAME>. */
 	++ @26 + t1. /* Yes? */
 END
@@ -187,7 +187,7 @@ END
 
 // Talk 2 - about leadership
 
-IF ~Global("JNMONTTalk","GLOBAL",4)~ t2
+IF ~Global("JNMONTTalk","GLOBAL",4) Global("JNMontResurrected","GLOBAL",1)~ t2
 	SAY @49 /* *you notice Montaron observing you while walking* */
 	++ @50 + t2.1 /* Something on your mind, Montaron? */
 	++ @51 + t2.2 /* Stop staring at me, little man. */
@@ -252,9 +252,9 @@ END
 
 // Talk 3
 
-IF ~Global("JNMONTTalk","GLOBAL",6)~ t3
+IF ~Global("JNMONTTalk","GLOBAL",6) Global("JNMontResurrected","GLOBAL",1)~ t3
 	SAY ~Nice weather, eh.~
-	IF ~~ EXIT
+	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~ EXIT
 END
 
 END

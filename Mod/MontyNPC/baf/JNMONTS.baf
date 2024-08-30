@@ -73,21 +73,23 @@ IF
 	Global("JNMontResurrected","GLOBAL",2)
 THEN
 	RESPONSE #100
-		RealSetGlobalTimer("JNMONTTimer","GLOBAL",600)
+		RealSetGlobalTimer("JNMontQuest1Timer","GLOBAL",600)
 		SetGlobal("JNMontQuest1","GLOBAL",1)
 END
 
 IF
 	InParty(Myself)
+	RealGlobalTimerExpired("JNMontQuest1Timer","GLOBAL")
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID) 
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	CombatCounter(0)
 	!See([ENEMY])
-	Global("JNMontQuest1","GLOBAL",2)
+	Global("JNMontQuest1","GLOBAL",1)
 	Global("JNMontResurrected","GLOBAL",2)
 THEN
 	RESPONSE #100
+		SetGlobal("JNMontQuest1","GLOBAL",2)
 		StartDialogueNoSet(Player1)
 END
 

@@ -47,8 +47,8 @@ END
 
 IF ~~ THEN BEGIN JNRM1.3
 	SAY @9 /* You will not find such a service here! What you suggest is foul I will have no more of it. */
-	+ ~ReputationGT(14)~ + @10 GOTO JNRM1.3.1 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
-	+ ~ReputationLT(13)~ + @10 GOTO JNRM1.3.2 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
+	+ ~ReputationGT(Player1,14)~ + @10 GOTO JNRM1.3.1 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
+	+ ~ReputationLT(Player1,13)~ + @10 GOTO JNRM1.3.2 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
 	++ @11 GOTO JNRM1.3.2 /* What's the problem? I don't see any harm in it. */
 	++ @12 DO ~TakePartyGold(2000)~ GOTO JNRM1.res /* I'm sorry I don't know why I said that. Two thousand gold you said? Here you go. */
 	++ @5 EXIT /* Actually nevermind. */
@@ -56,12 +56,14 @@ END
 
 IF ~~ THEN BEGIN JNRM1.3.1
 	SAY @13 /* I have indeed heard of you and what you say is true. Still you won't find the service you described here. But because I trust your judgement I will advise you to go seek out the worshippers of Talos for such a deed. */
-EXIT
+	IF ~~ THEN EXIT
 END
 
 IF ~~ THEN BEGIN JNRM1.3.2
 	SAY @14 /* What you suggest is foul and I will have no part in it! */
-EXIT
+	IF ~~ THEN EXIT
+END
+
 END
 
 EXTEND_BOTTOM SLILMAT 0
@@ -113,8 +115,8 @@ END
 
 IF ~~ THEN BEGIN JNRM2.3
 	SAY @9 /* You will not find such a service here! What you suggest is foul I will have no more of it. */
-	+ ~ReputationGT(14)~ + @10 GOTO JNRM2.3.1 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
-	+ ~ReputationLT(13)~ + @10 GOTO JNRM2.3.2 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
+	+ ~ReputationGT(Player1,14)~ + @10 GOTO JNRM2.3.1 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
+	+ ~ReputationLT(Player1,13)~ + @10 GOTO JNRM2.3.2 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
 	++ @11 GOTO JNRM2.3.2 /* What's the problem? I don't see any harm in it. */
 	++ @12 DO ~TakePartyGold(2000)~ GOTO JNRM2.res /* I'm sorry I don't know why I said that. Two thousand gold you said? Here you go. */
 	++ @5 EXIT /* Actually nevermind. */
@@ -122,12 +124,14 @@ END
 
 IF ~~ THEN BEGIN JNRM2.3.1
 	SAY @13 /* I have indeed heard of you and what you say is true. Still you won't find the service you described here. But because I trust your judgement I will advise you to go seek out the worshippers of Talos for such a deed. */
-EXIT
+	IF ~~ THEN EXIT
 END
 
 IF ~~ THEN BEGIN JNRM2.3.2
 	SAY @14 /* What you suggest is foul and I will have no part in it! */
-EXIT
+	IF ~~ THEN EXIT
+END
+
 END
 
 EXTEND_BOTTOM DOGHMA 0
@@ -179,8 +183,8 @@ END
 
 IF ~~ THEN BEGIN JNRM3.3
 	SAY @9 /* You will not find such a service here! What you suggest is foul I will have no more of it. */
-	+ ~ReputationGT(14)~ + @10 GOTO JNRM3.3.1 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
-	+ ~ReputationLT(13)~ + @10 GOTO JNRM3.3.2 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
+	+ ~ReputationGT(Player1,14)~ + @10 GOTO JNRM3.3.1 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
+	+ ~ReputationLT(Player1,13)~ + @10 GOTO JNRM3.3.2 /* Haven't you heard of me? I am a force of good and you can trust in my judgement. */
 	++ @11 GOTO JNRM3.3.2 /* What's the problem? I don't see any harm in it. */
 	++ @12 DO ~TakePartyGold(2000)~ GOTO JNRM3.res /* I'm sorry I don't know why I said that. Two thousand gold you said? Here you go. */
 	++ @5 EXIT /* Actually nevermind. */
@@ -188,12 +192,14 @@ END
 
 IF ~~ THEN BEGIN JNRM3.3.1
 	SAY @13 /* I have indeed heard of you and what you say is true. Still you won't find the service you described here. But because I trust your judgement I will advise you to go seek out the worshippers of Talos for such a deed. */
-EXIT
+	IF ~~ THEN EXIT
 END
 
 IF ~~ THEN BEGIN JNRM3.3.2
 	SAY @14 /* What you suggest is foul and I will have no part in it! */
-EXIT
+	IF ~~ THEN EXIT
+END
+
 END
 
 EXTEND_BOTTOM WILMAT 0
@@ -237,7 +243,8 @@ IF ~~ THEN BEGIN JNRMT.res
 	EndCutSceneMode()~
 	EXIT
 END
-	
+
+END	
 
 EXTEND_BOTTOM TALMISS 0
 	+ ~PartyHasItem("MISC5U") GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)~ + @15 GOTO JNRMT /* I have a dead body with me and I require a service from you that goes beyond just his resurrection. */
