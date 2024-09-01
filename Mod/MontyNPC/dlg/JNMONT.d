@@ -91,12 +91,13 @@ END
 CHAIN JNMONT m3..
 	@17 /* A cruel fate ye have layed out before me. At least the mad wizard breathes no more. */
 	== JNMONT @18 /* I'll rather go back to the grave than to serve ye, ye scum. */
-	== KORGANJ IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @109 /* Hah! Tell him the best part <CHARNAME>. Truly a grand scheme got played on ye my little friend. */
+	== KORGANJ IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @109 /* Hah! Tell him <CHARNAME>. Truly a grand scheme got played on ye my little friend. */
 END
 ++ @217 EXTERN JNMONT m3...
 
 CHAIN JNMONT m3...
 	@19 /* So I'll be yer servant for all eternity!? */
+	== YOSHJ IF ~InParty("Yoshimo") InMyArea("Yoshimo") !StateCheck("Yoshimo",CD_STATE_NOTVALID)~ THEN @110 /* A gruesome perspective. Noone deserves such a fate. */
 END
 ++ @218 EXTERN JNMONT m3.1 /* You will be for as long as I see fit. */
 ++ @219 EXTERN JNMONT m3.2 /* Yes. Now get in line. */

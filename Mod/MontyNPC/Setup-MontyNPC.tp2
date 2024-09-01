@@ -10,9 +10,7 @@ LANGUAGE
     ~MontyNPC/tra/english/SETUP.tra~
 	
 BEGIN @1
-
-COPY ~MontyNPC/bmp/MONTYM.bmp~ ~override/MONTYM.bmp~
-COPY ~MontyNPC/bmp/MONTYL.bmp~ ~override/MONTYL.bmp~
+REQUIRE_PREDICATE GAME_INCLUDES ~tob~ @1000000 /* ToB needs to be installed. */
 	
 COPY ~MontyNPC/tra/%LANGUAGE%/sound~ ~override~
 
@@ -90,7 +88,10 @@ APPEND ~INTERDIA.2da~
 ~JNMONT JNBMONT~
 UNLESS ~JNMONT~
 
-COMPILE ~MontyNPC/baf~ // Montaron's scripts & cutscenes.
+// scripts
+COMPILE ~MontyNPC/baf/JNMBODY~
+COMPILE ~MontyNPC/baf/JNMONTS~
+COMPILE ~MontyNPC/baf/JNVESPS~
 
 ADD_JOURNAL @500 @501 @502 USING ~MontyNPC/tra/%LANGUAGE%/SETUP.tra~
 
@@ -105,7 +106,9 @@ COPY ~MontyNPC/itm/JNSCRL1.itm~ ~override/JNSCRL1.itm~
 	SAY NAME2 @1003
 	SAY DESC @1004
 	
-// Modify Docks Area to spawn Montarons Corpse
+// Modify Docks Area to spawn Montarons Corpse and prevent his standard spawning script
+
+EXTEND_TOP ~AR0309.bcs~ ~MontyNPC/baf/AR0309.baf~
 
 COPY_EXISTING "AR0300.ARE" override
 LPF fj_are_structure
@@ -135,3 +138,7 @@ LPF fj_are_structure
 	fj_trap_script = ~JNMBODY~
 END
 
+BEGIN @1000001 /* Realistic sharper portrait for Montaron (by NolSol on NexusMods) */
+
+COPY ~MontyNPC/bmp/MONTYM.bmp~ ~override/MONTARM.bmp~
+COPY ~MontyNPC/bmp/MONTYL.bmp~ ~override/MONTARL.bmp~

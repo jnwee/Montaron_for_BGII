@@ -4,6 +4,10 @@
 
 BEGIN JNBMONT
 
+/* =====================================
+============== Standard ================
+===================================== */
+
 CHAIN IF ~
 	InParty("Keldorn")
 	See("Keldorn")
@@ -36,3 +40,8 @@ THEN BKELDOR JNMONTKeldorn2
 	= @9 /* May we never meet again. */
 	DO ~LeaveParty() EscapeAreaNoSee()~
 EXIT
+
+
+/* =====================================
+============ Alternative ===============
+===================================== */

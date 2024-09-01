@@ -127,3 +127,31 @@ THEN
 		CreateCreature("JNVESP",[374.252],14)
 		GiveItemCreate("JNDAG01","JNVESP",0,0,0)
 END
+
+// Talk after Montaron's Dagger was retrieved
+
+IF 
+	InParty(Myself)
+	Global("JNMontVespTalk","GLOBAL",0)
+	Dead("JNVESP")
+	!Global("JNVESPLives","GLOBAL",0)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("JNMontVespTalkTimer","GLOBAL",300)
+		SetGlobal("JNMontVespTalk","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	RealGlobalTimerExpired("JNMontVespTalkTimer","GLOBAL")
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID) 
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("JNMontVespTalk","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("JNMontVespTalk","GLOBAL",2)
+		StartDialogueNoSet(Player1)
+END
