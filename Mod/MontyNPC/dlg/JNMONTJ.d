@@ -8,6 +8,7 @@ BEGIN JNMONTJ
 and then alternative)
 =================================== */
 
+// Some of the commented lines here might not be accurate to the line in the tra file, because I was lazy when refining
 
 /* =====================================
 ======== Mandatory Interceptions =======
@@ -57,10 +58,10 @@ END
 /* Initiate Quest1 when reaching Xzar's deathplace */
 
 CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1) Global("JNMontResurrected","GLOBAL",1)~ THEN JNMONTJ xt
-	@5 /* Ye weren't lyin' after all. Finally I'm rid o' that madman. */
+	@5 /* Ye weren't lyin' after all. Finally I'm rid o' the madman. */
 	DO ~SetGlobal("JNMONTXzarTalk","AR0300",2)~
-	== JNMONTJ @6 /* But it looks like I'm out o' a job for now. */
-	= @7 /* Ye seem promisin' enough, so might as well stick with yer band of miscreants. */
+	== JNMONTJ @6 /* Now that it be done, I be out o' a job. */
+	= @7 /* Ye prove effective. Might as well stick with yer lot. */
 	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @8 /* <CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions. */
 END
 ++ @9 EXTERN JNMONTJ xt.1 /* Wasn't Xzar your partner? Why are you happy about his death? */
@@ -77,7 +78,7 @@ END
 ++ @12 EXTERN JNMONTJ xt.leave /* On second thought I will sleep better without you in my company. */
 
 CHAIN JNMONTJ xt.join
-	@17 /* One last thing. We need to get one o' me tools from me and Xzar's old hideout, and ye better not take too long. */
+	@17 /* Then we need go'n get one o' my tools from me old hideout, and ye better not take too long. */
 	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
 	== AERIEJ IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @18 /* If.. if you're sure <CHARNAME>. But I don't like this at all. */
 	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @19 /* I will not stand for this. By consorting with such a vile being you have shown me your true self. */
@@ -98,7 +99,7 @@ CHAIN JNMONTJ xt.fight
 EXIT
 
 CHAIN JNMONTJ xt.leave
-	@23 /* Me work's better done alone anyway ye cretin. */
+	@23 /* My work's better done alone anyway, ye cretin. */
 	DO ~LeaveParty() EscapeArea() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
 	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @24 /* Off with you now, vile scoundrel! Our most noble band has no place for lowly scum as you are. */
 EXIT
@@ -269,22 +270,22 @@ IF ~Global("JNMONTTalk","GLOBAL",2) Global("JNMontResurrected","GLOBAL",1)~ t1
 END
 
 IF ~~ t1.
-	SAY @27 /* While stayin' with ye lot, I overheard ye're huntin' some powerful mage. Who's this Irenicus fella? */
+	SAY @27 /* While stayin' with ye lot, I overheard ye're huntin' some powerful mage. Who be him? */
 	++ @28 + t1.1 /* I don't know who he is, but he has captured Imoen and I'm going to rescue her. */
 	++ @29 + t1.2 /* I don't know, but I owe him a great debt of pain. */
 	++ @30 + t1.3 /* I don't know, but he seems to know something about a power within me. */
 END
 
 IF ~~ t1.1
-	SAY @31 /* All this to save that lass o' yers? Ye need to toughen up. */
-	= @32 /* Can't say I'm not intrigued by a mighty wizard's treasure. So as long as the gold flows, I'll do yer killin'. */
+	SAY @31 /* Ye be after that lass o' yers? Ye need to toughen up. */
+	= @32 /* Mighty wizards likely has some mighty treasure though. So as long as there be gold, I'll do yer killin'. */
 	++ @34 + t1.1.1 /* What a curious little creature you are. */
 	++ @33 DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~ EXIT /* Whatever you say. */
 	++ @35 + t1.1.2 /* I won't have this kind of talk anymore, get out of my face! */
 END
 
 IF ~~ t1.1.2
-	SAY @36 /* Ye're makin' a grave mistake. I'll give ye a chance to reconsider. */
+	SAY @36 /* Ye be makin' a grave mistake. I'll give ye a chance to reconsider. */
 	++ @37 + t1.1.2.1 /* I meant what I said. I can't take your company anymore. */
 	++ @38 + t1.1.2.2 /* You're right. Get back in line and let's keep going. */
 END
@@ -305,13 +306,13 @@ IF ~~ t1.1.2.2
 END
 
 IF ~~ t1.2
-	SAY @42 /* Heh, yer hatred for him gets me blood boilin'. Then let's get goin'! I can't wait to use me tools on someone. */
+	SAY @42 /* Heh, yer hatred for him gets my blood boilin'. Can nae wait to use me tools on someone. Let's move fast then. */
 	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~ EXIT
 END
 
 IF ~~ t1.3
 	SAY @43 /* Then why are we still standin' here. If there be power to be gained ye should grab for it. */
-	= @44 /* We already attract power and wealth. If ye grow stronger I can't imagine the riches we'll have. */
+	= @44 /* We already be a powerful lot. If ye grow stronger.. oh the riches we'll have. */
 	++ @45 + t1.3.1 /* Still we should act with caution. */
 	++ @46 + t1.3.2 /* We will see. */
 END
@@ -346,8 +347,8 @@ IF ~~ t2.2.1
 END
 
 IF ~~ t2.1
-	SAY @56 /* I be wonderin' 'bout ye. We're quite successful as a team, and ye play a rather large role in that. Why's that? */
-	= @57 /* Do the people fear ye that much? 'Cause I no see it. */
+	SAY @56 /* I be wondering 'bout ye. We be quite effective and ye as so-called leader do yer part. How ye do it? */
+	= @57 /* How ye make the people fear us? 'Cause I no see it. */
 	++ @58 + t2.1.1 /* People don't fear me. They respect me, because I earn it. */
 	++ @59 + t2.1.2 /* Our success comes from kindness and endurance. */
 	++ @60 + t2.1.3 /* The people fear me because they see my power. */
@@ -412,20 +413,100 @@ IF ~Global("JNMONTTalk","GLOBAL",4) Global("JNMontResurrected","GLOBAL",2)~ ta2
 	= @165 /* So what are yer plans for me? I no like bein' told what to do forever. */
 	++ @166 + ta2.1 /* You will get used to it. */
 	++ @167 + ta2.2 /* Stop complaining so much and I might free you when this is done. */
-	++ @168 + ta2.3 /* I don't care what you like. */
+	++ @168 + ta2.2.1.2 /* I don't care what you like. */
 END
 
 IF ~~ ta2.1
-	SAY 
+	SAY @169 /* Ye make for a powerful ally, 'tis true. If ye asked nice I might even've joined ye freely. */
+	= @170 /* But like this.. stripped from me freedom and forced to serve ye. I can nae come to terms with such. */
+	++ @171 + ta2.1.1 /* How is this so different to your time with the Zhentarim? */
+	++ @172 + ta2.2 /* If you behave I might set you free when this is over. */
+END
+
+IF ~~ ta2.1.1
+	SAY @173 /* The Zhentarim be not as close minded as ye people. There ye can work for ye own good and do how ye please. */
+	++ @174 + ta2.1.1.1 /* But you just followed orders. And cruel ones at that. */
+	++ @175 + ta2.1.1.2 /* You worked with a partner you despised and had to kill for a living. I doubt this is worse. */
+END 
+
+IF ~~ ta2.1.1.1
+	SAY @176 /* I followed orders yes.. but 'twas my freedom to interpret the fate of my victims. If I be on a hunt there be just me and me prey. */
+	= @177 /* To hear someones last breath.. 'tis splendid. */
+	++ @180 + ta2.1.1.1. /* You are messed up. */
+	++ @181 + ta2.1.1.1. /* How can you know nothing but cruelty. */
+	++ @179 + ta2.1.1.1. /* You say things like this and then you wonder why you can't be trusted. */
+END 
+
+IF ~~ ta2.1.1.2
+	SAY @178 /* Ye be right. 'Twas marvelous to see 'im lie in the gutter. Still I be missin' the freedom of me work. */
+	= @177 /* To hear someones last breath.. 'tis splendid. */
+	++ @180 + ta2.1.1.1. /* You are messed up. */
+	++ @181 + ta2.1.1.1. /* How can you know nothing but cruelty. */
+	++ @179 + ta2.1.1.1. /* You say things like this and then you wonder why you can't be trusted. */
+END 
+
+IF ~~ ta2.1.1.1.
+	SAY	@182 /* Speak what ye want. I care not for yer prattle. But there be something I would offer ye. */
+	++ @183 + ta2.offer /* What is it? */
+	++ @184 + ta2.offer /* Fine, but make it quick. */
 END
 
 IF ~~ ta2.2
+	SAY @185 /* Pah, I don't live on promises. If you want me to keep going, ye need to make me a better deal. */
+	++ @186 + ta2.2.1 /* No I don't. You know what happens if you try to betray me. */
+	++ @187 + ta2.2.2 /* I don't need to do anything. You are my servant, I made sure of it. */
+	++ @188 + ta2.2.3 /* Well what could I offer you then? */
+END
+
+IF ~~ ta2.2.1
+	SAY @189 /* I do know, but ye be trusting in that curse a lot. Do you even know how it works? */
+	++ @190 + ta2.2.1.1 /* I will not tell you anything. */
+	++ @191 + ta2.2.1.2 /* I know that it works and that is enough for me. */
+	++ @192 + ta2.2.3 /* You're right. Tell me what you want then. */
+END 
+
+IF ~~ ta2.2.1.1
+	SAY @197 /* Keep yer secrets then, but I think ye have no clue and should hear what I have to tell. */
+	IF ~~ GOTO ta2.offer
+END
+
+IF ~~ ta2.2.1.2
+	SAY @198 /* Couldn't ye sleep better knowin' there be no harm coming from me. */
+	IF ~~ GOTO ta2.offer
+END
+
+IF ~~ ta2.2.2
+	SAY @193 /* Did ye really? Ye be trustin' in that curse a lot. Do you even know how it works? */
+	++ @190 + ta2.2.1.1 /* I will not tell you anything. */
+	++ @191 + ta2.2.1.2 /* I know that it works and that is enough for me. */
+	++ @192 + ta2.2.3 /* You're right. Tell me what you want then. */
+END 
+
+IF ~~ ta2.2.3
+	SAY @194 /* Ye know. We make a powerful lot, so I'd be a fool to leave, I see that now. Still, ye cursin' me is no fair. */
+	= @195 /* And ye could be at ease knowin' I be pleased with our partnership. */
+	IF ~~ GOTO ta2.offer
+END 
+
+IF ~~ ta2.offer
+	SAY	@196 /* Ye'll have to worry 'bout me no more, curse or no curse, but I want ye to grant me one kill of my choosing. */
+	++ @199 ta2.offer.1 /* No! And I will hear no more of this. */
+	++ @200 ta2.offer.2 /* I will not let you kill innocents! */
+	++ @201 ta2.offer.1 /* Only a fool would trust you. Now get back in line. */
+	++ @202 ta2.offer.3 /* Well, who did you have in mind? */
+END 
+
+IF ~~ ta2.offer.1
 	SAY 
 END
 
-IF ~~ ta2.3
-	SAY 
-END 
+IF ~~ ta2.offer.2
+	SAY
+END
+
+IF ~~ ta2.offer.3
+	SAY
+END
 
 
 END
@@ -456,7 +537,7 @@ END
 ++ @150 EXTERN JNMONTJ ta1.2 /* This is your purgatory. Accept it or suffer even more. */
 
 CHAIN JNMONTJ ta1.1
-	@151 /* Ye treat me as if I be yer servant.. I'm no servant! */
+	@151 /* Ye treat me as if I be yer servant.. I be no servant! */
 	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @152 /* You always have been a servant.. obeying the orders of your Zhentarim superiors. */
 	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @153 /* As if someone of your intellect was capable of being more than a servant. */
 END
@@ -464,7 +545,7 @@ END
 ++ @155 EXTERN JNMONTJ ta1.1. /* Accept it or don't. It doesn't matter to me. */
 
 CHAIN JNMONTJ ta1.2
-	@156 /* Ye think yerself so good, but ye're worse than me. Ye could have left me to rot, but instead ye torture me. */
+	@156 /* Ye think yerself so good, but ye be worse than me. Ye could have left me to rot, but instead ye torture me. */
 	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @157 /* A noble cause <CHARNAME>, but I worry it is wasted on this brute. */
 END
 ++ @158 EXTERN JNMONTJ ta1.2. /* I give you a chance to redeem yourself. */
@@ -478,8 +559,8 @@ END
 ++ @161 EXIT /* Fine. But know that next time you try something I will take your hand. */
 
 CHAIN JNMONTJ ta1.2.
-	@162 /* I can take no more of yer talk. Ye knights, paladins and goody-goodies are a prest upon us all. */
-	= @163 /* May ye all suffer forever. */
+	@162 /* I can take no more of yer talk. Ye knights, paladins and goody-goodies be a prest upon us all. */
+	= @163 /* May ye all suffer. */
 	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~
 EXIT
 

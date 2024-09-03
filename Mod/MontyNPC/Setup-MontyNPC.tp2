@@ -52,13 +52,13 @@ COPY ~MontyNPC/cre/JNMONT.cre~ ~override/JNMONT.cre~
 	SAY SELECT_ACTION7 @30 /* What part of "I'm a loner" do ye not understand?! */
 	SAY SELECT_RARE1 @31 /* Good or bad, you'll go the way of all flesh. */
 	SAY SELECT_RARE2 @32 /* 'Tis a wonder you've lived as long as ye have. */
-	/*
-	Maybe use AI for these...
-	SAY CRITICAL_HIT @33
-	SAY CRITICAL_MISS @34
-	SAY TARGET_IMMUNE @35
-	SAY INVENTORY_FULL @36
-	*/
+	SAY CRITICAL_HIT @33 /* The smell of flesh! */
+	SAY CRITICAL_MISS @34 /* some moan */
+	SAY TARGET_IMMUNE @35 /* Yer wit be as sharp as my blade. */
+	SAY PICKED_POCKET @36 /* My equal is a talent of many men. */
+	SAY SET_A_TRAP @37 /* All of them fools! */
+	SAY HIDDEN_IN_SHADOWS @41 /* Do not make light of me. */
+	SAY SPELL_DISRUPTED @42 /* Soo stupid! */
 	SAY BIO @38
 	
 WRITE_ASCII 0x248 ~JNMONTS~ #8  // override script where you put all the commands for talks.
@@ -77,6 +77,8 @@ COPY ~MontyNPC/cre/JNVESP.cre~ ~override/JNVESP.cre~
 WRITE_ASCII 0x248 ~JNVESPS~ #8
 WRITE_ASCII 0x2cc ~JNVESP~ #8
 WRITE_ASCII 0x280 ~JNVESP~  #32
+WRITE_ASCII 0X34  ~JNVESPM~ #8  // medium portrait
+WRITE_ASCII 0x3c  ~JNVESPL~ #8  // large portrait
 
 COMPILE ~MontyNPC/dlg~
 
@@ -142,3 +144,8 @@ BEGIN @1000001 /* Realistic sharper portrait for Montaron (by NolSol on NexusMod
 
 COPY ~MontyNPC/bmp/MONTYM.bmp~ ~override/MONTARM.bmp~
 COPY ~MontyNPC/bmp/MONTYL.bmp~ ~override/MONTARL.bmp~
+
+BEGIN @1000002 /* Portraits for new NPCs (besides Montaron) */
+
+COPY ~MontyNPC/bmp/JNVESPM.bmp~ ~override/JNVESPM.bmp~
+COPY ~MontyNPC/bmp/JNVESPL.bmp~ ~override/JNVESPL.bmp~

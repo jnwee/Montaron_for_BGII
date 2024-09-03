@@ -2,7 +2,33 @@
 =========== Banters and Conflicts ===========
 ========================================== */
 
+/*
+	Progress Tracking
+	
+	Korgan - 1 - Both
+	Keldorn - Conflict - Standard
+
+*/
+
 BEGIN JNBMONT
+
+CHAIN IF ~
+	InParty("Korgan")
+	See("Korgan")
+	!StateCheck("Korgan",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTKorgan1","GLOBAL",0)~
+THEN BKORGAN JNMONTKorgan1
+	@10 /* Halfing! */
+	DO ~SetGlobal("JNMONTKorgan1","GLOBAL",1)~
+	== JNBMONT @11 /* What need ye, dwarf? */
+	== BKORGAN @12 /* You dare to insult me. I have seen and heard enough! */
+	== JNBMONT @13 /* Yer axe be sharp, dwarf.. but yer tongue's too loose. */
+	== BKORGAN @14 /* Hah! Ye be talkin' fine.. 'Tis a bummer ye speak so little. */
+	== JNBMONT @15 /* Tell me who be my prey or leave me be. */
+	== BKORGAN @16 /* Aye, we'll find ye something.. I'll make sure of it! */
+EXIT
+
 
 /* =====================================
 ============== Standard ================
@@ -22,7 +48,7 @@ THEN JNBMONT JNMONTKeldorn1
 	== JNBMONT @2 /* Pah! So what ye lackwit! */
 	== BKELDOR @3 /* You dare to insult me. I have seen and heard enough! */
 	= @4 /* Send him on his way at once <CHARNAME>.. or even better join me to send him to his grave, for I will not much longer keep you company if this keeps up! */
-	== JNBMONT @5 /* I prove useful for <CHARNAME>.. unlike ye, old man. Ye'll regret putting this ultimatum on yerself. */
+	== JNBMONT @5 /* I have no equal, old man. Ye'll regret putting this ultimatum on yerself. */
 EXIT
 
 CHAIN IF ~

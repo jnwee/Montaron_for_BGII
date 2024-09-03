@@ -1,7 +1,6 @@
 @1 = ~Install Montaron NPC for BG2 EE~
 @2 = ~Montaron~
 @3 = ~Keep yer distance, ye goody-goody. I no like the smell of charity.~ [jnmonim]
-//Initial Meeting 2 (jnmonim2) not used as of now
 @4 = ~A pox on ye! I'll no lose my neck to this lot!~ [jnmonmf]
 @5 = ~Effective. I may not kill you after all.~ [jnmonha]
 @6 = ~Ye goody goodies make me sick!~ [jnmonua]
@@ -27,10 +26,17 @@
 @30 = ~What part of "I'm a loner" do ye not understand?!~[jnmona7]
 @31 = ~Good or bad, you'll go the way of all flesh.~ [jnmons4]
 @32 = ~'Tis a wonder you've lived as long as ye have.~ [jnmons5]
+@33 = ~The smell of flesh!~ [jnmonch]
+@34 = ~~ [jnmoncm]
+@35 = ~Yer wit be as sharp as my blade.~ [jnmonwi]
+@36 = ~My equal is a talent of many men.~ [jnmonpp]
+@37 = ~All of them fools!.~ [jnmonts]
 @38 = ~When asked about his past, Montaron openly threatens you with bodily harm. He seems quite dangerous, and more than willing to engage in gratuitous violence. It would appear that he cares little for life, including his own.
 He works grudgingly with Xzar, even though he obviously despises the man. Whoever their employers are, they must be powerful indeed. These two would likely kill each other without a presence over their heads preventing it. Montaron might be willing to discuss the whole matter with you, but you get the feeling that you probably would not wake up the next morning.~
 @39 = ~Vesper~
 @40 = ~Oh, my life is in shambles.~ [JNLOT02]
+@41 = ~Do not make light of me.~ [jnmonhs]
+@42 = ~Soo stupid!~ [jnmonsf]
 
 //Quests (Journal Entries) related to Montaron in BG2
 

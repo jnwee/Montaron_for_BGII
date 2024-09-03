@@ -27,7 +27,7 @@ END
 ++ @203 EXTERN JNMONT m1.2 /* I killed him. */
 
 CHAIN JNMONT m2
-	@5 /* Keep yer distance, ye goody-goody. I no like the smell of charity. */
+	@5 /* Keep yer distance, I no trust ye. */
 	== JNMONT @6 /* Now tell me where I can find a mad wizard in green robes and I'll be on me merry way. */
 	DO ~SetGlobal("JNMontbg1","GLOBAL",0)~
 END
