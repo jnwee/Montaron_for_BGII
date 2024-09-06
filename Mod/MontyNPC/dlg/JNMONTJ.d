@@ -23,7 +23,7 @@ END
 
 CHAIN TRGYP02 g1
 @0 /* You are a... */
-== JNMONTJ @1 /* I've no time for yer nonsense. Quit babblin' lest I cut yer tongue. */ 
+== JNMONTJ @1 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */ 
 EXIT
 
 // Crazy Celvan
@@ -39,7 +39,7 @@ In shadows he grew,
 With darkness he flew,
 Now mischief and death are his tools. */
 DO ~SetGlobal("JNMONTReactionCelvan","AR0300",1)~
-== JNMONTJ @3 /* Shut yer trap ye madman or ye'll get to see me tools soon enough. */
+== JNMONTJ @3 /* Shut yer trap, madman.. or you will get to see me tools soon enough. */
 END CELVAN 1
 
 I_C_T PLAYER1 5 JNMONTFirstSlayerChange1 
@@ -58,10 +58,10 @@ END
 /* Initiate Quest1 when reaching Xzar's deathplace */
 
 CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1) Global("JNMontResurrected","GLOBAL",1)~ THEN JNMONTJ xt
-	@5 /* Ye weren't lyin' after all. Finally I'm rid o' the madman. */
+	@5 /* You weren't lying after all. A fine sight to see him lie in the gutter */
 	DO ~SetGlobal("JNMONTXzarTalk","AR0300",2)~
 	== JNMONTJ @6 /* Now that it be done, I be out o' a job. */
-	= @7 /* Ye prove effective. Might as well stick with yer lot. */
+	= @7 /* Ye prove effective. I'll do yer killing if you'll have me. */
 	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @8 /* <CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions. */
 END
 ++ @9 EXTERN JNMONTJ xt.1 /* Wasn't Xzar your partner? Why are you happy about his death? */
@@ -69,16 +69,16 @@ END
 ++ @12 EXTERN JNMONTJ xt.leave /* On second thought I will sleep better without you in my company. */
 
 CHAIN JNMONTJ xt.1
-	@13 /* I worked with the mad wizard, sure. But wasn't a day I didn't wanna slit his throat. Now that it's done me old boss will nae be pleased. */
+	@13 /* Partners we were and wasn't a day I nae wanna slit his throat. Now that it's done me old boss will no be pleased. */
 	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @15 /* The poor wizard really thought he was his friend and tried to rescue him. And still he is so cold, that's just wrong.  Please don't let him stay with us <CHARNAME>. */
-	== JNMONTJ @14 /* So? Yer curiosity's sated? Can we keep goin'. */
+	== JNMONTJ @14 /* I be tellin' you no more, now let us proceed. */
 END
 ++ @16 EXTERN JNMONTJ xt.join /* Sure, let's go. */
-++ @11 EXTERN JNMONTJ xt.fight /* You cold and evil creature! I shall strike you down. */
+++ @11 EXTERN JNMONTJ xt.fight /* You deserve nothing but death. I see that now. */
 ++ @12 EXTERN JNMONTJ xt.leave /* On second thought I will sleep better without you in my company. */
 
 CHAIN JNMONTJ xt.join
-	@17 /* Then we need go'n get one o' my tools from me old hideout, and ye better not take too long. */
+	@17 /* Very well. Let us go to my old hideout then, I have got one of my tools there. */
 	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
 	== AERIEJ IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @18 /* If.. if you're sure <CHARNAME>. But I don't like this at all. */
 	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @19 /* I will not stand for this. By consorting with such a vile being you have shown me your true self. */

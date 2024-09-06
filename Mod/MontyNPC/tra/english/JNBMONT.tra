@@ -1,6 +1,6 @@
 @0 = ~Eh, <CHARNAME>! What's for dinner?~
 @1 = ~You dare demand dinner halfling! It is a disgrace you are breathing the same air as me!~
-@2 = ~Pah! So what ye lackwit!~
+@2 = ~Pah! So what ye cretin!~
 @3 = ~You dare to insult me. I have seen and heard enough!~
 @4 = ~Send him on his way at once <CHARNAME>.. or even better join me to send him to his grave, or I will no longer keep you company!~
 @5 = ~I have no equal, old man. Ye'll regret putting this ultimatum on yerself.~
@@ -16,3 +16,13 @@
 @14 = ~Hah! Ye be talkin' fine.. 'Tis a bummer ye speak so little.~
 @15 = ~Tell me who be my prey or leave me be.~
 @16 = ~Aye, we'll find ye something.. I'll make sure of it!~
+
+@17 = ~Ye know red one.. I never cared for ye wizards.~
+@18 = ~To not understand the finer arts of battle is to be expected from the likes of you. (That I have to bear with such company.)~
+@19 = ~In battle ye might have yer worth, but a dagger to the chest while ye be sleeping sound..~
+@20 = ~You dare threaten me? Edwin Odesseiron.. I have no fear of some monkey with a blade!~
+@21 = ~You are lucky my spells would be wasted on you, ignorant fool!~
+@22 = ~As long as ye show effect I'd be a fool to end ye.. but if ye be lacking, you'll nae see me dagger coming.~
+@23 = ~Pah! (Yes.. leave the moron believing he has the upper hand.)~
+@24 = ~Hah! You will do no such thing, foolish halfling. Have you forgotten you are a slave to <CHARNAME>'s bidding?~
+@25 = ~ARRR! CRETIN! Ye are nothing to me! Leave me be!~

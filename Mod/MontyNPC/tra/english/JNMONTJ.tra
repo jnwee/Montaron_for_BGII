@@ -1,62 +1,62 @@
 // Since I am actively refining the dialogue constantly, the order in this file is not consistent.. :(
 
 @0 = ~You are a...~
-@1 = ~I've no time for yer nonsense. Quit babblin' lest I cut yer tongue.~
+@1 = ~I have no time for yer nonsense. Quit babbling lest I cut yer tongue.~
 @2 = ~A boy once had parents so cruel,
 They twisted his mind as a rule.
 In shadows he grew,
 With darkness he flew,
 Now mischief and death are his tools.~
-@3 = ~Shut yer trap ye madman or ye'll get to see me tools soon enough.~
+@3 = ~Shut yer trap, madman.. or you will get to see me tools soon enough.~
 @4 = ~Ye make for a powerful ally. Almost worth me respect.~
-@5 = ~Ye weren't lyin' after all. Finally I'm rid o' the madman.~
+@5 = ~You weren't lying after all. A fine sight to see him lie in the gutter.~
 @6 = ~Now that it be done, I be out of a job.~
-@7 = ~Ye prove effective. Might as well stick with yer lot.~
+@7 = ~Ye prove effective. I'll do yer killing if you'll have me.~
 @8 = ~<CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions.~
 @9 = ~Wasn't Xzar your partner? Why are you happy about his death?~
 @10 = ~Well, let's go then.~
-@11 = ~You cold and evil creature! I shall strike you down.~
+@11 = ~You deserve nothing but death. I see that now.~
 @12 = ~On second thought I will sleep better without you in my company.~
 @13 = ~Partners we were and wasn't a day I nae wanna slit his throat. Now that it's done me old boss will no be pleased.~
-@14 = ~Yer curiosity's sated? Can we keep going.~
+@14 = ~I be tellin' you no more, now let us proceed.~
 @15 = ~The poor wizard really thought he was his friend and tried to rescue him. And still he is so cold, that's just wrong.  Please don't let him stay with us <CHARNAME>.~
 @16 = ~Sure, let's go.~
-@17 = ~Then we need go'n get one o' my tools from me old hideout, and ye better not take too long.~
+@17 = ~Very well. Let us go to my old hideout then, I have got one of my tools there.~
 @18 = ~If.. if you're sure <CHARNAME>. But I don't like this at all.~ [AERIE32]
 @19 = ~I will not stand for this. By consorting with such a vile being you have shown me your true self.~
 @20 = ~Then get to cuttin'!~
 @21 = ~A most noble decision. I salute you <CHARNAME>.~
 @22 = ~I knew you would follow the path of rightousness <CHARNAME>. Now let us vanquish this vile creature.~
-@23 = ~My work's better done alone anyway, ye cretin.~
+@23 = ~My work be better done alone anyway.~
 @24 = ~Off with you now, vile scoundrel! Our most noble band has no place for lowly scum as you are.~
 @25 = ~Ye! <CHARNAME>.~
 @26 = ~Yes?~
-@27 = ~While stayin' with ye lot, I overheard ye're hunting some powerful mage. Who be this Irenicus?~
+@27 = ~While staying with ye lot, I overheard ye're hunting some powerful mage. Who be this Irenicus?~
 @28 = ~I don't know who he is, but he has captured Imoen and I'm going to rescue her.~
 @29 = ~I don't know, but I owe him a great debt of pain.~
 @30 = ~I don't know, but he seems to know something about a power within me.~
-@31 = ~Ye be after that lass of yers? Ye need to tough'n up.~
-@32 = ~Mighty mage likely has some mighty treasure though. So as long as there be gold, I'll do yer killin'.~
+@31 = ~Ye be after that lass of yers? Pah! Weakling.~
+@32 = ~Mighty mage will have some mighty treasure though. So as long as there be gold, I'll do yer killing.~
 @33 = ~Whatever you say.~
 @34 = ~What a curious little creature you are.~
 @35 = ~I won't have this kind of talk anymore, get out of my face!~
-@36 = ~Ye be making a grave mistake. I'll give ye a chance to reconsider.~
+@36 = ~Ye be making a grave mistake. I'll give you a chance to reconsider.~
 @37 = ~I meant what I said. I can't take your company anymore.~
 @38 = ~You're right. Get back in line and let's keep going.~
 @39 = ~Ye better nae get too curious. Now leave me be!~
 @40 = ~Ye weren't good 'nough for me anyway.~
 @41 = ~Heh, a coward ye be.~
-@42 = ~Heh, yer hatred for him gets my blood boiling. Can nae wait to use me tools on someone. Let's move fast then.~
-@43 = ~Then why are we still standing here. If there be power to be gained ye should grab for it.~
+@42 = ~Heh, yer hatred for him gets my blood boiling. I can nae wait to use me tools on someone. Let us move fast then.~
+@43 = ~Then why are we still standing here. If there be power to be gained you should grab for it.~
 @44 = ~We already be a powerful lot. If ye grow stronger.. oh the riches we'll have.~
 @45 = ~Still we should act with caution.~
 @46 = ~We will see.~
-@47 = ~And now ye bore me again. Let's get goin'.~
+@47 = ~And now ye bore me again.~
 @48 = ~Soon I hope.~
 @49 = ~*you notice Montaron observing you while walking*~
 @50 = ~Something on your mind, Montaron?~
 @51 = ~Stop staring at me, little man.~
-@52 = ~What? Me looking at ye? Ye be mad.~
+@52 = ~What? Me looking at you? Ye be mad.~
 @53 = ~Tell me what you want or shut up.~
 @54 = ~Just shut up.~
 @55 = ~I was nae looking at ye, but there be somethin' I've been thinking on.~
@@ -70,12 +70,12 @@ Now mischief and death are his tools.~
 @63 = ~My motivation is different.~
 @64 = ~Ye pity ME? Ye better watch yer back, lest I plunge a dagger into it.~
 @65 = ~Ye show results so there be no point in arguin'.~
-@66 = ~Can't hear anymore of yer talk so let's get moving.~
+@66 = ~I can't hear anymore of yer talk.. leave me be!~
 @67 = ~Ye tell yerself that, ye noble soul. Pah! Ye sicken me. But as long ye keep making us rich I'll nae complain.~
-@68 = ~Ye don't look so scary, but ye truly be felling mighty adversaries left and right. I'll be watchin' ye more closely from now.~
+@68 = ~Ye don't look so scary, but ye truly be felling mighty adversaries left and right. I will be watching ye more closely from now.~
 @69 = ~Sure, but do so from a distance.~
 @70 = ~If I catch you looking at me again, I'll end your miserable life.~
-@71 = ~Ye'll no notice me anyway.~
+@71 = ~Ye will not see me anyway.~
 @72 = ~Pah. Ye couldn't catch me in yer dreams and if ye did I'd have cut yer throat long before ye grabbed yer weapon.~
 @73 = ~Clearly I was wrong about you. Rethink your decision or draw your weapon!~
 @74 = ~I will not fight against a noble knight besides such villainy. It is your choice <CHARNAME>.~
@@ -91,7 +91,9 @@ Now mischief and death are his tools.~
 @84 = ~No! I won't watch this happen.~
 @85 = ~A sad end to your story.~
 @86 = ~Arvoreen! Guide my blade!~ [MAZZY10]
-@87 = ~Hah! The madman truly be dead... brings me at least some joy in me misery.~
+
+// TODO
+@87 = ~The madman truly be dead... brings me at least some joy in me misery.~
 @88 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
 @89 = ~Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself.~
 @90 = ~If only my boss hadn't took a liking to him.~
