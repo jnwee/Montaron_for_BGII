@@ -23,6 +23,53 @@
 @20 = ~You dare threaten me? Edwin Odesseiron.. I have no fear of some monkey with a blade!~
 @21 = ~You are lucky my spells would be wasted on you, ignorant fool!~
 @22 = ~As long as ye show effect I'd be a fool to end ye.. but if ye be lacking, you'll nae see me dagger coming.~
-@23 = ~Pah! (Yes.. leave the moron believing he has the upper hand.)~
+@23 = ~Pah! (Yes.. leave the lackwit believing he has the upper hand.)~
 @24 = ~Hah! You will do no such thing, foolish halfling. Have you forgotten you are a slave to <CHARNAME>'s bidding?~
-@25 = ~ARRR! CRETIN! Ye are nothing to me! Leave me be!~
+@25 = ~ARRR! CRETIN! Ye are nothing to me.. Leave me be!~
+
+@26 = ~Tell me my halfling friend.. how are you coming to terms with your newfound fate?~
+@27 = ~I be fine as long as I be looting and cuttin' people. Still this curse be no fair!~
+@28 = ~It is indeed a tough destiny to accept.~
+@29 = ~What would ye know of it, fool!~
+@30 = ~You needn't be rude, my fierce friend. I once knew someone suffering the same.~
+@31 = ~Then tell me.. how'd his curse end?~
+@32 = ~I'm afraid I can not tell you. I've lost track of him some time ago.~
+@33 = ~Pah! Useless swindler!~
+
+@27 = ~I am curious Montaron. What was it like to come back from the dead?~
+@28 = ~'Twas a relief to be free of the torture.. of course only for seconds until I was to be imprisoned again!~
+@29 = ~'Twas a relief. It be a painful place.~
+@30 = ~If you truly were tortured in your afterlife, my fierce companion, maybe you should change your ways.~
+@31 = ~Pah! I'll no change anything, but I will make sure I'll nae go back to that blasted place!~
+@32 = ~An ambitious goal... still one can never be too sure when death waits around the corner.~
+@33 = ~Yers be a lot sooner if ye keep asking me so many damn questions!~
+@34 = ~I meant no offense, my short friend. Let us continue onwards then.~
+
+@35 = ~Stop walking behind me!~
+@36 = ~Be ye scared? Why ye even travel with us be a mystery to me.~
+@37 = ~<CHARNAME>! Can't you see he will kill us the moment it benefits him. Please make him go away.~
+@38 = ~Cease yer prattle girl or me dagger will silence ye.~
+@39 = ~See <CHARNAME>!~
+@40 = ~Fear not Aerie! Me and Boo will keep a sharp eye on the small villain.~
+@41 = ~Calm down Aerie, I will make sure no harm comes to you.~
+@42 = ~If you can't stand your ground you shouldn't be part of this group.~
+@43 = ~You are right Aerie. I will sleep a lot better without your company Montaron, leave at once.~
+@44 = ~Pah! Ye are no match for me.~
+@45 = ~Watch it villain! Boo knows the smell of treachery and which butt needs kicking!~
+@46 = ~Ye be truly lost madman, keep yer distance from me!~
+@47 = ~Thank you Minsc, with you at my side I feel a lot better already.~
+@48 = ~I do not like this, but I trust you <CHARNAME>. Let us continue.~
+@49 = ~You say that, but you choose to surround yourself with such evil. I'm sorry <CHARNAME>, but I can't keep going like this.~
+@50 = ~You will have to go on without me.~
+@51 = ~Finally I be rid of that whiny wench!~
+@52 = ~I did not expect you to be so cold <CHARNAME>. You will see no more of me.~
+@53 = ~Keep the whiny girl with ye then. You'll meet yer end with these weaklings soon enough.~
+
+@54 = ~Pretender girl, listen 'ere!~
+@55 = ~Are you talking to me?~
+@56 = ~Yes! Ye and yer noble goals. Instead of babblin' so much, ye could be of use for once.~
+@57 = ~Ye be unable to pick a basic lock or find a trap if it hit yer pretty face.~
+@58 = ~I have done nothing to you and yet you insult me. Tell me halfling, what caused you to be as you are?~
+@59 = ~Unlike ye, I be a natural. If ye'd not talk so much, maybe ye could even reach a small portion of my talent.~
+@60 = ~You are lying to me as you are lying to yourself, halfling. You obviously suffer and you choose to blame the world for it.~
+@61 = ~Pah! Ye be foolish to talk to me as such. Now sod off, 'fore me blade slips.~

@@ -406,106 +406,51 @@ END
 ===================================== */
 
 
-// Talk 2 - Montaron asks about the players plan for him.
+// Talk 2 - Montaron kind of comes to terms with his existence
 
 IF ~Global("JNMONTTalk","GLOBAL",4) Global("JNMontResurrected","GLOBAL",2)~ ta2
-	SAY @164 /* Ye.. taskmaster. */
-	= @165 /* So what are yer plans for me? I no like bein' told what to do forever. */
-	++ @166 + ta2.1 /* You will get used to it. */
-	++ @167 + ta2.2 /* Stop complaining so much and I might free you when this is done. */
-	++ @168 + ta2.2.1.2 /* I don't care what you like. */
+	SAY @164 /* Ye.. taskmaster! Why ye have me suffer like this? */
+	++ @165 + ta2.1 /* What do you mean? */
+	++ @166 + ta2.2 /* What suffering? You're working for me and just have a bit extra incentive to do so. */
+	++ @167 + ta2.1.3 /* I offer you a chance. Take it or you will be tortured in hell again soon enough. */
+	++ @168 + ta2.3 /* Because you deserve it. */
 END
 
 IF ~~ ta2.1
-	SAY @169 /* Ye make for a powerful ally, 'tis true. If ye asked nice I might even've joined ye freely. */
-	= @170 /* But like this.. stripped from me freedom and forced to serve ye. I can nae come to terms with such. */
-	++ @171 + ta2.1.1 /* How is this so different to your time with the Zhentarim? */
-	++ @172 + ta2.2 /* If you behave I might set you free when this is over. */
-END
-
-IF ~~ ta2.1.1
-	SAY @173 /* The Zhentarim be not as close minded as ye people. There ye can work for ye own good and do how ye please. */
-	++ @174 + ta2.1.1.1 /* But you just followed orders. And cruel ones at that. */
-	++ @175 + ta2.1.1.2 /* You worked with a partner you despised and had to kill for a living. I doubt this is worse. */
-END 
-
-IF ~~ ta2.1.1.1
-	SAY @176 /* I followed orders yes.. but 'twas my freedom to interpret the fate of my victims. If I be on a hunt there be just me and me prey. */
-	= @177 /* To hear someones last breath.. 'tis splendid. */
-	++ @180 + ta2.1.1.1. /* You are messed up. */
-	++ @181 + ta2.1.1.1. /* How can you know nothing but cruelty. */
-	++ @179 + ta2.1.1.1. /* You say things like this and then you wonder why you can't be trusted. */
-END 
-
-IF ~~ ta2.1.1.2
-	SAY @178 /* Ye be right. 'Twas marvelous to see 'im lie in the gutter. Still I be missin' the freedom of me work. */
-	= @177 /* To hear someones last breath.. 'tis splendid. */
-	++ @180 + ta2.1.1.1. /* You are messed up. */
-	++ @181 + ta2.1.1.1. /* How can you know nothing but cruelty. */
-	++ @179 + ta2.1.1.1. /* You say things like this and then you wonder why you can't be trusted. */
-END 
-
-IF ~~ ta2.1.1.1.
-	SAY	@182 /* Speak what ye want. I care not for yer prattle. But there be something I would offer ye. */
-	++ @183 + ta2.offer /* What is it? */
-	++ @184 + ta2.offer /* Fine, but make it quick. */
+	SAY @169 /* Ye bring me back from the dead just to enslave me! */
+	++ @170 + ta2.1.1 /* How is this different from you working for the Zhentarim? */
+	++ @171 + ta2.1.2 /* You just work for me and when this is done I might free you. */
+	++ @172 + ta2.1.3 /* If you're so unhappy here I can send you back to the grave right away. */
 END
 
 IF ~~ ta2.2
-	SAY @185 /* Pah, I don't live on promises. If you want me to keep going, ye need to make me a better deal. */
-	++ @186 + ta2.2.1 /* No I don't. You know what happens if you try to betray me. */
-	++ @187 + ta2.2.2 /* I don't need to do anything. You are my servant, I made sure of it. */
-	++ @188 + ta2.2.3 /* Well what could I offer you then? */
+	SAY @173 /* I be a slave to yer lot! If ye asked nice I might have joined ye freely. */
+	++ @170 + ta2.1.1 /* How is this different from you working for the Zhentarim? */
+	++ @171 + ta2.1.2 /* You just work for me and when this is done I might free you. */
+	++ @172 + ta2.1.3 /* If you're so unhappy here I can send you back to the grave right away. */
 END
 
-IF ~~ ta2.2.1
-	SAY @189 /* I do know, but ye be trusting in that curse a lot. Do you even know how it works? */
-	++ @190 + ta2.2.1.1 /* I will not tell you anything. */
-	++ @191 + ta2.2.1.2 /* I know that it works and that is enough for me. */
-	++ @192 + ta2.2.3 /* You're right. Tell me what you want then. */
-END 
-
-IF ~~ ta2.2.1.1
-	SAY @197 /* Keep yer secrets then, but I think ye have no clue and should hear what I have to tell. */
-	IF ~~ GOTO ta2.offer
+IF ~~ ta2.3
+	SAY @174 /* Who are ye to tell what I deserve! My potential be wasted on ye cretin. */
+	++ @172 + ta2.1.3 /* If you're so unhappy here I can send you back to the grave right away. */
 END
 
-IF ~~ ta2.2.1.2
-	SAY @198 /* Couldn't ye sleep better knowin' there be no harm coming from me. */
-	IF ~~ GOTO ta2.offer
+IF ~~ ta2.1.1
+	SAY @175 /* Pah! I took orders and worked with a madman, but 'twas a bloody job. Suited me well. */
+	++ @176 + ta2.1.1.1 /* I am your only chance on power now, halfling and you know it. */
+	++ @177 + ta2.1.1.2 /* I give you a chance on redemption. Or do you want to go back to your deserved afterlife. */
 END
 
-IF ~~ ta2.2.2
-	SAY @193 /* Did ye really? Ye be trustin' in that curse a lot. Do you even know how it works? */
-	++ @190 + ta2.2.1.1 /* I will not tell you anything. */
-	++ @191 + ta2.2.1.2 /* I know that it works and that is enough for me. */
-	++ @192 + ta2.2.3 /* You're right. Tell me what you want then. */
-END 
+IF ~~ ta2.1.3
 
-IF ~~ ta2.2.3
-	SAY @194 /* Ye know. We make a powerful lot, so I'd be a fool to leave, I see that now. Still, ye cursin' me is no fair. */
-	= @195 /* And ye could be at ease knowin' I be pleased with our partnership. */
-	IF ~~ GOTO ta2.offer
-END 
-
-IF ~~ ta2.offer
-	SAY	@196 /* Ye'll have to worry 'bout me no more, curse or no curse, but I want ye to grant me one kill of my choosing. */
-	++ @199 ta2.offer.1 /* No! And I will hear no more of this. */
-	++ @200 ta2.offer.2 /* I will not let you kill innocents! */
-	++ @201 ta2.offer.1 /* Only a fool would trust you. Now get back in line. */
-	++ @202 ta2.offer.3 /* Well, who did you have in mind? */
-END 
-
-IF ~~ ta2.offer.1
-	SAY 
 END
 
-IF ~~ ta2.offer.2
-	SAY
+IF ~~ ta2.1.1.1
+
 END
 
-IF ~~ ta2.offer.3
-	SAY
+IF ~~ ta2.1.1.2
+
 END
 
 
@@ -523,7 +468,7 @@ END
 
 CHAIN JNMONTJ ta1.
 	@138 /* I told ye ye'll regret this. */
-	= @139 /* *As Montaron tries to throw a dagger at you he stops moving midway and falls to the ground shaking* */
+	= @139 /* (As Montaron tries to throw a dagger at you he stops moving midway and falls to the ground shaking) */
 	= @140 /* AH! Aarr! */
 	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @141 /* We offer the scoundrel a chance to make up for his crimes and he repays us like this! A deserved punishment he received. */
 	== YOSHJ IF ~InParty("Yoshimo") InMyArea("Yoshimo") !StateCheck("Yoshimo",CD_STATE_NOTVALID)~ THEN @142 /* The curse that was layed upon you can not be fought, my halfling friend. You will have to come to terms with your new fate. */
