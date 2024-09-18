@@ -392,13 +392,6 @@ IF ~~ t2.1.3.2
 	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~ EXIT
 END
 
-// Talk 3
-
-IF ~Global("JNMONTTalk","GLOBAL",6) Global("JNMontResurrected","GLOBAL",1)~ t3
-	SAY ~Nice weather, eh.~
-	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~ EXIT
-END
-
 
 /* =====================================
 ======== Player private talks ==========
@@ -412,7 +405,7 @@ IF ~Global("JNMONTTalk","GLOBAL",4) Global("JNMontResurrected","GLOBAL",2)~ ta2
 	SAY @164 /* Ye.. taskmaster! Why ye have me suffer like this? */
 	++ @165 + ta2.1 /* What do you mean? */
 	++ @166 + ta2.2 /* What suffering? You're working for me and just have a bit extra incentive to do so. */
-	++ @167 + ta2.1.3 /* I offer you a chance. Take it or you will be tortured in hell again soon enough. */
+	++ @167 + ta2.1.3 /* I offer you a chance. Take it or you'll be dead again soon. */
 	++ @168 + ta2.3 /* Because you deserve it. */
 END
 
@@ -438,20 +431,76 @@ END
 IF ~~ ta2.1.1
 	SAY @175 /* Pah! I took orders and worked with a madman, but 'twas a bloody job. Suited me well. */
 	++ @176 + ta2.1.1.1 /* I am your only chance on power now, halfling and you know it. */
-	++ @177 + ta2.1.1.2 /* I give you a chance on redemption. Or do you want to go back to your deserved afterlife. */
+	++ @177 + ta2.1.3 /* I give you a chance on redemption. Or do you want to go back to your deserved afterlife. */
 END
 
 IF ~~ ta2.1.3
+	SAY @178 /* Ye have a point, taskmaster. Thinking on it doing your killing is a lot better than the alternative. */
+	++ @179 + ta2.1.3.1 /* You're not only doing my killing. */
+	++ @180 + ta2.1.3.2 /* What happened after your death? */
+	++ @181 + ta2.1.3.3 /* Great. Now that this is settled, let us move on. */
+END
 
+IF ~~ ta2.1.3.1
+	SAY @182 /* Say what ye will. To me the only matter be the killing and it be better than the torture in hell. */
+	++ @180 + ta2.1.3.2 /* What happened after your death? */
+	++ @181 + ta2.1.3.3 /* Great. Now that this is settled, let us move on. */
+END
+
+IF ~~ ta2.1.3.2
+	SAY @183 /* I no like babblin' so I be sayin' it only once! */
+	= @184 /* I 'member bein' in the Abyss and some lesser demon cretin torturing me to his liking. Felt like an eternity and if I be meetin' that demon again, I'll make it regret every needle and every word he spoke! */
+	= @185 /* Then ye pulled me out o' there and here I be. */
+	++ @186 + ta2.1.3.2.1 /* You got a second chance. You should think about taking it. */
+	++ @187 + ta2.1.3.2.2 /* You got what you deserved. */
+	++ @188 + ta2.1.3.2.3 /* Tough luck. Let's get moving. */
+END
+
+IF ~~ ta2.1.3.2.1
+	SAY @189 /* Pah! I'll no die again. */
+	+ ~ReactionGT(Player1,3)~ + @190 + ta2.1.3.2.1.1 /* Sooner or later you will die. Noone is immortal. */
+	+ ~ReactionLT(Player1,4)~ + @190 + ta2.1.3.2.1.2 /* Sooner or later you will die. Noone is immortal. */
+	++ @191 + ta2.1.3.2.1.2 /* Whatever you say. */
+END
+
+IF ~~ ta2.1.3.2.1.1
+	SAY @192 /* Ye may be right. I'll be thinkin' on it. */
+	= @193 /* But we be done talking now and I expect to be rid o' yer curse sometime. */
+	IF ~~ DO ~IncrementGlobal("JNMontRedemption","GLOBAL",1)~ EXIT
+END
+
+IF ~~ ta2.1.3.2.1.2
+	SAY @194 /* With my talent, my immortality be inevitable and ye'll be rotting. */
+	= @195 /* I'll happily do yer killin' for now but I expect to be rid o' yer curse sometime. Now move. */
+	IF ~~ EXIT
+END
+
+IF ~~ ta2.1.3.2.2
+	SAY @196 /* And thanks to ye, I be suffering there no longer and I'll no return to that blasted afterlife. */
+	+ ~ReactionGT(Player1,3)~ + @190 + ta2.1.3.2.1.1 /* Sooner or later you will die. Noone is immortal. */
+	+ ~ReactionLT(Player1,4)~ + @190 + ta2.1.3.2.1.2 /* Sooner or later you will die. Noone is immortal. */
+	++ @191 + ta2.1.3.2.1.2 /* Whatever you say. */
+END
+
+IF ~~ ta2.1.3.2.3
+	SAY @197 /* Right ye are. Let us find some prey. */
+	IF ~~ EXIT
+END
+
+IF ~~ ta2.1.3.3
+	SAY @197 /* Right ye are. Let us find some prey. */
+	IF ~~ EXIT
 END
 
 IF ~~ ta2.1.1.1
-
+	SAY @198 /* 'Tis true... ye prove effective. Maybe staying with ye ain't that bad of a deal. */
+	= @199 /* Still I expect to be rid of yer curse sometime. */
+	++ @200 + ta2.1.1.1.1 /* We will see. */
+	++ @201 + ta2.1.1.1.2 /* Do as I say and you will be free in no time. */
+	++ @202 + ta2.1.1.1.3 /* I can't set you free unless I am sure you won't harm anyone. */
 END
 
-IF ~~ ta2.1.1.2
-
-END
+IF 
 
 
 END
