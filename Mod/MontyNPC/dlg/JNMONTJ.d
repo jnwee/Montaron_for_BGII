@@ -500,7 +500,20 @@ IF ~~ ta2.1.1.1
 	++ @202 + ta2.1.1.1.3 /* I can't set you free unless I am sure you won't harm anyone. */
 END
 
-IF 
+IF ~~ ta2.1.1.1.1
+	SAY @203 /* Yes we will. Now find me some prey before I get restless. */
+	IF ~~ EXIT
+END
+
+IF ~~ ta2.1.1.1.2
+	SAY @204 /* As long as there be killing. If ye make me yer butler, I'll rather be back in the Abyss. Now let us find some prey to sharpen me blade. */
+	IF ~~ EXIT
+END
+
+IF ~~ ta2.1.1.1.3
+	SAY @205 /* Ye coward! But someday you'll be dead and I'll be free. Till then... find me some prey! */
+	IF ~~ EXIT
+END
 
 
 END
