@@ -5,8 +5,8 @@ JNMontResurrected = 2 means Montaron was cursed with a geas on his resurrection
 JNMontbg1 = 1 means Montaron traveled with the player in BG1
 JNMontbg1 = 0 means he didn't
 
-JNMontRefused = 1 means Montaron wasn't granted his wish for killing
-JNMontRefused = 2 means Montaron was granted his wish
+JNMontRedemption can be increased and at a certain point allows for a different ending for Montaron
+currently it can at max get 1
 
 */
 

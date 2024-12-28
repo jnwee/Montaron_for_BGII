@@ -130,7 +130,7 @@ IF ~Global("JNVESPLives","GLOBAL",1)~ EXTERN JNMONTJ xt1.1 /* Vesper lived */
 IF ~Global("JNVESPLives","GLOBAL",2)~ EXTERN JNMONTJ xt1.2 /* Vesper died */
 
 CHAIN JNMONTJ xt1.2
-	@121 /* We'll make a great team I am sure. */
+	@121 /* We be a powerful team. */
 END
 ++ @122 EXTERN JNMONTJ xt1.2.1 /* Well, you're in a good mood Montaron. */
 ++ @123 EXTERN JNMONTJ xt1.2.2 /* There's something else you want, I presume? */

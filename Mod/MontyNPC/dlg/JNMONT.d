@@ -11,7 +11,7 @@ CHAIN IF ~NumTimesTalkedTo(0)~ THEN JNMONT Introduction
 	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @102 /* I can sense the pure evil in this scoundrel. I urge you to act with caution. */
 	== JNMONT @1 /* That damned mage... always gets me in trouble. */
 	= @2 /* Expect no thanks from me, 'cause ye'll no get it. Now, who be ye? Speak quick! */
-	== KORGANJ IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @103 /* Aye. It is a thankless world we're living in and this one knows how to love in it! */
+	== KORGANJ IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @103 /* Aye. It is a thankless world we're living in and this one knows how to live in it! */
 END
 + ~Global("JNMontResurrected","GLOBAL",1)~ + @200 EXTERN JNMONT m1 /* <CHARNAME>. You don't remember me? */
 + ~Global("JNMontResurrected","GLOBAL",1)~ + @201 EXTERN JNMONT m2 /* I am <CHARNAME> and I rescued you. */
