@@ -1,9 +1,7 @@
 
-/* JNMontResurrected = 1 means Montaron was resurrected and is free
-JNMontResurrected = 2 means Montaron was cursed with a geas on his resurrection
-
-JNMontbg1 = 1 means Montaron traveled with the player in BG1
-JNMontbg1 = 0 means he didn't
+/*
+JNMontBg1 = 1 means Montaron traveled with the player in BG1
+JNMontBg1 = 0 means he didn't
 
 JNMontRedemption can be increased and at a certain point allows for a different ending for Montaron
 currently it can at max get 1
