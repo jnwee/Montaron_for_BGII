@@ -15,29 +15,29 @@
 - `@2` *Expect no thanks from me, 'cause ye'll no get it...*
 
 **Next:**  
-- **Global:** `JNMontResurrected = 1` → [m1](##m1)  
+- **Global:** `JNMontResurrected = 1` → [m1](#m1)  
 - **Global:** `JNMontResurrected = 2` → [m3](##m3)
 
 ---
 
-## m1 - Friendly Reminder  
+## m1
 `@200` *<CHARNAME>, you don't remember me?*  
 - **Response:** `@201` *I am <CHARNAME> and I rescued you.* → [m2](#m2)  
 
 ---
 
-## m2 - Acknowledgement  
+## m2
 `@202` *Ah, yes... I remember now.*  
 
 ---
 
-## m3 - Curse Dialogue  
+## m3
 `@210` *You don't remember me? I just cursed you to serve me.*  
 - **Follow-up:** `@211` *My name is <CHARNAME> and I cursed you.* → [m4](#m4)  
 
 ---
 
-## m4 - Continued Interaction  
+## m4  
 `@3` *Curse or not, you'll get no thanks from me.*  
 - **Option 1:** `@202` *Very well, but tread carefully.*  
 - **Option 2:** `@203` *I don't care for your thanks.*  
