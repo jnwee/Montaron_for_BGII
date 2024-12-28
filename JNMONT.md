@@ -15,8 +15,8 @@
 - `@2` *Expect no thanks from me, 'cause ye'll no get it...*
 
 **Next:**  
-- **Global:** `JNMontResurrected = 1` → [m1](#m1)  
-- **Global:** `JNMontResurrected = 2` → [m3](#m3)
+- **Global:** `JNMontResurrected = 1` → [m1](##m1)  
+- **Global:** `JNMontResurrected = 2` → [m3](##m3)
 
 ---
 
