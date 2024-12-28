@@ -1,7 +1,7 @@
 BEGIN JNMONTP
 
 IF ~Global("JNMONTKickedOut","GLOBAL",0)~ b2
-SAY @1 /* Oh, ye've no need o' me service anymore? */
+SAY @1 /* We be a mighty lot <CHARNAME>. Be ye sure ye want me to leave? */
 ++ @2 /* No, I made a mistake. Just stay here. */ DO ~JoinParty()~ EXIT
 + ~!AreaCheck("AR0603")
 !AreaCheck("AR0410")
@@ -21,7 +21,7 @@ SAY @1 /* Oh, ye've no need o' me service anymore? */
 !AreaCheck("AR1505")
 !AreaCheck("AR1506")
 !AreaCheck("AR1507")
-!AreaCheck("AR1508")~ + @3 /* Yes, I'll come find you at the docks if I have need of you again. */ DO ~SetGlobal("JNMONTKickedOut","GLOBAL",1) MoveGlobal("AR0300","JNMONT",[1818.3140])~ EXIT 
+!AreaCheck("AR1508")~ + @3 /* Yes, we can meet at the Docks, if I ever need you. */ DO ~SetGlobal("JNMONTKickedOut","GLOBAL",1) MoveGlobal("AR0300","JNMONT",[1818.3140])~ EXIT 
 + ~!AreaCheck("AR0301")
 !AreaCheck("AR0302")
 !AreaCheck("AR0303")
@@ -39,7 +39,7 @@ SAY @1 /* Oh, ye've no need o' me service anymore? */
 END
 
 IF ~Global("JNMONTKickedOut","GLOBAL",1)~ b3
-SAY @5 /* Ye've need o' me again? */
+SAY @5 /* Have ye realized your mistake, fool? */
 ++ @6 /* Sure, now get in line. */ + b3.1
 ++ @7 /* No. Just checking up on you. */ + b3.2
 END 
