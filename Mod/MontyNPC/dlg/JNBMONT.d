@@ -4,12 +4,13 @@
 
 /*
 	Progress Tracking
-	
+
 	Korgan - 1 - Standard - 1 - Alternative
 	Edwin - 1 - Standard - 1 - Alternative
 	Keldorn - 2 (Conflict) - Standard - 0 - Alternative
 	Yoshimo - 1 - Standard - 2 - Alternative
 	Aerie - 1 - Standard - 1 - Alternative
+
 	JNMONTAerieConflict Variable
 	4 = Montaron left
 	3 = Minsc protects Aerie from Montaron

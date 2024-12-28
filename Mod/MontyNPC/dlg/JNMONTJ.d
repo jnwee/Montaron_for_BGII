@@ -23,12 +23,12 @@ END
 
 CHAIN TRGYP02 g1
 @0 /* You are a... */
-== JNMONTJ @1 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */ 
+== JNMONTJ @1 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */
 EXIT
 
 // Crazy Celvan
 
-CHAIN IF WEIGHT #-1 
+CHAIN IF WEIGHT #-1
 ~InParty("JNMONT")
 See("JNMONT")
 !StateCheck("JNMONT",CD_STATE_NOTVALID)
@@ -42,7 +42,7 @@ DO ~SetGlobal("JNMONTReactionCelvan","AR0300",1)~
 == JNMONTJ @3 /* Shut yer trap, madman.. or you will get to see me tools soon enough. */
 END CELVAN 1
 
-I_C_T PLAYER1 5 JNMONTFirstSlayerChange1 
+I_C_T PLAYER1 5 JNMONTFirstSlayerChange1
 == JNMONTJ IF ~InParty("JNMONT") See("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @4 /* Ye make for a powerful ally. Almost worth me respect. */
 END
 
@@ -50,6 +50,32 @@ END
 /* =====================================
 =========== Triggered Talks ============
 ===================================== */
+
+
+CHAIN IF ~Global("JNMONTChapter5","GLOBAL",2)~ THEN JNMONTJ ut
+    @206 /* This be a nice place <CHARNAME>. Why not stay down here, where no daylight can reach us. */
+    DO ~SetGlobal("JNMONTChapter5","GLOBAL",3)~
+    == VICONIJ IF ~InParty("Viconia") InMyArea("Viconia") !StateCheck("Viconia",CD_STATE_NOTVALID)~ THEN @207 /* Of course you say that, iblith. You wouldn't last a minute down here alone. You're pathetic, halfman.. trying to imitate the drow. */
+    == AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @208 /* Don't you listen to him <CHARNAME>. Nothing good can come of us being down here. */
+    == JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @209 /* Shut yer trap girl! Yer whining makes me sick. */
+    == CERNDJ IF ~InParty("Cernd") InMyArea("Cernd") !StateCheck("Cernd",CD_STATE_NONVALID)~ THEN @210 /* I will be grateful when we are out of here and back under the sun. You truly need to find peace and balance in your heart, if you despise the daylight so much, you'd rather stay in this place. */
+    == JNMONTJ IF ~InParty("Cernd") InMyArea("Cernd") !StateCheck("Cernd",CD_STATE_NONVALID)~ THEN @211 /* Go find yer balance and stop bothering me then, ye dirtlover. */
+END
+++ @212 EXTERN JNMONTJ ut1 /* I'll not stay down here a second longer than needed. */
+++ @213 EXTERN JNMONTJ ut2 /* It is nice down here, but I have to chase Irenicus. */
+++ @214 EXTERN JNMONTJ ut3 /* I have important things to worry about, I have no time to talk to you. */
+
+CHAIN JNMONTJ ut1
+
+END
+
+CHAIN JNMONTJ ut2
+
+END
+
+CHAIN JNMONTJ ut3
+
+END
 
 
 /* ============ Standard ============ */
@@ -90,7 +116,7 @@ IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVA
 + ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @76 EXTERN JNMONTJ xt.keldorn1 /* I see that I have made a too rash decision. You're on your own Montaron. */
 + ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @77 EXTERN JNMONTJ xt.keldorn2 /* Try me old man! */
 + ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @78 EXTERN JNMONTJ xt.keldorn2 /* Come on, give Montaron a chance. */
-	
+
 CHAIN JNMONTJ xt.fight
 	@20 /* Then get to cuttin'! */
 	DO ~LeaveParty() Enemy() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
@@ -195,7 +221,7 @@ END
 CHAIN JNMONTJ xt1.1.2.1
 	@120 /* Fool... */
 EXIT
-	
+
 
 /* ============== Alternative =============== */
 
@@ -389,7 +415,7 @@ END
 
 IF ~~ t2.1.3.2
 	SAY @72 /* Pah. Ye couldn't catch me in yer dreams and if ye did I'd have cut yer throat long before ye grabbed yer weapon. */
-	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~ EXIT
+	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~ EXIT
 END
 
 
@@ -403,6 +429,7 @@ END
 
 IF ~Global("JNMONTTalk","GLOBAL",4) Global("JNMontResurrected","GLOBAL",2)~ ta2
 	SAY @164 /* Ye.. taskmaster! Why ye have me suffer like this? */
+	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~
 	++ @165 + ta2.1 /* What do you mean? */
 	++ @166 + ta2.2 /* What suffering? You're working for me and just have a bit extra incentive to do so. */
 	++ @167 + ta2.1.3 /* I offer you a chance. Take it or you'll be dead again soon. */
