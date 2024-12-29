@@ -137,51 +137,72 @@ END
 ======== Scripted Talks =========
 ============================== */
 
-// Talk for Quest 1 Trigger
+// Talk to urge visiting Xzar JNMONTXzarTalk < 3
+// JNMONTXzarTalk == 6 -> Montaron leaves
 
 IF
 	InParty(Myself)
-	Global("JNMontQuest1Timer","GLOBAL",0)
-	Global("JNMontResurrected","GLOBAL",2)
+	Global("JNMONTXzarTalk","GLOBAL",0)
 THEN
 	RESPONSE #100
-		RealSetGlobalTimer("JNMontQuest1Timer","GLOBAL",600)
-		SetGlobal("JNMontQuest1","GLOBAL",1)
+		RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)
+		SetGlobal("JNMONTXzarTalk","GLOBAL",1)
 END
 
-IF
+IF 
 	InParty(Myself)
-	RealGlobalTimerExpired("JNMontQuest1Timer","GLOBAL")
+	RealGlobalTimerExpired("JNMONTVisitXzarTimer","GLOBAL")
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	CombatCounter(0)
 	!See([ENEMY])
-	Global("JNMontQuest1","GLOBAL",1)
-	Global("JNMontResurrected","GLOBAL",2)
+	OR(3)
+	Global("JNMONTXzarTalk","GLOBAL",1)
+	Global("JNMONTXzarTalk","GLOBAL",3)
+	Global("JNMONTXzarTalk","GLOBAL",5)
 THEN
 	RESPONSE #100
-		SetGlobal("JNMontQuest1","GLOBAL",2)
-		StartDialogueNoSet(Player1)
+		IncrementGlobal("JNMONTXzarTalk","GLOBAL",1)
 END
-
-// Talk at Xzar's place of death
 
 IF
 	InParty(Myself)
 	See(Player1)
 	!StateCheck(Player1,CD_STATE_NOTVALID)
 	!StateCheck(Myself,CD_STATE_NOTVALID)
-	Global("JNMONTXzarTalk","AR0300",0)
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(3)
+	Global("JNMONTXzarTalk","GLOBAL",2)
+	Global("JNMONTXzarTalk","GLOBAL",4)
+	Global("JNMONTXzarTalk","GLOBAL",6)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END
+
+// Talk at Xzar's place of death JNMONTXzarTalk == 8
+
+IF
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	GlobalLT("JNMONTXzarTalk","GLOBAL",7)
 	NearLocation(Myself,2362,2489,15)
 	CombatCounter(0)
 	!See([ENEMY])
 	AreaCheck("AR0300")		// Docks
 THEN
 	RESPONSE #100
-		SetGlobal("JNMONTXzarTalk","AR0300",1)
+		SetGlobal("JNMONTXzarTalk","GLOBAL",8)
 		StartDialogueNoSet(Player1)
 END
+
+
+
+
 
 // Spawn Zhentarim Thief in Xzar's Hideout
 // JNVESPLives = 1 means Vesper was let go by the player

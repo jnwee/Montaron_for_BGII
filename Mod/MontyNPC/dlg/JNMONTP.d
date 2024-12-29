@@ -2,7 +2,7 @@ BEGIN JNMONTP
 
 IF ~Global("JNMONTKickedOut","GLOBAL",0)~ b2
 SAY @1 /* We be a mighty lot <CHARNAME>. Be ye sure ye want me to leave? */
-++ @2 /* No, I made a mistake. Just stay here. */ DO ~JoinParty()~ EXIT
+++ @2 /* No, I made a mistake. Stay with me. */ DO ~JoinParty()~ EXIT
 + ~!AreaCheck("AR0603")
 !AreaCheck("AR0410")
 !AreaCheck("AR0411")
@@ -21,7 +21,7 @@ SAY @1 /* We be a mighty lot <CHARNAME>. Be ye sure ye want me to leave? */
 !AreaCheck("AR1505")
 !AreaCheck("AR1506")
 !AreaCheck("AR1507")
-!AreaCheck("AR1508")~ + @3 /* Yes, we can meet at the Docks, if I ever need you. */ DO ~SetGlobal("JNMONTKickedOut","GLOBAL",1) MoveGlobal("AR0300","JNMONT",[1818.3140])~ EXIT 
+!AreaCheck("AR1508")~ + @3 /* Yes, we can meet at the Docks, if I ever need you again. */ DO ~SetGlobal("JNMONTKickedOut","GLOBAL",1) MoveGlobal("AR0300","JNMONT",[1818.3140])~ EXIT 
 + ~!AreaCheck("AR0301")
 !AreaCheck("AR0302")
 !AreaCheck("AR0303")

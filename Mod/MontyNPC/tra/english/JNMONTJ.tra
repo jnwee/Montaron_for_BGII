@@ -1,15 +1,116 @@
-// Since I am actively refining the dialogue constantly, the order in this file is not consistent.. :(
+/* =====================================
+======== Mandatory Interceptions =======
+===================================== */
 
-@0 = ~You are a...~
-@1 = ~I have no time for yer nonsense. Quit babbling lest I cut yer tongue.~
-@2 = ~A boy once had parents so cruel,
+@1000 = ~You are a...~
+@1001 = ~I have no time for yer nonsense. Quit babbling lest I cut yer tongue.~
+@1002 = ~A boy once had parents so cruel,
 They twisted his mind as a rule.
 In shadows he grew,
 With darkness he flew,
 Now mischief and death are his tools.~
-@3 = ~Shut yer trap, madman.. or you will get to see me tools soon enough.~
-@4 = ~Ye make for a powerful ally. Almost worth me respect.~
-@5 = ~You weren't lying after all. A fine sight to see him lie in the gutter.~
+@1003 = ~Shut yer trap, madman.. or you will get to see me tools soon enough.~
+@1004 = ~Ye make for a powerful ally. Almost worth me respect.~
+
+// TODO
+@87 = ~The madman truly be dead... brings me at least some joy in me misery.~
+@88 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
+@89 = ~Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself.~
+@90 = ~If only my boss hadn't took a liking to him.~
+@91 = ~You truly have no heart. You... you deserve your misery!~
+@92 = ~Ye've no idea of what I deserve girl. Now leave me be!~
+@93 = ~<CHARNAME>! I'll tell ye somethin'.~
+@94 = ~For yer and my sake... I've got one o' me tools stashed in me old hideout. Ye need go'n get it for me.~
+@95 = ~Maybe if we are in the area.~
+@96 = ~Fine. Let's go.~
+@97 = ~Ye no want me unarmed in a fight, eh?~
+@98 = ~Ye know, <CHARNAME>. It's good to have me dagger again..~
+@99 = ~But ye made a grave mistake in lettin' the fool live.~
+@100 = ~The coward's likely runnin' to me old boss right now and it won't take long until he'll come for me.~
+@101 = ~Tell me about your boss then.~
+@102 = ~I'm looking forward to it.~
+@103 = ~I have no time for your schemes right now.~
+@104 = ~Never talked to him meself.. only know him by Grimblade. Xzar did the talkin'.. I just did what I's told.~
+@105 = ~He be quite fond of Xzar, never understood why meself. Now he'll come after me for sure and it won't be a happy meetin'.~
+@106 = ~Now the scoundrel drags us into his schemes!~
+@107 = ~We will have to be careful with the Zhentarim after us. They know no honor and will most likely try to strike from the shadows.~
+@108 = ~But I would lie if I said the idea of taking down at a Zhentarim Lieutenant doesn't tempt me. Lure him in I say.~
+@109 = ~But you have neither harmed Xzar, him or the Zhentarim.. correct?~
+@110 = ~We will be ready.~
+@111 = ~He'll not see it that way.. he knew of my hatred for Xzar.. probably took joy in forcing me to work with the madman.~
+@112 = ~Besides.. ye don't just leave the Zhentarim.~
+@113 = ~You did the right thing <CHARNAME>! And don't let him tell you otherwise.~
+@114 = ~Almost reminds me of home...~
+@115 = ~Then we will be ready for him.~
+@116 = ~Ye shouldn't underestimate him <CHARNAME>.. step carefully or ye'll doom us all.~
+@117 = ~I will keep it in mind.~
+@118 = ~Let him come then. I fear nobody!~
+@119 = ~You know I rarely agree with vermin, but for once he is right <CHARNAME>. If you plan on taking him along further you should be careful.~
+@120 = ~Fool...~
+@121 = ~We be a powerful team.~
+@122 = ~Well, you're in a good mood Montaron.~
+@123 = ~There's something else you want, I presume?~
+@124 = ~Shut up. I have no time for talking.~
+@125 = ~Neither do I fool, but you'll be regreting not hearing this.~
+@126 = ~Fine. What is it?~
+@127 = ~I don't care. Keep quiet.~
+@128 = ~Whatever ye say.. now listen. I be tellin' it only once.~
+@129 = ~No, I have no time for your rambling.~
+@130 = ~Come on <CHARNAME>. Let our friend tell his story. Hard enough to get him to speak already and I want to hear it.~
+@131 = ~The righteous and noble have no need for fear of fiends, cowering in the shadows. Let them come I say.~
+@132 = ~Let them come I say. I will bash their heads so that Helm may judge them for their crimes!~
+@133 = ~Ye know.. with Xzar dead, me old boss will likely search for his killer.~
+@134 = ~<CHARNAME>! Since me fate is bound to ye now I'll tell ye something.~
+@135 = ~The coward ye left breathin' is probably runnin' to me boss right now. And once me boss hears of me breathing he'll come after me for sure.~
+@136 = ~You were right to show mercy to that unfortunate soul, <CHARNAME>. Don't let him tell you otherwise!~
+@137 = ~Me old boss'll want to know what happened to Xzar and when he finds us you'll want to be ready.~
+@138 = ~I told ye, you'll be regreting this.~
+@139 = ~(As Montaron tries to throw a dagger at you he stops moving midway and falls to the ground shaking)~
+@140 = ~AH! Aarr!~ [jnmondy]
+@141 = ~We offer the scoundrel a chance to make up for his crimes and he repays us like this! A deserved punishment he received.~
+@142 = ~The curse that was layed upon you can not be fought, my halfling friend. You will have to come to terms with your new fate.~
+@143 = ~Serves you right, insect. Though I say we kill him and be done with him <CHARNAME>.. such cruelty seems.. unnecessary.~
+@144 = ~This is horrible.. I know he can not be trusted <CHARNAME>, but noone deserves to suffer like this.~
+@146 = ~It pains me to see that this curse proves necessary. I wonder what shapes a person to become like him.~
+@147 = ~YE CRETIN! Why ye have me suffer this? This be worse than death!~
+@148 = ~Just do as you are told and this won't happen.~
+@149 = ~Are you done with your little tantrum? Can we keep going.~
+@150 = ~This is your purgatory. Accept it or suffer even more.~
+@151 = ~Ye treat me as if I be yer servant.. I be no servant!~
+@152 = ~You always have been a servant obeying the orders of your Zhentarim superiors.~
+@153 = ~As if someone of your intellect was capable of being more than a servant.~
+@154 = ~You are my servant.~
+@155 = ~Accept it or don't. It doesn't matter to me.~
+@156 = ~Ye think yourself so good, but ye be worse than me. You could have left me to rot, but instead ye torture me.~
+@157 = ~A noble cause <CHARNAME>, but I worry it is wasted on this brute.~
+@158 = ~I give you a chance to redeem yourself.~
+@159 = ~Yer cruelty be endless. Just leave me be.~
+@160 = ~As you wish.~
+@161 = ~Fine. But know that next time you try something I will take your hand.~
+@162 = ~I can take no more of yer talk. Ye knights, paladins and goody-goodies be a pest upon us all.~
+@163 = ~May ye all suffer.~
+
+
+/* =====================================
+========== Talk with Montaron ==========
+===================================== */
+
+@1 = ~<CHARNAME>! Ye promised me a dead lunatic.~
+@2 = ~Show him or you will take his place.~
+@3 = ~I'll no be played by ye any longer <CHARNAME>! You're lucky my dagger isn't with me.~
+@4 = ~I be tellin' you to make way to Xzar or ye'll not have my company for much longer.~
+@5 = ~Oh, what a dreadful future! To not have some bloodthirsty imbecile at our backs..~
+@6 = ~Shut it cretin! If I no see a dead green wizard, a red one will have to do.~
+@7 = ~Then let us make haste to some loons corpse at once <CHARNAME>. Before I have to relieve us of this cur.~
+@8 = ~I see now that ye're nothing, but a lying coward <CHARNAME>. I've no need of ye and yer lot anyway!~
+@9 = ~Why you've even been dragging him along in the first place is a mystery to me.~
+@10 = ~Anyways.. good riddance to bad rubbish.~
+
+// TODO
+
+
+@4 = ~You weren't lying after all. A fine sight to see him lie in the gutter.~
+@5 = ~One lunatic less <CHARNAME> can take in his company.~
 @6 = ~Now that it be done, I be out of a job.~
 @7 = ~Ye prove effective. I'll do yer killing if you'll have me.~
 @8 = ~<CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions.~
@@ -91,136 +192,3 @@ Now mischief and death are his tools.~
 @84 = ~No! I won't watch this happen.~
 @85 = ~A sad end to your story.~
 @86 = ~Arvoreen! Guide my blade!~ [MAZZY10]
-
-// TODO
-@87 = ~The madman truly be dead... brings me at least some joy in me misery.~
-@88 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
-@89 = ~Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself.~
-@90 = ~If only my boss hadn't took a liking to him.~
-@91 = ~You truly have no heart. You... you deserve your misery!~
-@92 = ~Ye've no idea of what I deserve girl. Now leave me be!~
-@93 = ~<CHARNAME>! I'll tell ye somethin'.~
-@94 = ~For yer and my sake... I've got one o' me tools stashed in me old hideout. Ye need go'n get it for me.~
-@95 = ~Maybe if we are in the area.~
-@96 = ~Fine. Let's go.~
-@97 = ~Ye no want me unarmed in a fight, eh?~
-@98 = ~Ye know, <CHARNAME>. It's good to have me dagger again..~
-@99 = ~But ye made a grave mistake in lettin' the fool live.~
-@100 = ~The coward's likely runnin' to me old boss right now and it won't take long until he'll come for me.~
-@101 = ~Tell me about your boss then.~
-@102 = ~I'm looking forward to it.~
-@103 = ~I have no time for your schemes right now.~
-@104 = ~Never talked to him meself.. only know him by Grimblade. Xzar did the talkin'.. I just did what I's told.~
-@105 = ~He be quite fond of Xzar, never understood why meself. Now he'll come after me for sure and it won't be a happy meetin'.~
-@106 = ~Now the scoundrel drags us into his schemes!~
-@107 = ~We will have to be careful with the Zhentarim after us. They know no honor and will most likely try to strike from the shadows.~
-@108 = ~But I would lie if I said the idea of taking down at a Zhentarim Lieutenant doesn't tempt me. Lure him in I say.~
-@109 = ~But you have neither harmed Xzar, him or the Zhentarim.. correct?~
-@110 = ~We will be ready.~
-@111 = ~He'll not see it that way.. he knew of my hatred for Xzar.. probably took joy in forcing me to work with the madman.~
-@112 = ~Besides.. ye don't just leave the Zhentarim.~
-@113 = ~You did the right thing <CHARNAME>! And don't let him tell you otherwise.~
-@114 = ~Almost reminds me of home...~
-@115 = ~Then we will be ready for him.~
-@116 = ~Ye shouldn't underestimate him <CHARNAME>.. step carefully or ye'll doom us all.~
-@117 = ~I will keep it in mind.~
-@118 = ~Let him come then. I fear nobody!~
-@119 = ~You know I rarely agree with vermin, but for once he is right <CHARNAME>. If you plan on taking him along further you should be careful.~
-@120 = ~Fool...~
-@121 = ~We be a powerful team.~
-@122 = ~Well, you're in a good mood Montaron.~
-@123 = ~There's something else you want, I presume?~
-@124 = ~Shut up. I have no time for talking.~
-@125 = ~Neither do I fool, but you'll be regreting not hearing this.~
-@126 = ~Fine. What is it?~
-@127 = ~I don't care. Keep quiet.~
-@128 = ~Whatever ye say.. now listen. I be tellin' it only once.~
-@129 = ~No, I have no time for your rambling.~
-@130 = ~Come on <CHARNAME>. Let our friend tell his story. Hard enough to get him to speak already and I want to hear it.~
-@131 = ~The righteous and noble have no need for fear of fiends, cowering in the shadows. Let them come I say.~
-@132 = ~Let them come I say. I will bash their heads so that Helm may judge them for their crimes!~
-@133 = ~Ye know.. with Xzar dead, me old boss will likely search for his killer.~
-@134 = ~<CHARNAME>! Since me fate is bound to ye now I'll tell ye something.~
-@135 = ~The coward ye left breathin' is probably runnin' to me boss right now. And once me boss hears of me breathing he'll come after me for sure.~
-@136 = ~You were right to show mercy to that unfortunate soul, <CHARNAME>. Don't let him tell you otherwise!~
-@137 = ~Me old boss'll want to know what happened to Xzar and when he finds us you'll want to be ready.~
-@138 = ~I told ye, you'll be regreting this.~
-@139 = ~(As Montaron tries to throw a dagger at you he stops moving midway and falls to the ground shaking)~
-@140 = ~AH! Aarr!~ [jnmondy]
-@141 = ~We offer the scoundrel a chance to make up for his crimes and he repays us like this! A deserved punishment he received.~
-@142 = ~The curse that was layed upon you can not be fought, my halfling friend. You will have to come to terms with your new fate.~
-@143 = ~Serves you right, insect. Though I say we kill him and be done with him <CHARNAME>.. such cruelty seems.. unnecessary.~
-@144 = ~This is horrible.. I know he can not be trusted <CHARNAME>, but noone deserves to suffer like this.~
-@145 = ~One lunatic less <CHARNAME> can take in his company.~
-@146 = ~It pains me to see that this curse proves necessary. I wonder what shapes a person to become like him.~
-@147 = ~YE CRETIN! Why ye have me suffer this? This be worse than death!~
-@148 = ~Just do as you are told and this won't happen.~
-@149 = ~Are you done with your little tantrum? Can we keep going.~
-@150 = ~This is your purgatory. Accept it or suffer even more.~
-@151 = ~Ye treat me as if I be yer servant.. I be no servant!~
-@152 = ~You always have been a servant obeying the orders of your Zhentarim superiors.~
-@153 = ~As if someone of your intellect was capable of being more than a servant.~
-@154 = ~You are my servant.~
-@155 = ~Accept it or don't. It doesn't matter to me.~
-@156 = ~Ye think yourself so good, but ye be worse than me. You could have left me to rot, but instead ye torture me.~
-@157 = ~A noble cause <CHARNAME>, but I worry it is wasted on this brute.~
-@158 = ~I give you a chance to redeem yourself.~
-@159 = ~Yer cruelty be endless. Just leave me be.~
-@160 = ~As you wish.~
-@161 = ~Fine. But know that next time you try something I will take your hand.~
-@162 = ~I can take no more of yer talk. Ye knights, paladins and goody-goodies be a pest upon us all.~
-@163 = ~May ye all suffer.~
-
-// END OF TODO
-@164 = ~Ye.. taskmaster! Why ye have me suffer like this?~
-@165 = ~What do you mean?~
-@166 = ~What suffering? You're working for me and just have a bit extra incentive to do so.~
-@167 = ~I offer you a chance. Take it or you'll be dead again soon.~
-@168 = ~Because you deserve it.~
-@169 = ~Ye bring me back from the dead just to enslave me! If ye asked nice I might have joined ye freely.~
-@170 = ~How is this different from you working for the Zhentarim?~
-@171 = ~You just work for me and when this is done I might free you.~
-@172 = ~If you're so unhappy here I can send you back to the grave right away.~
-@173 = ~I be a slave to yer lot! If ye asked nice I might have joined ye freely.~
-@174 = ~Who are ye to tell what I deserve! My potential be wasted on ye cretin.~
-@175 = ~Pah! I took orders and worked with a madman, but 'twas a bloody job. Suited me well.~
-@176 = ~I am your only chance on power now, halfling and you know it.~
-@177 = ~I give you a chance on redemption. Or do you want to go back to your deserved afterlife.~
-@178 = ~Ye have a point, taskmaster. Thinking on it doing your killing be a lot better than the alternative.~
-@179 = ~You're not only doing my killing.~
-@180 = ~What happened after your death?~
-@181 = ~Great. Now that this is settled, let us move on.~
-@182 = ~Say what ye will. To me the only matter be the killing and it be better than the torture in hell.~
-@183 = ~I no like babblin' so I be sayin' it only once!~
-@184 = ~I 'member bein' in the Abyss and some lesser demon cretin torturing me to his liking. Felt like an eternity and if I be meetin' that demon again, I'll make it regret every needle and every word he spoke!~
-@185 = ~Then ye pulled me out o' there and here I be.~
-@186 = ~You got a second chance. You should think about taking it.~
-@187 = ~You got what you deserved.~
-@188 = ~Tough luck. Let's get moving.~
-@189 = ~Pah! I'll no die again.~
-@190 = ~Sooner or later you will die. Noone is immortal.~
-@191 = ~Whatever you say.~
-@192 = ~Ye may be right. I'll be thinkin' on it.~
-@193 = ~But we be done talking now and I expect to be rid o' yer curse sometime.~
-@194 = ~With my talent, my immortality be inevitable and ye'll be rotting.~
-@195 = ~I'll happily do yer killin' for now but I expect to be rid o' yer curse sometime. Now move.~
-@196 = ~And thanks to ye, I be suffering there no longer and I'll no return to that blasted afterlife.~
-@197 = ~Right ye are. Let us find some prey.~
-@198 = ~'Tis true... ye prove effective. Maybe staying with ye ain't that bad of a deal.~
-@199 = ~Still I expect to be rid of yer curse sometime.~
-@200 = ~We will see.~
-@201 = ~Do as I say and you will be free in no time.~
-@202 = ~I can't set you free unless I am sure you won't harm anyone.~
-@203 = ~Yes we will. Now find me some prey before I get restless.~
-@204 = ~As long as there be killing. If ye make me yer butler, I'll rather be back in the Abyss. Now let us find some prey to sharpen me blade.~
-@205 = ~Ye coward! But someday you'll be dead and I'll be free. Till then... find me some prey!~
-
-@206 = ~This be a nice place <CHARNAME>. Why not stay down here, where no daylight can reach us.~
-@207 = ~Of course you say that, iblith. You wouldn't last a minute down here alone. You're pathetic, halfman.. trying to imitate the drow.~
-@208 = ~Don't you listen to him <CHARNAME>. Nothing good can come of us being down here.~
-@209 = ~Shut yer trap girl! Yer whining makes me sick.~
-@210 = ~I will be grateful when we are out of here and back under the sun. You truly need to find peace and balance in your heart, if you despise the daylight so much, you'd rather stay in this place.~
-@211 = ~Go find yer balance and stop bothering me then, ye dirtlover.~
-@212 = ~I'll not stay down here a second longer than needed.~
-@213 = ~It is nice down here, but I have to chase Irenicus.~
-@214 = ~I have important things to worry about, I have no time to talk to you.~

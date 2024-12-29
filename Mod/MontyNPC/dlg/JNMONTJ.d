@@ -22,8 +22,8 @@ IF ~!InPartySlot(LastTalkedToBy,0) Name("JNMONT",LastTalkedToBy)~ EXTERN TRGYP02
 END
 
 CHAIN TRGYP02 g1
-@0 /* You are a... */
-== JNMONTJ @1 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */
+@1000 /* You are a... */
+== JNMONTJ @1001 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */
 EXIT
 
 // Crazy Celvan
@@ -33,17 +33,17 @@ CHAIN IF WEIGHT #-1
 See("JNMONT")
 !StateCheck("JNMONT",CD_STATE_NOTVALID)
 Global("JNMONTReactionCelvan","AR0300",0)~ THEN CELVAN c1
-@2 /* A boy once had parents so cruel,
+@1002 /* A boy once had parents so cruel,
 They twisted his mind as a rule.
 In shadows he grew,
 With darkness he flew,
 Now mischief and death are his tools. */
 DO ~SetGlobal("JNMONTReactionCelvan","AR0300",1)~
-== JNMONTJ @3 /* Shut yer trap, madman.. or you will get to see me tools soon enough. */
+== JNMONTJ @1003 /* Shut yer trap, madman.. or you will get to see me tools soon enough. */
 END CELVAN 1
 
 I_C_T PLAYER1 5 JNMONTFirstSlayerChange1
-== JNMONTJ IF ~InParty("JNMONT") See("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @4 /* Ye make for a powerful ally. Almost worth me respect. */
+== JNMONTJ IF ~InParty("JNMONT") See("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1004 /* Ye make for a powerful ally. Almost worth me respect. */
 END
 
 
@@ -80,17 +80,49 @@ END
 
 /* ============ Standard ============ */
 
+/* Not going to Xzar's deathplace */
+
+CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",2)~ THEN JNMONTJ xt2
+	@1 /* <CHARNAME>! Ye promised me a dead lunatic. */
+	== JNMONTJ @2 /* Show him or you will take his place. */
+	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)~
+EXIT
+
+CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",4)~ THEN JNMONTJ xt3
+	@3 /* I'll no be played by ye any longer <CHARNAME>! You're lucky my dagger isn't with me. */
+	== JNMONJ @4 /* I be tellin' you to make way to Xzar or ye'll not have my company for much longer. */
+	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @5 /* Oh, what a dreadful future! To not have some bloodthirsty imbecile at our backs.. */
+	== JNMONTJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @6 /* Shut it cretin! If I no see a dead green wizard, a red one will have to do. */
+	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @7 /* Then let us make haste to some loons corpse at once <CHARNAME>. Before I have to relieve us of this cur. */
+	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)~
+EXIT
+
+CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",6)~ THEN JNMONTJ xt4
+	@8 /* I see now that ye're nothing, but a lying coward <CHARNAME>. I've no need of ye and yer lot anyway! */
+	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) LeaveParty() EscapeArea()~
+	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @9 /* Why you've even been dragging him along in the first place is a mystery to me. */
+	= @10 /* Anyways.. good riddance to bad rubbish. */
+EXIT
+
+// TODO
+
 
 /* Initiate Quest1 when reaching Xzar's deathplace */
 
-CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1) Global("JNMontResurrected","GLOBAL",1)~ THEN JNMONTJ xt
-	@5 /* You weren't lying after all. A fine sight to see him lie in the gutter */
-	DO ~SetGlobal("JNMONTXzarTalk","AR0300",2)~
+CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",8)~ THEN JNMONTJ xt
+	@4 /* You weren't lying after all. A fine sight to see him lie in the gutter */
+	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~
+	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @5 /* One lunatic less <CHARNAME> can take in his company. */
 	== JNMONTJ @6 /* Now that it be done, I be out o' a job. */
 	= @7 /* Ye prove effective. I'll do yer killing if you'll have me. */
+	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @88 /* Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death? */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @89 /* Pah! In me partnership with the mad wizard I murdered many. But no kill was as tempting as the lunatic himself. */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @90 /* If only me boss hadn't took a liking to him. */
+	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @91 /* You truly have no heart. You... you deserve your misery! */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @92 /* Ye've no idea of what I deserve girl. Now leave me be! */
 	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @8 /* <CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions. */
 END
-++ @9 EXTERN JNMONTJ xt.1 /* Wasn't Xzar your partner? Why are you happy about his death? */
+++ @9 EXTERN JNMONTJ xt.1 /* Xzar was your partner? Why are you happy about his death? */
 ++ @10 EXTERN JNMONTJ xt.join /* Well, let's go then. */
 ++ @12 EXTERN JNMONTJ xt.leave /* On second thought I will sleep better without you in my company. */
 
@@ -222,67 +254,8 @@ CHAIN JNMONTJ xt1.1.2.1
 	@120 /* Fool... */
 EXIT
 
-
-/* ============== Alternative =============== */
-
-
-// Initiate Quest1 after some time in the group
-
-CHAIN IF ~Global("JNMontQuest1","GLOBAL",2) Global("JNMONTVisitedXzarDeath","Global",0)~ THEN JNMONTJ xta1
-	@93 /* <CHARNAME>! I'll tell ye somethin'. */
-	= @94 /* For yer and me sake... I've got one o' me tools stashed in me and Xzar's old base. Ye need to get it for me. */
-	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
-END
-++ @95 EXTERN JNMONTJ xta1.
-++ @96 EXTERN JNMONTJ xta1.
-
-CHAIN JNMONTJ xta1.
-	@97 /* Ye'd not want yer servant lacking his weapon, eh? */
-EXIT
-
-// Talk at Xzar's place of death (instead of standard talk)
-
-CHAIN IF ~Global("JNMONTXzarTalk","AR0300",1) Global("JNMontResurrected","GLOBAL",2)~ THEN JNMONTJ xta
-	@87 /* The madman truly is dead. Brings me at least some joy in me misery. */
-	DO ~SetGlobal("JNMONTXzarTalk","AR0300",2)~
-	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @145 /* One lunatic less <CHARNAME> can take in his company. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @88 /* Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death? */
-	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @89 /* Pah! In me partnership with the mad wizard I murdered many. But no kill was as tempting as the lunatic himself. */
-	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @90 /* If only me boss hadn't took a liking to him. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @91 /* You truly have no heart. You... you deserve your misery! */
-	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @92 /* Ye've no idea of what I deserve girl. Now leave me be! */
-EXIT
-
-// Talk after retrieving Montaron's dagger
-
-CHAIN IF ~Global("JNMontVespTalk","GLOBAL",2) Global("JNMontResurrected","GLOBAL",2)~ THEN JNMONTJ xta2
-	@134 /* <CHARNAME>! There's somethin' ye'll want to know. */
-	DO ~SetGlobal("JNMontVespTalk","GLOBAL",3)~
-END
-IF ~Global("JNVESPLives","GLOBAL",1)~ EXTERN JNMONTJ xta2.1 /* Vesper lived */
-IF ~Global("JNVESPLives","GLOBAL",2)~ EXTERN JNMONTJ xta2.2 /* Vesper died */
-
-CHAIN JNMONTJ xta2.1
-	@135 /* The coward ye left breathin' is probably runnin' to me boss right now. And once me boss hears of me livin' he'll come after me for sure. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @136 /* You were right to show mercy to that unfortunate soul, <CHARNAME>. Don't let him tell you otherwise! */
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @106 /* Now the scoundrel drags us into his schemes! */
-END
-++ @101 EXTERN JNMONTJ xt1.1.1 /* Tell me about your boss then. */
-++ @102 EXTERN JNMONTJ xt1.1.2 /* I'm looking forward to it. */
-++ @103 EXTERN JNMONTJ xt1.1.2 /* I have no time for your schemes right now. */
-
-CHAIN JNMONTJ xta2.2
-	@137 /* Me old boss'll want to know what happened to Xzar and when he finds us ye'll want to be ready. */
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @106 /* Now the scoundrel drags us into his schemes! */
-END
-++ @101 EXTERN JNMONTJ xt1.1.1 /* Tell me about your boss then. */
-++ @102 EXTERN JNMONTJ xt1.1.2 /* I'm looking forward to it. */
-++ @103 EXTERN JNMONTJ xt1.1.2 /* I have no time for your schemes right now. */
-
-
 /* =====================================
 ======== Player private talks ==========
-=========== Standard route =============
 ===================================== */
 
 
@@ -416,186 +389,4 @@ END
 IF ~~ t2.1.3.2
 	SAY @72 /* Pah. Ye couldn't catch me in yer dreams and if ye did I'd have cut yer throat long before ye grabbed yer weapon. */
 	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~ EXIT
-END
-
-
-/* =====================================
-======== Player private talks ==========
-========= Alternative route ============
-===================================== */
-
-
-// Talk 2 - Montaron kind of comes to terms with his existence
-
-IF ~Global("JNMONTTalk","GLOBAL",4) Global("JNMontResurrected","GLOBAL",2)~ ta2
-	SAY @164 /* Ye.. taskmaster! Why ye have me suffer like this? */
-	IF ~~ DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~
-	++ @165 + ta2.1 /* What do you mean? */
-	++ @166 + ta2.2 /* What suffering? You're working for me and just have a bit extra incentive to do so. */
-	++ @167 + ta2.1.3 /* I offer you a chance. Take it or you'll be dead again soon. */
-	++ @168 + ta2.3 /* Because you deserve it. */
-END
-
-IF ~~ ta2.1
-	SAY @169 /* Ye bring me back from the dead just to enslave me! */
-	++ @170 + ta2.1.1 /* How is this different from you working for the Zhentarim? */
-	++ @171 + ta2.1.2 /* You just work for me and when this is done I might free you. */
-	++ @172 + ta2.1.3 /* If you're so unhappy here I can send you back to the grave right away. */
-END
-
-IF ~~ ta2.2
-	SAY @173 /* I be a slave to yer lot! If ye asked nice I might have joined ye freely. */
-	++ @170 + ta2.1.1 /* How is this different from you working for the Zhentarim? */
-	++ @171 + ta2.1.2 /* You just work for me and when this is done I might free you. */
-	++ @172 + ta2.1.3 /* If you're so unhappy here I can send you back to the grave right away. */
-END
-
-IF ~~ ta2.3
-	SAY @174 /* Who are ye to tell what I deserve! My potential be wasted on ye cretin. */
-	++ @172 + ta2.1.3 /* If you're so unhappy here I can send you back to the grave right away. */
-END
-
-IF ~~ ta2.1.1
-	SAY @175 /* Pah! I took orders and worked with a madman, but 'twas a bloody job. Suited me well. */
-	++ @176 + ta2.1.1.1 /* I am your only chance on power now, halfling and you know it. */
-	++ @177 + ta2.1.3 /* I give you a chance on redemption. Or do you want to go back to your deserved afterlife. */
-END
-
-IF ~~ ta2.1.3
-	SAY @178 /* Ye have a point, taskmaster. Thinking on it doing your killing is a lot better than the alternative. */
-	++ @179 + ta2.1.3.1 /* You're not only doing my killing. */
-	++ @180 + ta2.1.3.2 /* What happened after your death? */
-	++ @181 + ta2.1.3.3 /* Great. Now that this is settled, let us move on. */
-END
-
-IF ~~ ta2.1.3.1
-	SAY @182 /* Say what ye will. To me the only matter be the killing and it be better than the torture in hell. */
-	++ @180 + ta2.1.3.2 /* What happened after your death? */
-	++ @181 + ta2.1.3.3 /* Great. Now that this is settled, let us move on. */
-END
-
-IF ~~ ta2.1.3.2
-	SAY @183 /* I no like babblin' so I be sayin' it only once! */
-	= @184 /* I 'member bein' in the Abyss and some lesser demon cretin torturing me to his liking. Felt like an eternity and if I be meetin' that demon again, I'll make it regret every needle and every word he spoke! */
-	= @185 /* Then ye pulled me out o' there and here I be. */
-	++ @186 + ta2.1.3.2.1 /* You got a second chance. You should think about taking it. */
-	++ @187 + ta2.1.3.2.2 /* You got what you deserved. */
-	++ @188 + ta2.1.3.2.3 /* Tough luck. Let's get moving. */
-END
-
-IF ~~ ta2.1.3.2.1
-	SAY @189 /* Pah! I'll no die again. */
-	+ ~ReactionGT(Player1,3)~ + @190 + ta2.1.3.2.1.1 /* Sooner or later you will die. Noone is immortal. */
-	+ ~ReactionLT(Player1,4)~ + @190 + ta2.1.3.2.1.2 /* Sooner or later you will die. Noone is immortal. */
-	++ @191 + ta2.1.3.2.1.2 /* Whatever you say. */
-END
-
-IF ~~ ta2.1.3.2.1.1
-	SAY @192 /* Ye may be right. I'll be thinkin' on it. */
-	= @193 /* But we be done talking now and I expect to be rid o' yer curse sometime. */
-	IF ~~ DO ~IncrementGlobal("JNMontRedemption","GLOBAL",1)~ EXIT
-END
-
-IF ~~ ta2.1.3.2.1.2
-	SAY @194 /* With my talent, my immortality be inevitable and ye'll be rotting. */
-	= @195 /* I'll happily do yer killin' for now but I expect to be rid o' yer curse sometime. Now move. */
-	IF ~~ EXIT
-END
-
-IF ~~ ta2.1.3.2.2
-	SAY @196 /* And thanks to ye, I be suffering there no longer and I'll no return to that blasted afterlife. */
-	+ ~ReactionGT(Player1,3)~ + @190 + ta2.1.3.2.1.1 /* Sooner or later you will die. Noone is immortal. */
-	+ ~ReactionLT(Player1,4)~ + @190 + ta2.1.3.2.1.2 /* Sooner or later you will die. Noone is immortal. */
-	++ @191 + ta2.1.3.2.1.2 /* Whatever you say. */
-END
-
-IF ~~ ta2.1.3.2.3
-	SAY @197 /* Right ye are. Let us find some prey. */
-	IF ~~ EXIT
-END
-
-IF ~~ ta2.1.3.3
-	SAY @197 /* Right ye are. Let us find some prey. */
-	IF ~~ EXIT
-END
-
-IF ~~ ta2.1.1.1
-	SAY @198 /* 'Tis true... ye prove effective. Maybe staying with ye ain't that bad of a deal. */
-	= @199 /* Still I expect to be rid of yer curse sometime. */
-	++ @200 + ta2.1.1.1.1 /* We will see. */
-	++ @201 + ta2.1.1.1.2 /* Do as I say and you will be free in no time. */
-	++ @202 + ta2.1.1.1.3 /* I can't set you free unless I am sure you won't harm anyone. */
-END
-
-IF ~~ ta2.1.1.1.1
-	SAY @203 /* Yes we will. Now find me some prey before I get restless. */
-	IF ~~ EXIT
-END
-
-IF ~~ ta2.1.1.1.2
-	SAY @204 /* As long as there be killing. If ye make me yer butler, I'll rather be back in the Abyss. Now let us find some prey to sharpen me blade. */
-	IF ~~ EXIT
-END
-
-IF ~~ ta2.1.1.1.3
-	SAY @205 /* Ye coward! But someday you'll be dead and I'll be free. Till then... find me some prey! */
-	IF ~~ EXIT
-END
-
-
-END
-
-
-APPEND JNMONTJ
-
-// Talk 1 - Montaron doubts the geas is working
-
-CHAIN IF ~Global("JNMONTTalk","GLOBAL",2) Global("JNMontResurrected","GLOBAL",2)~ JNMONTJ ta1
-	@25 /* Ye! <CHARNAME>. */
-END
-++ @26 EXTERN JNMONTJ ta1. /* Yes? */
-
-CHAIN JNMONTJ ta1.
-	@138 /* I told ye ye'll regret this. */
-	= @139 /* (As Montaron tries to throw a dagger at you he stops moving midway and falls to the ground shaking) */
-	= @140 /* AH! Aarr! */
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @141 /* We offer the scoundrel a chance to make up for his crimes and he repays us like this! A deserved punishment he received. */
-	== YOSHJ IF ~InParty("Yoshimo") InMyArea("Yoshimo") !StateCheck("Yoshimo",CD_STATE_NOTVALID)~ THEN @142 /* The curse that was layed upon you can not be fought, my halfling friend. You will have to come to terms with your new fate. */
-	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @143 /* Serves you right, insect. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @144 /* This is horrible.. I know he can not be trusted <CHARNAME>, but noone deserves to suffer like this. */
-	== NALIAJ IF ~InParty("Nalia") InMyArea("Nalia") !StateCheck("Nalia",CD_STATE_NOTVALID)~ THEN @146 /* It pains me to see that this curse proves necessary. I wonder what shapes a person to become like him. */
-	== JNMONTJ @147 /* YE CRETIN! Why ye have me suffer this? This be worse than death! */
-END
-++ @148 EXTERN JNMONTJ ta1.1 /* Just do as you are told and this won't happen. */
-++ @149 EXTERN JNMONTJ ta1.1 /* Are you done with your little tantrum? Can we keep going. */
-++ @150 EXTERN JNMONTJ ta1.2 /* This is your purgatory. Accept it or suffer even more. */
-
-CHAIN JNMONTJ ta1.1
-	@151 /* Ye treat me as if I be yer servant.. I be no servant! */
-	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @152 /* You always have been a servant.. obeying the orders of your Zhentarim superiors. */
-	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @153 /* As if someone of your intellect was capable of being more than a servant. */
-END
-++ @154 EXTERN JNMONTJ ta1.1. /* You are my servant. */
-++ @155 EXTERN JNMONTJ ta1.1. /* Accept it or don't. It doesn't matter to me. */
-
-CHAIN JNMONTJ ta1.2
-	@156 /* Ye think yerself so good, but ye be worse than me. Ye could have left me to rot, but instead ye torture me. */
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @157 /* A noble cause <CHARNAME>, but I worry it is wasted on this brute. */
-END
-++ @158 EXTERN JNMONTJ ta1.2. /* I give you a chance to redeem yourself. */
-++ @155 EXTERN JNMONTJ ta1.1. /* Accept it or don't. It doesn't matter to me. */
-
-CHAIN JNMONTJ ta1.1.
-	@159 /* Yer cruelty knows no ends. Just leave me be. */
-	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~
-END
-++ @160 EXIT /* As you wish. */
-++ @161 EXIT /* Fine. But know that next time you try something I will take your hand. */
-
-CHAIN JNMONTJ ta1.2.
-	@162 /* I can take no more of yer talk. Ye knights, paladins and goody-goodies be a prest upon us all. */
-	= @163 /* May ye all suffer. */
-	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)~
-EXIT
-
 END
