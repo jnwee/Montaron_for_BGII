@@ -3,9 +3,9 @@ BEGIN JNVESP
 CHAIN IF ~NumberOfTimesTalkedTo(0)~ THEN JNVESP jnvesp1
 	@0 /* You... how are you here? */
 	DO ~SetGlobal("JNVESPLives","GLOBAL",0)~
-	== JNMONTJ IF ~InParty("JNMONT") InMyArea("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1 /* What're ye doin' here? Think ye can take me stuff when I'm dead, eh? Ye'll be screamin' when this's over. */
+	== JNMONTJ @1 /* What're ye doin' here? Think ye can take me stuff when I'm dead, eh? Ye'll be screamin' when this's over. */
 	== JNVESP @2 /* But I was sure! You were dead. So what harm could it do to make use of your belongings. You can't kill me anyway. Our boss wouldn't have it. */
-	== JNMONTJ IF ~InParty("JNMONT") InMyArea("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @3 /* ~Would've done the same, if I was ye. Ye just had poor luck and now ye're payin' for it, 'cause yer boss ain't my boss any longer! */
+	== JNMONTJ @3 /* ~Would've done the same, if I was ye. Ye just had poor luck and now ye're payin' for it, 'cause yer boss ain't my boss any longer! */
 	= @4 /* Now let's get to cuttin' <CHARNAME>! */
 	== JNVESP @5 /* No, please! I beg you, leave me my life and I will give you your dagger. You will never see me again, I promise. Just don't kill me please. */
 END
@@ -22,15 +22,24 @@ END
 
 CHAIN JNVESP jnvesp1.1.1
 	@13 /* I don't know, I swear. I have only seen him once, if he has orders he always sends some mage to me. Now can I ple... */
-	== JNMONTJ IF ~InParty("JNMONT") InMyArea("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @14 /* 'nough questions! Yer time's up. */
+	== JNMONTJ @14 /* 'nough questions! Yer time's up. */
 END
 ++ @15 EXTERN JNVESP jnvesp.kill /* Fine. Go ahead Montaron. */
 ++ @16 EXTERN JNVESP jnvesp1.1.1.1 /* Knock it off Montaron. Hand everything over and you're free to go. */
 
 CHAIN JNVESP jnvesp1.1.1.1
 	@17 /* Thank you my lord. */
-	DO ~AddExperienceParty(5000) SetGlobal("JNVESPLives","GLOBAL",1) DestroyItem("JNDAG01") GiveItemCreate("JNDAG01",LastTalkedToBy,0,0,0) AddJournalEntry(@1000004,QUEST_DONE) EscapeAreaNoSee()~
-	== JNMONTJ IF ~InParty("JNMONT") InMyArea("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @18 /* Fool! Now the Zhentarim'll know I'm alive and come after me for sure. */
+	DO ~ClearAllActions()
+		StartCutSceneMode()
+		AddExperienceParty(5000)
+		SetGlobal("JNVESPLives","GLOBAL",1)
+		DestroyItem("JNDAG01")
+		GiveItemCreate("JNDAG01",LastTalkedToBy,0,0,0)
+		AddJournalEntry(@1000004,QUEST_DONE)
+		EscapeAreaNoSee()
+		Wait(3)
+		EndCutSceneMode()~
+	== JNMONTJ @18 /* Fool! Now the Zhentarim'll know I'm alive and come after me for sure. */
 EXIT
 
 CHAIN JNVESP jnvesp.kill

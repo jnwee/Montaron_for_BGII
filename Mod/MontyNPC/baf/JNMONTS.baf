@@ -89,50 +89,6 @@ THEN
 		Continue()
 END
 
-/* ==========================================
-======== Standard Talks while Joined ========
-========================================== */
-
-IF
-	InParty(Myself)
-	Global("JNMONTTalk","GLOBAL",0)
-THEN
-	RESPONSE #100
-		RealSetGlobalTimer("JNMONTTimer","GLOBAL",3600)
-		SetGlobal("JNMONTTalk","GLOBAL",1)
-END
-
-IF
-	InParty(Myself)
-	RealGlobalTimerExpired("JNMONTTimer","GLOBAL")
-	See(Player1)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	CombatCounter(0)
-	!See([ENEMY])
-	OR(2)
-	Global("JNMONTTalk","GLOBAL",1)
-	Global("JNMONTTalk","GLOBAL",3)
-THEN
-	RESPONSE #100
-		IncrementGlobal("JNMONTTalk","GLOBAL",1)
-END
-
-IF
-	InParty(Myself)
-	See(Player1)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	CombatCounter(0)
-	!See([ENEMY])
-	OR(2)
-	Global("JNMONTTalk","GLOBAL",2)
-	Global("JNMONTTalk","GLOBAL",4)
-THEN
-	RESPONSE #100
-		StartDialogueNoSet(Player1)
-END
-
 /* ==============================
 ======== Scripted Talks =========
 ============================== */
@@ -221,47 +177,16 @@ THEN
 		GiveItemCreate("JNDAG01","JNVESP",0,0,0)
 END
 
-// Talk after Montaron's Dagger was retrieved
-
-IF
-	InParty(Myself)
-	Global("JNMontVespTalk","GLOBAL",0)
-	Dead("JNVESP")
-	!Global("JNVESPLives","GLOBAL",0)
-THEN
-	RESPONSE #100
-		RealSetGlobalTimer("JNMontVespTalkTimer","GLOBAL",300)
-		SetGlobal("JNMontVespTalk","GLOBAL",1)
-END
-
-IF
-	InParty(Myself)
-	RealGlobalTimerExpired("JNMontVespTalkTimer","GLOBAL")
-	See(Player1)
-	!StateCheck(Player1,CD_STATE_NOTVALID)
-	!StateCheck(Myself,CD_STATE_NOTVALID)
-	CombatCounter(0)
-	!See([ENEMY])
-	Global("JNMontVespTalk","GLOBAL",1)
-THEN
-	RESPONSE #100
-		SetGlobal("JNMontVespTalk","GLOBAL",2)
-		StartDialogueNoSet(Player1)
-END
+// Chapter 5 Talk
 
 IF
     InParty(Myself)
-    See(Player1)
-    !StateCheck(Player1,CD_STATE_NOTVALID)
-    !StateCheck(Myself,CD_STATE_NOTVALID)
-    CombatCounter(0)
-    !See([ENEMY])
     Global("Chapter","GLOBAL",%bg2_chapter_5%)
     Global("JNMONTChapter5","GLOBAL",0)
 THEN
     RESPONSE #100
         SetGlobal("JNMONTChapter5","GLOBAL",1)
-        RealSetGlobalTimer("JNMONTChapter5Timer","GLOBAL",3600)
+        RealSetGlobalTimer("JNMONTChapter5Timer","GLOBAL",1800)
 END
 
 IF
