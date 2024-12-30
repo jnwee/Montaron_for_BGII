@@ -177,6 +177,20 @@ THEN
 		GiveItemCreate("JNDAG01","JNVESP",0,0,0)
 END
 
+// Talk after Vesper is dead
+IF
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!Global("JNVESPLives","GLOBAL",0)
+	Global("JNMONTVespTalk","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("JNMONTVespTalk","GLOBAL",1)
+		StartDialogueNoSet(Player1)
+END
+	
 // Chapter 5 Talk
 
 IF

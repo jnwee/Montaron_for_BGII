@@ -51,9 +51,6 @@ END
 =========== Triggered Talks ============
 ===================================== */
 
-
-/* ============ Standard ============ */
-
 /* Not going to Xzar's deathplace */
 
 CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",2)~ THEN JNMONTJ xt2
@@ -166,6 +163,34 @@ CHAIN JNMONTJ xt.4
 	DO ~LeaveParty() EscapeArea() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
 EXIT
 
+
+/* After Vesper (Zhentarim Thief) is dead/let go */
+
+CHAIN IF ~Global("JNMONTVespTalk","GLOBAL",1)~ THEN JNMONTJ vt
+	@63 /* Finally me dagger is in my hands again! */
+END
++ ~Dead("JNVESP")~ + @64 EXTERN JNMONTJ vt.1 /* That thief. He didn't have to die. */
++ ~Dead("JNVESP")~ + @65 EXTERN JNMONTJ vt.2 /* What was that about your boss? */
++ ~!Dead("JNVESP")~ + @65 EXTERN JNMONTJ vt.3 /* What was that about your boss? */
+++ @66 EXTERN JNMONTJ vt.4 /* I'm glad you're happy. Now let us move on. */
+
+CHAIN JNMONTJ vt.1
+	@67 /* Saved us the touble of dealing with my boss. */
+END
+++ @68 EXTERN JNMONTJ vt.2 /* Who is your boss? */
+
+CHAIN JNMONTJ vt.2
+	@69 /* Doesn't matter. He'll never know I'm still alive, so let's stop wasting time and move onwards, 'fore ye annoy me again. */
+EXIT
+
+CHAIN JNMONTJ vt.3
+	@70 /* Thanks to yer foolishness you'll likely meet him soon enough. Now get a move on 'fore ye annoy me even more! */
+EXIT
+
+CHAIN JNMONTJ vt.4
+	@71 /* Agreed. */
+EXIT
+
 /* =====================================
 ============== Dialogues ===============
 ===================================== */
@@ -175,7 +200,8 @@ EXIT
 // similar to most vanilla NPCs Monty is just there for the ride
 
 
-// Underdark Talk
+/* Underdark Talk */
+
 CHAIN IF ~Global("JNMONTChapter5","GLOBAL",2)~ THEN JNMONTJ ut
     @37 /* This be a nice place <CHARNAME>. Why not stay down here, where no daylight can reach us. */
     DO ~SetGlobal("JNMONTChapter5","GLOBAL",3)~

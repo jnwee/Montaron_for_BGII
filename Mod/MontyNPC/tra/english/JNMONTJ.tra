@@ -17,6 +17,7 @@ Now mischief and death are his tools.~
 ========== Talk with Montaron ==========
 ===================================== */
 
+// Urge to visit Xzar talks
 @1 = ~<CHARNAME>! Ye promised me a dead lunatic.~
 @2 = ~Show him or you will take his place.~
 @3 = ~I'll no be played by ye any longer <CHARNAME>! You're lucky my dagger isn't with me.~
@@ -27,6 +28,8 @@ Now mischief and death are his tools.~
 @8 = ~I see now that ye're nothing, but a lying coward <CHARNAME>. I've no need of ye and yer lot anyway!~
 @9 = ~Why you've even been dragging him along in the first place is a mystery to me.~
 @10 = ~Anyways.. good riddance to bad rubbish.~
+
+// Talk on Xzar's Deathplace
 @11 = ~You weren't lying after all. The madman truly be dead! A most joyous day!~
 @12 = ~One lunatic less <CHARNAME> can take in his company.~
 @13 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
@@ -81,3 +84,14 @@ Now mischief and death are his tools.~
 @60 = ~I will bring death upon that mageling soon enough. And then I will return down here.~
 @61 = ~I knew you're mad, halfman, but this is a new low. Even for you. Why we still drag this scum along I can't begin to understand, <CHARNAME>.~
 @62 = ~Fine by me. Just make sure there be prey around.~
+
+// Talk after killing Vesper (the Zhent Thief)
+@63 = ~Finally me dagger is in my hands again!~
+@64 = ~That thief. He didn't have to die.~
+@65 = ~What was that about your boss?~
+@66 = ~I'm glad you're happy. Now let us move on.~
+@67 = ~Saved us the touble of dealing with my boss.~
+@68 = ~Who is your boss?~
+@69 = ~Doesn't matter. He'll never know I'm still alive, so let's stop wasting time and move onwards, 'fore ye annoy me again.~
+@70 = ~Thanks to yer foolishness you'll likely meet him soon enough. Now get a move on 'fore ye annoy me even more!~
+@71 = ~Agreed.~

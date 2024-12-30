@@ -5,11 +5,11 @@
 /*
 	Progress Tracking
 
-	Korgan - 1 - Standard - 1 - Alternative
-	Edwin - 1 - Standard - 1 - Alternative
-	Keldorn - 2 (Conflict) - Standard - 0 - Alternative
-	Yoshimo - 1 - Standard - 2 - Alternative
-	Aerie - 1 - Standard - 1 - Alternative
+	Korgan - 1
+	Edwin - 1
+	Keldorn - 2 (Conflict)
+	Yoshimo - 1
+	Aerie - 1
 
 	JNMONTAerieConflict Variable
 	4 = Montaron left
@@ -19,6 +19,10 @@
 */
 
 BEGIN JNBMONT
+
+/* =====================================
+================ Korgan ================
+===================================== */
 
 CHAIN IF ~
 	InParty("Korgan")
@@ -33,9 +37,13 @@ THEN BKORGAN JNMONTKorgan1
 	== BKORGAN @12 /* Ye needn't always be so moody. */
 	== JNBMONT @13 /* Yer axe be sharp, dwarf.. but yer tongue's too loose. */
 	== BKORGAN @14 /* Hah! Ye be talkin' fine.. 'Tis a bummer ye speak so little. */
-	== JNBMONT @15 /* Tell me who be my prey or leave me be. */
+	== JNBMONT @15 /* Tell me where be prey or leave me be. */
 	== BKORGAN @16 /* Aye, we'll find ye something.. I'll make sure of it! */
 EXIT
+
+/* =====================================
+================ Edwin =================
+===================================== */
 
 CHAIN IF ~
 	InParty("Edwin")
@@ -50,29 +58,13 @@ THEN JNBMONT JNMONTEdwin1
 	== JNBMONT @19 /* In battle ye might have yer worth, but a dagger to the chest while ye be sleeping sound.. */
 	== BEDWIN @20 /* You dare threaten me? Edwin Odesseiron.. I have no fear of some monkey with a blade! */
 	== BEDWIN @21 /* You are lucky my spells would be wasted on you, ignorant fool! */
-	== JNBMONT @22 /* As long as ye show effect I'd be a fool to end ye.. but if ye be lacking, you'll nae see me dagger coming. */
-	== BEDWIN IF ~Global("JNMontResurrected","GLOBAL",1)~ THEN @23 /* Pah! (Yes.. leave the lackwit believing he has the upper hand.) */
-	== BEDWIN IF ~Global("JNMontResurrected","GLOBAL",2)~ THEN @24 /* Hah! You will do no such thing, foolish halfling. Have you forgotten you are a slave to <CHARNAME>'s bidding? */
-	== JNBMONT IF ~Global("JNMontResurrected","GLOBAL",2)~ THEN @25 /*ARRR! CRETIN! Ye are nothing to me! Leave me be! */
+	== JNBMONT @22 /* As long as ye show effect I'd be a fool to end ye.. but if ye be lacking, you'll feel me dagger coming. */
+	== BEDWIN @23 /* Pah! (Yes.. leave the imbecile believing he has the upper hand.) */
 EXIT
 
-CHAIN IF ~
-	InParty("Yoshimo")
-	See("Yoshimo")
-	!StateCheck("Yoshimo",CD_STATE_NOTVALID)
-	!StateCheck("JNMONT",CD_STATE_NOTVALID)
-	Global("JNMONTYoshimo1","GLOBAL",0)~
-THEN BYOSHIM JNMONTYoshimo1
-	@27 /* I am curious Montaron. What was it like to come back from the dead? */
-	DO ~SetGlobal("JNMONTYoshimo1","GLOBAL",1)~
-	== JNBMONT IF ~Global("JNMontResurrected","GLOBAL",1)~ THEN @28 /* 'Twas a relief to be free of the torture.. of course only for seconds until I was to be imprisoned again! */
-	== JNBMONT IF ~Global("JNMontResurrected","GLOBAL",2)~ THEN @29 /* 'Twas a relief. It be a painful place. */
-	== BYOSHIM @30 /* If you truly were tortured in your afterlife, my fierce companion, maybe you should change your ways. */
-	== JNBMONT @31 /* Pah! I'll no change anything, but I will make sure I'll nae go back to that blasted place! */
-	== BYOSHIM @32 /* An ambitious goal... still one can never be too sure when death waits around the corner. */
-	== JNBMONT @33 /* Yers be a lot sooner if ye keep asking me so many damn questions! */
-	== BYOSHIM @34 /* I meant no offense, my short friend. Let us continue onwards then. */
-EXIT
+/* =====================================
+================ Aerie =================
+===================================== */
 
 CHAIN IF ~
 	InParty("Aerie")
@@ -125,6 +117,10 @@ CHAIN JNBMONT JNMONTAerie1.stay
 	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",4) LeaveParty() EscapeAreaNoSee()~
 EXIT
 
+/* =====================================
+================ Nalia =================
+===================================== */
+
 CHAIN IF ~
 	InParty("Nalia")
 	See("Nalia")
@@ -144,7 +140,7 @@ THEN JNBMONT JNMONTNalia1
 EXIT
 
 /* =====================================
-============== Standard ================
+============== Keldorn =================
 ===================================== */
 
 CHAIN IF ~
@@ -152,8 +148,7 @@ CHAIN IF ~
 	See("Keldorn")
 	!StateCheck("Keldorn",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
-	Global("JNMONTKeldorn1","GLOBAL",0)
-	Global("JNMontResurrected","GLOBAL",1)~ // If Montaron isn't forced to the player only
+	Global("JNMONTKeldorn1","GLOBAL",0)~
 THEN JNBMONT JNMONTKeldorn1
 	@0 /* Eh, <CHARNAME>! What's for dinner? */
 	DO ~SetGlobal("JNMONTKeldorn1","GLOBAL",1)~
@@ -169,8 +164,7 @@ CHAIN IF ~
 	See("Keldorn")
 	!StateCheck("Keldorn",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
-	Global("JNMONTKeldorn1","GLOBAL",1)
-	Global("JNMontResurrected","GLOBAL",1)~ // If Montaron isn't forced to the player only
+	Global("JNMONTKeldorn1","GLOBAL",1)~
 THEN BKELDOR JNMONTKeldorn2
 	@6 /* You seem ignorant to my objections towards the vile scoundral you carry with you, <CHARNAME>. Thus I will no longer stay with you to endure this insult to my honor. */
 	DO ~SetGlobal("JNMONTKeldorn1","GLOBAL",2)~
@@ -181,19 +175,38 @@ THEN BKELDOR JNMONTKeldorn2
 EXIT
 
 /* =====================================
-============ Alternative ===============
+============== Yoshimo =================
 ===================================== */
+
 
 CHAIN IF ~
 	InParty("Yoshimo")
 	See("Yoshimo")
 	!StateCheck("Yoshimo",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
-	Global("JNMONTYoshimo1","GLOBAL",1)
-	Global("JNMontResurrected","GLOBAL",2)~ // If Montaron is forced to the player only
+	Global("JNMONTYoshimo1","GLOBAL",0)~
+THEN BYOSHIM JNMONTYoshimo1
+	@27 /* I am curious Montaron. What was it like to come back from the dead? */
+	DO ~SetGlobal("JNMONTYoshimo1","GLOBAL",1)~
+	== JNBMONT @29 /* 'Twas a relief. It be a painful place. */
+	== BYOSHIM @30 /* If you truly were tortured in your afterlife, my fierce companion, maybe you should change your ways. */
+	== JNBMONT @31 /* Pah! I'll no change anything, but I will make sure I'll nae go back to that blasted place! */
+	== BYOSHIM @32 /* An ambitious goal... still one can never be too sure when death waits around the corner. */
+	== JNBMONT @33 /* Yers be a lot sooner if ye keep asking me so many damn questions! */
+	== BYOSHIM @34 /* I meant no offense, my short friend. Let us continue onwards then. */
+EXIT
+
+
+// TODO Refactor this one
+CHAIN IF ~
+	InParty("Yoshimo")
+	See("Yoshimo")
+	!StateCheck("Yoshimo",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTYoshimo2","GLOBAL",1)~
 THEN BYOSHIM JNMONTYoshimoA1
 	@26 /* Tell me my halfling friend.. how are you coming to terms with your newfound fate? */
-	DO ~SetGlobal("JNMONTYoshimo1","GLOBAL",2)~
+	DO ~SetGlobal("JNMONTYoshimo2","GLOBAL",2)~
 	== JNBMONT @27 /* I be fine as long as I be looting and cuttin' people. Still this curse be no fair! */
 	== BYOSHIM @28 /* It is indeed a tough destiny to accept. */
 	== JNBMONT @29 /* What would ye know of it, fool! */
