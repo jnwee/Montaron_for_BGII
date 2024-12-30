@@ -104,83 +104,99 @@ CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",6)~ THEN JNMONTJ xt4
 	= @10 /* Anyways.. good riddance to bad rubbish. */
 EXIT
 
-// TODO
-
-
 /* Initiate Quest1 when reaching Xzar's deathplace */
 
 CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",8)~ THEN JNMONTJ xt
-	@4 /* You weren't lying after all. A fine sight to see him lie in the gutter */
-	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1)~
-	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @5 /* One lunatic less <CHARNAME> can take in his company. */
-	== JNMONTJ @6 /* Now that it be done, I be out o' a job. */
-	= @7 /* Ye prove effective. I'll do yer killing if you'll have me. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @88 /* Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death? */
-	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @89 /* Pah! In me partnership with the mad wizard I murdered many. But no kill was as tempting as the lunatic himself. */
-	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @90 /* If only me boss hadn't took a liking to him. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @91 /* You truly have no heart. You... you deserve your misery! */
-	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @92 /* Ye've no idea of what I deserve girl. Now leave me be! */
-	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @8 /* <CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions. */
+	@11 /* You weren't lying after all. The madman truly be dead! A day like non other! */
+	DO ~IncrementGlobal("JNMONTXzarTalk","GLOBAL",1)~
+	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @12 /* One lunatic less <CHARNAME> can take in his company. */
+	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @13 /* Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death? */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @14 /* Pah! In me partnership with the mad wizard I murdered many. But no kill was as tempting as the lunatic himself. */
+	== JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @15 /* If only me boss hadn't took a liking to him. */
+	= @16 /* Now let us talk about the future <CHARNAME>. */
+	= IF ~Global("JNMONTBg1","GLOBAL",0)~ @17 /* The killing in yer company be nice. Now that I'm finally relieved of my "partner" we can join up as long as ye prove effective. */
+	= IF ~Global("JNMONTBg1","GLOBAL",1)~ @18 /* Now then.. If I remember correctly ye've lots of enemies as always <CHARNAME>? If the loot be as nice as always, I'll do what I do best for ye again. */
+	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @19 /* His partner lies dead besides us and he shows nothing but joy. Think <CHARNAME>. Why would we be any different to him? */
 END
-++ @9 EXTERN JNMONTJ xt.1 /* Xzar was your partner? Why are you happy about his death? */
-++ @10 EXTERN JNMONTJ xt.join /* Well, let's go then. */
-++ @12 EXTERN JNMONTJ xt.leave /* On second thought I will sleep better without you in my company. */
++ ~!InParty("Aerie") !InMyArea("Aerie") StateCheck("Aerie",CD_STATE_NOTVALID)~ + @20 EXTERN JNMONTJ xt.1 /* Wasn't Xzar your partner? Why are you happy about his death? */
+++ @21 EXTERN JNMONTJ xt.2 /* Very well. Let us waste no more time and get going. */
+++ @22 EXTERN JNMONTJ xt.3 /* Har HAR there Montaron! Let's move then, eh, chum? */
+++ @23 EXTERN JNMONTJ xt.4 /* On second thought. I will sleep better without you in my company. */
 
 CHAIN JNMONTJ xt.1
-	@13 /* Partners we were and wasn't a day I nae wanna slit his throat. Now that it's done me old boss will no be pleased. */
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @15 /* The poor wizard really thought he was his friend and tried to rescue him. And still he is so cold, that's just wrong.  Please don't let him stay with us <CHARNAME>. */
-	== JNMONTJ @14 /* I be tellin' you no more, now let us proceed. */
+	@14 /* Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself. */
+	== JNMONTJ @15 /* If only my boss hadn't took a liking to him. */
+	= @24 /* Enough talk of Xzar now! Let us find some prey for me blade. */
 END
-++ @16 EXTERN JNMONTJ xt.join /* Sure, let's go. */
-++ @11 EXTERN JNMONTJ xt.fight /* You deserve nothing but death. I see that now. */
-++ @12 EXTERN JNMONTJ xt.leave /* On second thought I will sleep better without you in my company. */
+++ @21 EXTERN JNMONTJ xt.2 /* Very well. Let us waste no more time and get going. */
+++ @23 EXTERN JNMONTJ xt.4 /* On second thought I will sleep better without you in my company. */
 
-CHAIN JNMONTJ xt.join
-	@17 /* Very well. Let us go to my old hideout then, I have got one of my tools there. */
-	DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@500,QUEST)~
-	== AERIEJ IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @18 /* If.. if you're sure <CHARNAME>. But I don't like this at all. */
-	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @19 /* I will not stand for this. By consorting with such a vile being you have shown me your true self. */
-	= @73 /* Clearly I was wrong about you. Rethink your decision or draw your weapon! */
-	== ANOMENJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @74 /* I will not fight against a noble knight besides such villainy. It is your choice <CHARNAME>. */
-	== AERIEJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID) InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @75 /* If... if you decide to split our group for this... this villain! I have no choice but to abandon your cause. */
+CHAIN JNMONTJ xt.2
+	@25 /* Agreed. First thing, we should get one o' me tools from my old hideout quickly. It is right around here. */
+	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @26 /* I will not stand for this. By consorting with such a vile being you have shown me your true self <CHARNAME>. */
+	= @27 /* I must ask you to reconsider your decision or I am forced to abandon your cause. */
 END
-IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN EXIT
-+ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @76 EXTERN JNMONTJ xt.keldorn1 /* I see that I have made a too rash decision. You're on your own Montaron. */
-+ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @77 EXTERN JNMONTJ xt.keldorn2 /* Try me old man! */
-+ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @78 EXTERN JNMONTJ xt.keldorn2 /* Come on, give Montaron a chance. */
+IF ~!InParty("Keldorn") !InMyArea("Keldorn") StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN DO ~SetGlobal("JNMONTVisitedXzarDeath","Global",1) AddJournalEntry(@1000002,QUEST)~ EXIT
++ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @28 EXTERN JNMONTJ xt.2.1 /* Right you are, Sir Keldorn. I was a fool not to see the obvious. You're on your own Montaron. Leave us at once. */
++ ~ReactionGT(Myself, 17) InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @29 EXTERN KELDORJ jn_xt.2.2 /* My decision is final. It might not seem wise to you Keldorn, but I ask you to trust me for now. */
++ ~!ReactionGT(Myself,17) InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @29 EXTERN KELDORJ jn_xt.2.3 /* My decision is final. It might not seem wise to you Keldorn, but I ask you to trust me for now. */
++ ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ + @30 EXTERN KELDORJ jn_xt.2.4 /* That's too bad then old man. If you force me to choose, you loose. */
 
-CHAIN JNMONTJ xt.fight
-	@20 /* Then get to cuttin'! */
-	DO ~LeaveParty() Enemy() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @21 /* A most noble decision. I salute you <CHARNAME>. */
-	== KELDORJ IF ~InParty("Keldorn") InMyArea("Keldorn") !StateCheck("Keldorn",CD_STATE_NOTVALID)~ THEN @22 /* I knew you would follow the path of rightousness <CHARNAME>. Now let us vanquish this vile creature. */
+// Montaron leaves
+CHAIN JNMONTJ xt.2.1
+	@31 /* A fool ye are, following the advice of an old man, blinded by some order. */
+	== JNMONTJ @32 /* My work is better done without yer interference anyways. */
+	DO ~SetGlobal("JNMONTKickedOut","GLOBAL",1) LeaveParty() EscapeArea()~
+	== KELDORJ @33 /* You chose right <CHARNAME>. For this I will turn a blind eye to your ealier ignorance, but in the future I expect you to follow the noble and righteous path. */
 EXIT
 
-CHAIN JNMONTJ xt.leave
-	@23 /* My work's better done alone anyway, ye cretin. */
+// Keldorn persuaded
+CHAIN KELDORJ jn_xt.2.2
+	@34 /* Your new associate makes it hard, but I have yet to find reason not to trust you. I will give him a chance to show his worth, for now. */
+	DO ~SetGlobal("JNMONTVisitedXzarDeath","GLOBAL",1) AddJournalEntry(@1000002,QUEST)~
+	== JNMONTJ @35 /* Then shut yer trap old man and get going already. */
+	== KELDORJ @36 /* You test my patience halfman! <CHARNAME>'s word only holds my hand for so long. */
+EXIT
+
+// Keldorn not persuaded
+CHAIN KELDORJ jn_xt.2.3
+	@37 /* No <CHARNAME>. Your indecision towards him is enough to show, that only one of us strives for righteousness. You will have to go on without me. */
+	DO ~LeaveParty() EscapeArea()~
+	== JNMONTJ @38 /* Tell your sermons to the other fools in your order, old man. I've no need for prayers, my skills be enough as is. */
+	DO ~SetGlobal("JNMONTVisitedXzarDeath","GLOBAL",1) AddJournalEntry(@1000002,QUEST)~
+EXIT
+
+// Keldorn leaves
+CHAIN KELDORJ jn_xt.2.4
+	@39 /* There will come a time when you will regret your choices in life <CHARNAME>. */
+	== KELDORJ @40 /* May we never meet again, though if we should, I reckon it will be at odds. */
+	DO ~LeaveParty() EscapeArea()~
+	== JNMONTJ @41 /* I await the day me blade spills yer blood old fool. Better be runnin' while ye're able. */
+	DO ~SetGlobal("JNMONTVisitedXzarDeath","GLOBAL",1) AddJournalEntry(@1000002,QUEST)~
+EXIT
+
+CHAIN JNMONTJ xt.3
+	@42 /* I'll be damned! This be the last time ye ever recite the madman or next time I'll make sure it is. */
+END
+++ @21 EXTERN JNMONTJ xt.2 /* Very well. Let us waste no more time and get going. */
+++ @43 EXTERN JNMONTJ xt.3.1 /* Oh, come on, Montaron. Must you be so moody all the time. */
+
+CHAIN JNMONTJ xt.3.1
+	@44 /* A madman ye are! May ye suffer for all eternity, prat! */
 	DO ~LeaveParty() EscapeArea() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @24 /* Off with you now, vile scoundrel! Our most noble band has no place for lowly scum as you are. */
+	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @45 /* Have you truly gone mad <CHARNAME>? Did we bring the Zhent spy back just for your amusement? I hope you advise with me, the next time you have a similar idea. */
 EXIT
 
-// Conflict with Keldorn
-
-CHAIN JNMONTJ xt.keldorn1
-	@80 DO ~LeaveParty() EscapeArea()~ /* Fine ye coward! Ye'll see no more o' me. */
-	== KELDORJ @79 /* I will forgive you and account this mistake to ignorance, but for the future I expect you to have learned your lesson. */
+CHAIN JNMONTJ xt.4
+	@46 /* Find someone else to do yer killin' then. My work be better done alone anyway. */
+	DO ~LeaveParty() EscapeArea() SetGlobal("JNMONTKickedOut","GLOBAL",1)~
 EXIT
 
-CHAIN JNMONTJ xt.keldorn2
-	@82 /* We've no need of ye anyway, old man. */
-	== KELDORJ @81 DO ~LeaveParty() Enemy()~ /* A poor choice and you will face the consequences right now. */
-	== ANOMENJ IF ~InParty("Anomen") InMyArea("Anomen") !StateCheck("Anomen",CD_STATE_NOTVALID)~ THEN @83 DO ~LeaveParty() Enemy()~ /* I will show no mercy to evil.	*/
-	== AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @84 DO ~LeaveParty() EscapeArea()~ /* No! I won't watch this happen. */
-	== JAHEIRAJ IF ~InParty("Jaheira") InMyArea("Jaheira") !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @85 DO ~LeaveParty() Enemy()~ /* A sad end to your story. */
-	== MAZZYJ IF ~InParty("Mazzy") InMyArea("Mazzy") !StateCheck("Mazzy",CD_STATE_NOTVALID)~ THEN @86 DO ~LeaveParty() Enemy()~ /* Arvoreen! Guide my blade! */
-EXIT
+// TODO
 
 // Talk after retrieving Montaron's dagger
 
-CHAIN IF ~Global("JNMontVespTalk","GLOBAL",2) Global("JNMontResurrected","GLOBAL",1)~ THEN JNMONTJ xt1
+CHAIN IF ~Global("JNMontVespTalk","GLOBAL",2)~ THEN JNMONTJ xt1
 	@98 /* Ye know, <CHARNAME>. It's good to have me dagger again.. */
 	DO ~SetGlobal("JNMontVespTalk","GLOBAL",3)~
 END

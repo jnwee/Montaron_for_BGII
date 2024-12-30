@@ -95,18 +95,18 @@ COMPILE ~MontyNPC/baf/JNMBODY~
 COMPILE ~MontyNPC/baf/JNMONTS~
 COMPILE ~MontyNPC/baf/JNVESPS~
 
-ADD_JOURNAL @500 @501 @502 USING ~MontyNPC/tra/%LANGUAGE%/SETUP.tra~
+ADD_JOURNAL @1000002 @1000003 @1000004 USING ~MontyNPC/tra/%LANGUAGE%/SETUP.tra~
 
 COPY ~MontyNPC/itm/JNDAG01.itm~ ~override/JNDAG01.itm~
-	SAY NAME1 @1000
-	SAY NAME2 @1000
-	SAY UNIDENTIFIED_DESC @1001
-	SAY DESC @1002
+	SAY NAME1 @1000005
+	SAY NAME2 @1000006
+	SAY UNIDENTIFIED_DESC @1000007
+	SAY DESC @1000007
 	
 COPY ~MontyNPC/itm/JNSCRL1.itm~ ~override/JNSCRL1.itm~
-	SAY NAME1 @1003
-	SAY NAME2 @1003
-	SAY DESC @1004
+	SAY NAME1 @1000008
+	SAY NAME2 @1000008
+	SAY DESC @1000009
 	
 // Modify Docks Area to spawn Montarons Corpse and prevent his standard spawning script
 
@@ -145,7 +145,7 @@ BEGIN @1000001 /* Realistic sharper portrait for Montaron (by NolSol on NexusMod
 COPY ~MontyNPC/bmp/MONTYM.bmp~ ~override/MONTARM.bmp~
 COPY ~MontyNPC/bmp/MONTYL.bmp~ ~override/MONTARL.bmp~
 
-BEGIN @1000002 /* Portraits for new NPCs (besides Montaron) */
+BEGIN @1000010 /* Portraits for new NPCs (besides Montaron) */
 
 COPY ~MontyNPC/bmp/JNVESPM.bmp~ ~override/JNVESPM.bmp~
 COPY ~MontyNPC/bmp/JNVESPL.bmp~ ~override/JNVESPL.bmp~

@@ -13,12 +13,7 @@ Now mischief and death are his tools.~
 @1004 = ~Ye make for a powerful ally. Almost worth me respect.~
 
 // TODO
-@87 = ~The madman truly be dead... brings me at least some joy in me misery.~
-@88 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
-@89 = ~Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself.~
-@90 = ~If only my boss hadn't took a liking to him.~
-@91 = ~You truly have no heart. You... you deserve your misery!~
-@92 = ~Ye've no idea of what I deserve girl. Now leave me be!~
+
 @93 = ~<CHARNAME>! I'll tell ye somethin'.~
 @94 = ~For yer and my sake... I've got one o' me tools stashed in me old hideout. Ye need go'n get it for me.~
 @95 = ~Maybe if we are in the area.~
@@ -105,22 +100,45 @@ Now mischief and death are his tools.~
 @8 = ~I see now that ye're nothing, but a lying coward <CHARNAME>. I've no need of ye and yer lot anyway!~
 @9 = ~Why you've even been dragging him along in the first place is a mystery to me.~
 @10 = ~Anyways.. good riddance to bad rubbish.~
+@11 = ~You weren't lying after all. The madman truly be dead! A most joyous day!~
+@12 = ~One lunatic less <CHARNAME> can take in his company.~
+@13 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
+@14 = ~Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself.~
+@15 = ~If only my boss hadn't took a liking to him.~
+@16 = ~Now let us talk about the future <CHARNAME>.~
+@17 = ~The killing in yer company be nice. Now that I'm finally relieved of my "partner" we can join up as long as ye prove effective.~
+@18 = ~If I remember correctly ye've lots of enemies as always <CHARNAME>? If the loot be as nice as always, I'll do what I do best for ye again.~
+@19 = ~His partner lies dead besides us and he shows nothing but joy. Think <CHARNAME>. Why would we be any different to him?~
+@20 = ~Wasn't Xzar your partner? Why are you happy about his death?~
+@21 = ~Very well. Let us waste no more time and get going.~
+@22 = ~Har HAR there Montaron! Let's move then, eh, chum?~
+@23 = ~On second thought. I will sleep better without you in my company.~
+@24 = ~Enough talk of Xzar now! Let us find some prey for me blade.~
+@25 = ~Agreed. First thing, we should get one o' me tools from my old hideout quickly. It is right around here.~
+@26 = ~I will not stand for this. Trusting this vile creature at our backs is madness!~
+@27 = ~I must ask you to reconsider your decision or I am forced to abandon your cause.~
+@28 = ~Right you are, Sir Keldorn. I was a fool not to see the obvious. You're on your own Montaron. Leave us at once.~
+@29 = ~My decision is final. It might not seem wise to you Keldorn, but I ask you to trust me for now.~
+@30 = ~That's too bad then old man. If you force me to choose, you loose.~
+@31 = ~A fool ye are, following the advice of an old man, blinded by some order.~
+@32 = ~My work is better done without yer interference anyways.~
+@33 = ~You chose right <CHARNAME>. For this I will turn a blind eye to your ealier ignorance, but in the future I expect you to follow the noble and righteous path.~
+@34 = ~Your new associate makes it hard, but I have yet to find reason not to trust you. I will give him a chance to show his worth, for now.~
+@35 = ~Then shut yer trap old man and get going already.~
+@36 = ~You test my patience halfman! <CHARNAME>'s word only holds my hand for so long.~
+@37 = ~No <CHARNAME>. Your indecision towards him is enough to show, that only one of us strives for righteousness. You will have to go on without me.~
+@38 = ~Tell your sermons to the other fools in your order, old man. I've no need for prayers, my skills be enough as is.~
+@39 = ~There will come a time when you will regret your choices in life <CHARNAME>.~
+@40 = ~May we never meet again, though if we should, I reckon it will be at odds.~
+@41 = ~I await the day me blade spills yer blood old fool. Better be runnin' while ye're able.~
+@42 = ~I'll be damned! This be the last time ye ever recite the madman or next time I'll make sure it is.~
+@43 = ~Oh, come on, Montaron. Must you be so moody all the time.~
+@44 = ~A madman ye are! May ye suffer for all eternity, prat!~
+@45 = ~Have you truly gone mad <CHARNAME>? Did we bring the Zhent spy back just for your amusement? I hope you advise with me, the next time you have a similar idea.~
+@46 = ~Find someone else to do yer killin' then. My work be better done alone anyway.~
 
-// TODO
 
-
-@4 = ~You weren't lying after all. A fine sight to see him lie in the gutter.~
-@5 = ~One lunatic less <CHARNAME> can take in his company.~
-@6 = ~Now that it be done, I be out of a job.~
-@7 = ~Ye prove effective. I'll do yer killing if you'll have me.~
-@8 = ~<CHARNAME>, I must question your judgement in character. There is darkness in him that cannot be ignored. I urge you to take a close look at him before making rash decisions.~
-@9 = ~Wasn't Xzar your partner? Why are you happy about his death?~
-@10 = ~Well, let's go then.~
-@11 = ~You deserve nothing but death. I see that now.~
-@12 = ~On second thought I will sleep better without you in my company.~
-@13 = ~Partners we were and wasn't a day I nae wanna slit his throat. Now that it's done me old boss will no be pleased.~
-@14 = ~I be tellin' you no more, now let us proceed.~
-@15 = ~The poor wizard really thought he was his friend and tried to rescue him. And still he is so cold, that's just wrong.  Please don't let him stay with us <CHARNAME>.~
+// Legacy
 @16 = ~Sure, let's go.~
 @17 = ~Very well. Let us go to my old hideout then, I have got one of my tools there.~
 @18 = ~If.. if you're sure <CHARNAME>. But I don't like this at all.~ [AERIE32]

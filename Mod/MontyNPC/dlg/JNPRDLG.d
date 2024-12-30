@@ -17,7 +17,7 @@ IF ~~ THEN BEGIN JNRM1.res
 	SAY @5 /* Thank you for your contribution. I will get to work right now. */
 	IF ~~ DO ~ClearAllActions()
 	StartCutSceneMode()
-	SetGlobal("JNMontResurrected","GLOBAL",1)
+	SetGlobal("JNMONTResurrected","GLOBAL",1)
 	TakePartyItem("MISC5U")
 	DestroyItem("MISC5U")
 	FadeToColor([30.0],0)
@@ -65,7 +65,7 @@ IF ~~ THEN BEGIN JNRM2.res
 	SAY @5 /* Thank you for you contribution. I will get to work right now. */
 	IF ~~ DO ~ClearAllActions()
 	StartCutSceneMode()
-	SetGlobal("JNMontResurrected","GLOBAL",1)
+	SetGlobal("JNMONTResurrected","GLOBAL",1)
 	TakePartyItem("MISC5U")
 	DestroyItem("MISC5U")
 	FadeToColor([30.0],0)
@@ -113,7 +113,7 @@ IF ~~ THEN BEGIN JNRM3.res
 	SAY @5 /* Thank you for you contribution. I will get to work right now. */
 	IF ~~ DO ~ClearAllActions()
 	StartCutSceneMode()
-	SetGlobal("JNMontResurrected","GLOBAL",1)
+	SetGlobal("JNMONTResurrected","GLOBAL",1)
 	TakePartyItem("MISC5U")
 	DestroyItem("MISC5U")
 	FadeToColor([30.0],0)
@@ -160,7 +160,7 @@ IF ~~ THEN BEGIN JNRM4.res
 	SAY @5 /* Thank you for you contribution. I will get to work right now. */
 	IF ~~ DO ~ClearAllActions()
 	StartCutSceneMode()
-	SetGlobal("JNMontResurrected","GLOBAL",1)
+	SetGlobal("JNMONTResurrected","GLOBAL",1)
 	TakePartyItem("MISC5U")
 	TakePartyGold(1000)
 	DestroyItem("MISC5U")
@@ -197,7 +197,7 @@ IF ~~ THEN BEGIN JNRM5.res
 	SAY @5 /* Thank you for you contribution. I will get to work right now. */
 	IF ~~ DO ~ClearAllActions()
 	StartCutSceneMode()
-	SetGlobal("JNMontResurrected","GLOBAL",1)
+	SetGlobal("JNMONTResurrected","GLOBAL",1)
 	TakePartyItem("MISC5U")
 	DestroyItem("MISC5U")
 	FadeToColor([30.0],0)

@@ -38,29 +38,33 @@ He works grudgingly with Xzar, even though he obviously despises the man. Whoeve
 @41 = ~Do not make light of me.~ [jnmonhs]
 @42 = ~Soo stupid!~ [jnmonsf]
 
+@1000000 = ~ToB needs to be installed.~
+@1000001 = ~Realistic sharper portrait for Montaron (by NolSol on NexusMods)~
+@1000010 = ~Portraits for new NPCs (besides Montaron)~
+
 //Quests (Journal Entries) related to Montaron in BG2
 
-@500 = ~Montaron's Equipment
+@1000002 = ~Montaron's Equipment
 
 Montaron lost all of his equipment when he died to the Harpers.
-Now we need to go to Xzar's old base to get one of his tools he stashed there.~
+Now we need to go to his and Xzar's old base in the Docks to get one of his tools he stashed there.~
 
 //Evil
-@501 = ~Montaron's Equipment
+@1000003 = ~Montaron's Equipment
 
 Upon entering Xzar's old base we walked into a Zhentarim Thief looting the place.
 We killed the Thief and retrieved Montaron's Dagger.~
 
 // Good
-@502 = ~Montaron's Equipment
+@1000004 = ~Montaron's Equipment
 
 Upon entering Xzar's old base we walked into a Zhentarim Thief looting the place.
 We let the Thief go upon taking Montaron's Dagger from him.~
 
 // Items related to Montaron
 
-@1000 = ~Montaron's Dagger~
-@1001 = ~This is one of Montaron's "tools" as he calls them lovingly.
+@1000005 = ~Montaron's Dagger~
+@1000006 = ~This is one of Montaron's "tools" as he calls them lovingly.
 
 STATISTICS:
 
@@ -69,7 +73,7 @@ Requires:
 
 Weight: 2~
 
-@1002 = ~This is one of Montaron's "tools" as he calls them lovingly.
+@1000007 = ~This is one of Montaron's "tools" as he calls them lovingly.
 
 STATISTICS:
 
@@ -86,11 +90,8 @@ Requires:
 
 Weight: 2~
 
-@1003 = ~Harper Orders~
+@1000008 = ~Harper Orders~
 
-@1004 = ~This was the fool trying to spy on us, exactly how we planned it. According to our information he is not too high up in the Zhentarim and we only needed him to get to his partner, who is hopefully dead as you read this. Make sure to dump his body far out in the sea, since we have decided not to desecrate him.
+@1000009 = ~This was the fool trying to spy on us, exactly how we planned it. According to our information he is not too high up in the Zhentarim and we only needed him to get to his partner, who is hopefully dead as you read this. Make sure to dump his body far out in the sea, since we saw no need to take extra measures ensuring he won't come back.
 
 R.~
-
-@1000000 = ~ToB needs to be installed.~
-@1000001 = ~Realistic sharper portrait for Montaron (by NolSol on NexusMods)~

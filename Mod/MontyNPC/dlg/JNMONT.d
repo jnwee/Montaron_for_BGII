@@ -20,7 +20,7 @@ END
 CHAIN JNMONT m1
 	@10 /* I remember you. Want me dagger back at your side, eh? */
 	== JNMONT @11 /* Tough first tell me, where be Xzar? I'll no longer suffer the fool! */
-	DO ~SetGlobal("JNMontBg1","GLOBAL",1)~
+	DO ~SetGlobal("JNMONTBg1","GLOBAL",1)~
 END
 ++ @12 EXTERN JNMONT m1.1 /* He's dead. */
 ++ @13 EXTERN JNMONT m1.2 /* I killed him. */
@@ -55,7 +55,7 @@ END
 CHAIN JNMONT m2
 	@25 /* Keep yer distance, I no trust ye. */
 	== JNMONT @26 /* Now tell me.. where be a certain mad wizard in green robes and I will be on my way. */
-	DO ~SetGlobal("JNMontBg1","GLOBAL",0)~
+	DO ~SetGlobal("JNMONTBg1","GLOBAL",0)~
 END
 ++ @27 EXTERN JNMONT m1.2 /* Xzar? I killed him. */
 ++ @28 EXTERN JNMONT m1.1 /* Xzar? He's dead. */

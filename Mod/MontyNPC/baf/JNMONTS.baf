@@ -1,12 +1,12 @@
 
 /*
-JNMontBg1 = 1 means Montaron traveled with the player in BG1
-JNMontBg1 = 0 means he didn't
+JNMONTBg1 = 1 means Montaron traveled with the player in BG1
+JNMONTBg1 = 0 means he didn't
 
-JNMontRedemption can be increased and at a certain point allows for a different ending for Montaron
+JNMONTRedemption can be increased and at a certain point allows for a different ending for Montaron
 currently it can at max get 1
 
-JNMontResurrected == 1 set in Priest Dialogue, use maybe for ToB?
+JNMONTResurrected == 1 set in Priest Dialogue, use maybe for ToB?
 */
 
 IF
