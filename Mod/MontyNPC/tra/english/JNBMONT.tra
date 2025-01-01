@@ -35,10 +35,10 @@
 
 @35 = ~Stop walking behind me!~
 @36 = ~Be ye scared? Why ye even travel with us be a mystery to me.~
-@37 = ~<CHARNAME>! Can't you see he will kill us the moment it benefits him. Please make him go away.~
+@37 = ~<CHARNAME>! Can't you see? He will betray us the moment it benefits him. Please make him leave.~
 @38 = ~Cease yer prattle girl or me dagger will silence ye.~
 @39 = ~See <CHARNAME>!~
-@40 = ~Fear not Aerie! Me and Boo will keep a sharp eye on the small villain.~
+@40 = ~Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain.~
 @41 = ~Calm down Aerie, I will make sure no harm comes to you.~
 @42 = ~If you can't stand your ground you shouldn't be part of this group.~
 @43 = ~You are right Aerie. I will sleep a lot better without your company Montaron, leave at once.~
@@ -46,12 +46,12 @@
 @45 = ~Watch it villain! Boo knows the smell of treachery and which butt needs kicking!~
 @46 = ~Ye be truly lost madman, keep yer distance from me!~
 @47 = ~Thank you Minsc, with you at my side I feel a lot better already.~
-@48 = ~I do not like this, but I trust you <CHARNAME>. Let us continue.~
+@48 = ~I do not like this, but I trust you <CHARNAME>. I am sorry for my outburst. We can continue now.~
 @49 = ~You say that, but you choose to surround yourself with such evil. I'm sorry <CHARNAME>, but I can't keep going like this.~
 @50 = ~You will have to go on without me.~
 @51 = ~Finally I be rid of that whiny wench!~
 @52 = ~I did not expect you to be so cold <CHARNAME>. You will see no more of me.~
-@53 = ~Keep the whiny girl with ye then. You'll meet yer end with these weaklings soon enough.~
+@53 = ~Keep the whiny girl with ye then. You'll meet your end with these weaklings soon enough.~
 
 @54 = ~Pretender girl, listen 'ere!~
 @55 = ~Are you talking to me?~
@@ -61,3 +61,15 @@
 @59 = ~Unlike ye, I be a natural. If ye'd not talk so much, maybe ye could even reach a small portion of my talent.~
 @60 = ~You are lying to me as you are lying to yourself, halfling. You obviously suffer and you choose to blame the world for it.~
 @61 = ~Pah! Ye be foolish to talk to me as such. Now sod off, 'fore me blade slips.~
+
+@62 = ~Do you have family somewhere, Montaron?~
+@63 = ~Shut it girl!~
+@64 = ~You must have parents. Are they still alive?~
+@65 = ~I told ye to cut it out!~
+@66 = ~Come on. Tell me something and I'll stop bothering you.~
+@67 = ~I'll tell ye, but if ye bother me again I'll cut yer tongue.~
+@68 = ~My family be dead, except I've a brother somewhere.~
+@69 = ~What happened to your fam..~
+@70 = ~I'll put ye in a grave if ye press on!~
+@71 = ~Fine.. fine.~
+@72 = ~He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him.~

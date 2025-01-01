@@ -10,6 +10,7 @@
 	Keldorn - 2 (Conflict)
 	Yoshimo - 1
 	Aerie - 1
+	Nalia - 2
 
 	JNMONTAerieConflict Variable
 	4 = Montaron left
@@ -76,10 +77,10 @@ THEN BAERIE JNMONTAerie1
 	@35 /* Stop walking behind me! */
 	DO ~SetGlobal("JNMONTAerie1","GLOBAL",1)~
 	== JNBMONT @36 /* Be ye scared? Why ye even travel with us be a mystery to me. */
-	== BAERIE @37 /* <CHARNAME>! Can't you see he will kill us the moment it benefits him. Please make him go away. */
+	== BAERIE @37 /* <CHARNAME>! Can't you see? He will betray us the moment it benefits him. Please make him leave. */
 	== JNBMONT @38 /* Cease yer prattle girl or me dagger will silence ye. */
 	== BAERIE @39 /* See <CHARNAME>! */
-	== BMINSC IF ~InParty("Minsc") InMyArea("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @40 EXTERN JNBMONT JNMONTAerie1Misnc /* Fear not Aerie! Me and Boo will keep a sharp eye on the small villain. */
+	== BMINSC IF ~InParty("Minsc") InMyArea("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @40 EXTERN JNBMONT JNMONTAerie1Misnc /* Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain. */
 END
 + ~ReputationGT(Player1,15)~ + @41 EXTERN BAERIE JNMONTAerie1.good /* Calm down Aerie, I will make sure no harm comes to you. */
 + ~ReputationLT(Player1,16)~ + @41 EXTERN BAERIE JNMONTAerie1.bad /* Calm down Aerie, I will make sure no harm comes to you. */
@@ -95,7 +96,7 @@ CHAIN JNBMONT JNMONTAerie1Misnc
 EXIT
 
 CHAIN BAERIE JNMONTAerie1.good
-	@48 /* I do not like this, but I trust you <CHARNAME>. Let us continue. */
+	@48 /* I do not like this, but I trust you <CHARNAME>. I am sorry for my outburst. We can continue now. */
 	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",2)~
 EXIT
 
@@ -113,7 +114,7 @@ CHAIN BAERIE JNMONTAerie1.leave
 EXIT
 
 CHAIN JNBMONT JNMONTAerie1.stay
-	@53 /* Keep the whiny girl with ye then. You'll meet yer end with these weaklings soon enough. */
+	@53 /* Keep the whiny girl with ye then. You'll meet your end with these weaklings soon enough. */
 	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",4) LeaveParty() EscapeAreaNoSee()~
 EXIT
 
@@ -128,7 +129,7 @@ CHAIN IF ~
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
 	Global("JNMONTNalia1","GLOBAL",0)~
 THEN JNBMONT JNMONTNalia1
-	@54 /* Charlatan girl, listen 'ere! */
+	@54 /* Pretender girl, listen 'ere! */
 	DO ~SetGlobal("JNMONTNalia1","GLOBAL",1)~
 	== BNALIA @55 /* Are you talking to me? */
 	== JNBMONT @56 /* Yes! Ye and yer noble goals. Instead of babblin' so much, ye could be of use for once. */
@@ -138,6 +139,38 @@ THEN JNBMONT JNMONTNalia1
 	== BNALIA @60 /* You are lying to me as you are lying to yourself, halfling. You obviously suffer and you choose to blame the world for it. */
 	== JNBMONT @61 /* Pah! Ye be foolish to talk to me as such. Now sod off, 'fore me blade slips. */
 EXIT
+
+CHAIN IF ~
+	InParty("Nalia")
+	See("Nalia")
+	!StateCheck("Nalia",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTNalia2","GLOBAL",0)~
+THEN BNALIA JNMONTNalia2
+	@62 /* Do you have family somewhere, Montaron? */
+	DO ~SetGlobal("JNMONTNalia1","GLOBAL",1)~
+	== JNBMONT @63 /* Shut it girl! */
+	== BNALIA @64 /* You must have parents. Are they still alive? */
+	== JNBMONT @65 /* I told ye to cut it out! */
+	== BNALIA @66 /* Come on. Tell me something and I'll stop bothering you. */
+	== JNBMONT @67 /* I'll tell ye, but if ye bother me again I'll cut yer tongue. */
+	= @68 /* My family be dead, except I've a brother somewhere. */
+	== BNALIA @69 /* What happened to your fam.. */
+	== JNBMONT @70 /* I'll put ye in a grave if ye press on! */
+	== BNALIA @71 /* Fine.. fine. */
+	== BKORGAN IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @72 /* He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him. */
+EXIT
+
+CHAIN IF ~
+	InParty("Nalia")
+	See("Nalia")
+	!StateCheck("Nalia",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTNalia2","GLOBAL",1)~
+THEN BNALIA JNMONTNalia2.1
+	DO ~SetGlobal("JNMONTNalia1","GLOBAL",2)~
+EXIT
+
 
 /* =====================================
 ============== Keldorn =================
@@ -194,24 +227,4 @@ THEN BYOSHIM JNMONTYoshimo1
 	== BYOSHIM @32 /* An ambitious goal... still one can never be too sure when death waits around the corner. */
 	== JNBMONT @33 /* Yers be a lot sooner if ye keep asking me so many damn questions! */
 	== BYOSHIM @34 /* I meant no offense, my short friend. Let us continue onwards then. */
-EXIT
-
-
-// TODO Refactor this one
-CHAIN IF ~
-	InParty("Yoshimo")
-	See("Yoshimo")
-	!StateCheck("Yoshimo",CD_STATE_NOTVALID)
-	!StateCheck("JNMONT",CD_STATE_NOTVALID)
-	Global("JNMONTYoshimo2","GLOBAL",1)~
-THEN BYOSHIM JNMONTYoshimoA1
-	@26 /* Tell me my halfling friend.. how are you coming to terms with your newfound fate? */
-	DO ~SetGlobal("JNMONTYoshimo2","GLOBAL",2)~
-	== JNBMONT @27 /* I be fine as long as I be looting and cuttin' people. Still this curse be no fair! */
-	== BYOSHIM @28 /* It is indeed a tough destiny to accept. */
-	== JNBMONT @29 /* What would ye know of it, fool! */
-	== BYOSHIM @30 /* You needn't be rude, my fierce friend. I once knew someone suffering the same. */
-	== JNBMONT @31 /* Then tell me.. how'd his curse end? */
-	== BYOSHIM @32 /* I'm afraid I can not tell you. I've lost track of him some time ago. */
-	== JNBMONT @33 /* Pah! Useless swindler! */
 EXIT
