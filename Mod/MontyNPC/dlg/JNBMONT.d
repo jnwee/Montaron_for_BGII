@@ -133,7 +133,7 @@ THEN JNBMONT JNMONTNalia1
 	DO ~SetGlobal("JNMONTNalia1","GLOBAL",1)~
 	== BNALIA @55 /* Are you talking to me? */
 	== JNBMONT @56 /* Yes! Ye and yer noble goals. Instead of babblin' so much, ye could be of use for once. */
-	= @57 /* Ye be unable to pick a basic lock or find a trap if it hit yer pretty face. */
+	= @57 /* Ye be unable to pick a basic lock or find a trap if it sat on yer pretty face. */
 	== BNALIA @58 /* I have done nothing to you and yet you insult me. Tell me halfling what caused you to be as you are? */
 	== JNBMONT @59 /* Unlike ye, I be a natural. If ye'd not talk so much, maybe ye could even reach a small portion of my talent. */
 	== BNALIA @60 /* You are lying to me as you are lying to yourself, halfling. You obviously suffer and you choose to blame the world for it. */
@@ -148,7 +148,7 @@ CHAIN IF ~
 	Global("JNMONTNalia2","GLOBAL",0)~
 THEN BNALIA JNMONTNalia2
 	@62 /* Do you have family somewhere, Montaron? */
-	DO ~SetGlobal("JNMONTNalia1","GLOBAL",1)~
+	DO ~SetGlobal("JNMONTNalia2","GLOBAL",1)~
 	== JNBMONT @63 /* Shut it girl! */
 	== BNALIA @64 /* You must have parents. Are they still alive? */
 	== JNBMONT @65 /* I told ye to cut it out! */
@@ -168,7 +168,7 @@ CHAIN IF ~
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
 	Global("JNMONTNalia2","GLOBAL",1)~
 THEN BNALIA JNMONTNalia2.1
-	DO ~SetGlobal("JNMONTNalia1","GLOBAL",2)~
+	DO ~SetGlobal("JNMONTNalia2","GLOBAL",2)~
 EXIT
 
 
