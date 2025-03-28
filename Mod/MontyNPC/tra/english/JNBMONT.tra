@@ -4,7 +4,7 @@
 @3 = ~You dare to insult me. I have seen and heard enough!~
 @4 = ~Send him on his way at once <CHARNAME>.. or even better join me to send him to his grave, or I will no longer keep you company!~
 @5 = ~I have no equal, old man. Ye'll regret putting this ultimatum on yerself.~
-@6 = ~You seem ignorant to my objections towards the vile scoundral you carry with you, <CHARNAME>. Thus I will no longer stay with you to endure this insult to my honor.~
+@6 = ~You seem ignorant to my objections towards the vile scoundrel you carry with you, <CHARNAME>. Thus I will no longer stay with you to endure this insult to my honor.~
 @7 = ~Hah! Flee ye coward. We've no need of an old fool.~
 @8 = ~I can only pray that you come to your senses, <CHARNAME>.~
 @9 = ~May we never meet again.~
@@ -22,8 +22,9 @@
 @19 = ~In battle ye might have yer worth, but a dagger to the chest while ye be sleeping sound..~
 @20 = ~You dare threaten me? Edwin Odesseiron.. I have no fear of some monkey with a blade!~
 @21 = ~You are lucky my spells would be wasted on you, ignorant fool!~
-@22 = ~As long as ye show effect I'd be a fool to end ye.. but if ye be lacking, you'll feel me dagger coming.~
-@23 = ~Pah! (Yes.. leave the imbecile believing he has the upper hand.)~
+@22 = ~If I catch you lacking wizard, a dagger in you sleep will relieve us all of you.~
+@23 = ~Pah! You're no more than a tool and will only relieve us of who <CHARNAME> tells you, simpleton.~
+@24 = ~Tell yourself that wizard. Now enough chatter! There be cutting to do.~
 
 @27 = ~I am curious Montaron. What was it like to come back from the dead?~
 @29 = ~'Twas a relief. It be a painful place.~
@@ -67,10 +68,18 @@
 @64 = ~You must have parents. Are they still alive?~
 @65 = ~I told ye to cut it out!~
 @66 = ~Come on. Tell me something and I'll stop bothering you.~
-@67 = ~I'll tell ye, but if ye bother me again I'll cut yer tongue.~
-@68 = ~My family be dead, except I've a brother somewhere.~
-@69 = ~What happened to your fam..~
-@70 = ~I'll put ye in a grave if ye press on!~
+@67 = ~My family be rottin' in either their graves or homes. All the same to me.~
+@69 = ~You're not speaking to your family?~
+@70 = ~I'll put ye in a grave if ye keep talking!~
 @71 = ~Fine.. fine.~
 @72 = ~He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him.~
 
+@73 = ~Montaron. Stop creeping around my back and make yourself useful.~
+@74 = ~Scout the area or whatever it is you thugs do.~
+@75 = ~There's no trusting a wizard! What says ye ain't slinging a spell at my back, if I walk ahead.~
+@77 = ~It is comfortable right here behind ye, where my blade'll pierce ye 'fore ye can utter some nasty spell.~
+@78 = ~I can not believe I have to state the obvious again. I have no reason to waste energy on destroying a useful tool.~
+@79 = ~Useful I am indeed. There's no one equal to me, hah!~
+@80 = ~Yes you are so very skilled. (We would have to search the whole of the local thug alley to find a replacement for you)~
+@81 = ~So ye've come to yer senses wizard. Keep it up and ye won't have to fear getting cut.~
+@82 = ~How very gracious of you. sigh..~

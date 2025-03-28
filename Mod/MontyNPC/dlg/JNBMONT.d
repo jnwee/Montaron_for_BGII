@@ -6,7 +6,7 @@
 	Progress Tracking
 
 	Korgan - 1
-	Edwin - 1
+	Edwin - 2
 	Keldorn - 2 (Conflict)
 	Yoshimo - 1
 	Aerie - 1
@@ -59,8 +59,29 @@ THEN JNBMONT JNMONTEdwin1
 	== JNBMONT @19 /* In battle ye might have yer worth, but a dagger to the chest while ye be sleeping sound.. */
 	== BEDWIN @20 /* You dare threaten me? Edwin Odesseiron.. I have no fear of some monkey with a blade! */
 	== BEDWIN @21 /* You are lucky my spells would be wasted on you, ignorant fool! */
-	== JNBMONT @22 /* As long as ye show effect I'd be a fool to end ye.. but if ye be lacking, you'll feel me dagger coming. */
-	== BEDWIN @23 /* Pah! (Yes.. leave the imbecile believing he has the upper hand.) */
+	== JNBMONT @22 /* If I catch you lacking wizard, a dagger in you sleep will relieve us all of you. */
+	== BEDWIN @23 /* Pah! You're no more than a tool and will only relieve us of who <CHARNAME> tells you, simpleton. */
+	== JNBMONT @24 /* Tell yourself that wizard. Now enough chatter! There be cutting to do. */
+EXIT
+
+CHAIN IF ~
+	InParty("Edwin")
+	See("Edwin")
+	!StateCheck("Edwin",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTEdwin1","GLOBAL",1)~
+THEN BEDWIN JNMONTEdwin2
+	@73 /* Montaron. Stop creeping around my back and make yourself useful. */
+	DO ~SetGlobal("JNMONTEdwin1","GLOBAL",2)~
+	== BEDWIN @74 /* Scout the area or whatever it is you thugs do. */
+	== JNBMONT @75 /* There's no trusting a wizard! What says ye ain't slinging a spell at my back, if I walk ahead. */
+	// @76 for Valygar?
+	== JNBMONT @77 /* It is comfortable right here behind ye, where my blade'll pierce ye 'fore ye can utter some nasty spell. */
+	== BEDWIN @78 /* I can not believe I have to state the obvious again. I have no reason to waste energy on destroying a useful tool. */
+	== JNBMONT @79 /* Useful I am indeed. There's no one equal to me, hah! */
+	== BEDWIN @80 /* Yes you are so very skilled. (We would have to search the whole of the local thug alley to find a replacement for you) */
+	== JNBMONT @81 /* So ye've come to yer senses wizard. Keep it up and ye won't have to fear getting cut. */
+	== BEDWIN @82 /* How very gracious of you. sigh.. */
 EXIT
 
 /* =====================================
@@ -153,10 +174,9 @@ THEN BNALIA JNMONTNalia2
 	== BNALIA @64 /* You must have parents. Are they still alive? */
 	== JNBMONT @65 /* I told ye to cut it out! */
 	== BNALIA @66 /* Come on. Tell me something and I'll stop bothering you. */
-	== JNBMONT @67 /* I'll tell ye, but if ye bother me again I'll cut yer tongue. */
-	= @68 /* My family be dead, except I've a brother somewhere. */
-	== BNALIA @69 /* What happened to your fam.. */
-	== JNBMONT @70 /* I'll put ye in a grave if ye press on! */
+	== JNBMONT @67 /* My family be rottin' in either their graves or homes. All the same to me. */
+	== BNALIA @69 /* You're not speaking to your family? */
+	== JNBMONT @70 /* I'll put ye in a grave if ye keep talking! */
 	== BNALIA @71 /* Fine.. fine. */
 	== BKORGAN IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @72 /* He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him. */
 EXIT
@@ -199,7 +219,7 @@ CHAIN IF ~
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
 	Global("JNMONTKeldorn1","GLOBAL",1)~
 THEN BKELDOR JNMONTKeldorn2
-	@6 /* You seem ignorant to my objections towards the vile scoundral you carry with you, <CHARNAME>. Thus I will no longer stay with you to endure this insult to my honor. */
+	@6 /* You seem ignorant to my objections towards the vile scoundrel you carry with you, <CHARNAME>. Thus I will no longer stay with you to endure this insult to my honor. */
 	DO ~SetGlobal("JNMONTKeldorn1","GLOBAL",2)~
 	== JNBMONT @7 /* Hah! Flee ye coward. We've no need o' some old fool. */
 	== BKELDOR @8 /* I can only pray that you come to your senses, <CHARNAME>. */
