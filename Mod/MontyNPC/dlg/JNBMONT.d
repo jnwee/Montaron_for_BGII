@@ -26,6 +26,50 @@ BEGIN JNBMONT
 ================ Jaheira ===============
 ===================================== */
 
+CHAIN IF ~InParty("Jaheira")
+See("Jaheira")
+!StateCheck("JNMONT",CD_STATE_NOTVALID)
+!StateCheck("Jaheira",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("JNMONTJaheiraR","GLOBAL",0)
+Global("JaheiraMatch","GLOBAL",1)
+OR(2)
+Global("JaheiraRomanceActive","GLOBAL",0)
+Global("JaheiraRomanceActive","GLOBAL",1)~
+THEN JNBMONT JNMONTJaheiraR
+	@88 /* So ye want to do it with our leader, harper? */
+	DO ~SetGlobal("JNMONTJaheiraR","GLOBAL",1)~
+	== BJAHEIR @89 /* That is none of your business, Zhent. */
+	== JNBMONT @90 /* Rude. If ye want to screw <CHARNAME>, go 'head, I'll no keep ye. */
+END
+++ @91 EXTERN JNBMONT JNMONTJaheiraR.1 /* I didn't know you were such a sucker for love, Montaron. */
+++ @92 EXTERN JNBMONT JNMONTJaheiraR.2 /* That is none of your business, as Jaheira said. */
+++ @93 EXTERN BJAHEIR JNMONTJaheiraR.3 /* No one is "screwing" anyone here, Montaron. */
+++ @94 EXTERN JNBMONT JNMONTJaheiraR.4 /* Stop talking and let us move on. */
+
+CHAIN JNBMONT JNMONTJaheiraR.1
+	@95 /* Heh. I tried being nice an' all, since me and the harper are a lot now. */
+	== BJAHEIR @96 /* ... */
+	= @97 /* I.. I don't know what to say. You might not be a mind flayer after all. */
+	== JNBMONT @98 /* Hah! Enough chatter now, we need to keep moving. */
+EXIT
+
+CHAIN JNBMONT JNMONTJaheiraR.2
+	@99 /* Ye try to be nice an' all and that's what ye get. Should've figured. */
+	== BJAHEIR @100 /* Try being nice? You? */
+	= @97 /* I.. I don't know what to say. You might not be a mind flayer after all. */
+	== JNBMONT @98 /* Hah! Enough chatter now, we need to keep moving. */
+EXIT
+
+CHAIN BJAHEIR JNMONTJaheiraR.3
+	@101 /* Really..? I mean you're right of course. Let's keep going, Irenicus is out there somewhere. */
+	== JNBMONT @102 /* Well, that was sad. */
+EXIT
+
+CHAIN JNBMONT JNMONTJaheiraR.4
+	@103 /* As ye wish, <CHARNAME>. */
+EXIT
+
 CHAIN IF ~
 	InParty("Jaheira")
 	See("Jaheira")
@@ -41,6 +85,16 @@ THEN JNBMONT JNMONTJaheira1
 	== JNBMONT @87 /* Arrr! Yer blade better be as quick as yer wit, if ye keep to annoy me. */
 EXIT
 
+CHAIN IF ~
+	InParty("Jaheira")
+	See("Jaheira")
+	!StateCheck("Jaheira",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTJaheira1","GLOBAL",1)~
+THEN JNBMONT JNMONTJaheira1
+	@83 /*  */
+	DO ~SetGlobal("JNMONTJaheira1","GLOBAL",2)~
+EXIT
 
 /* =====================================
 ================ Korgan ================
