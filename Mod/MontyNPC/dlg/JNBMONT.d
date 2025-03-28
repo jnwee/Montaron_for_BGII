@@ -5,7 +5,7 @@
 /*
 	Progress Tracking
 
-	Jaheira - 1
+	Jaheira - 2 + 1R
 	Korgan - 1
 	Edwin - 2
 	Keldorn - 2 (Conflict)
@@ -90,10 +90,19 @@ CHAIN IF ~
 	See("Jaheira")
 	!StateCheck("Jaheira",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
-	Global("JNMONTJaheira1","GLOBAL",1)~
-THEN JNBMONT JNMONTJaheira1
-	@83 /*  */
-	DO ~SetGlobal("JNMONTJaheira1","GLOBAL",2)~
+	Global("JNMONTJaheira2","GLOBAL",0)~
+THEN BJAHEIR JNMONTJaheira1
+	@104 /* What are you going to do, when <CHARNAME> has no need of you anymore, Montaron? */
+	DO ~SetGlobal("JNMONTJaheira2","GLOBAL",1)~
+	== JNBMONT @105 /* Ye want to know 'ere to find me, with yer lot o' harpers? */
+	== BJAHEIR @106 /* No such thing. Without the Zhentarim you are of no concern to me. */
+	== JNBMONT @107 /* I be a powerful force, with or without them. When this be done, the richest will fight over who gets to pay me to most. */
+	== BJAHEIR @109 /* A disappointing answer. You really are just a heartless killer. */
+	== JNBMONT @110 /* If ye like it or not.. someone has to do the killin' and I'm the best at it. */
+	= @111 /* No worries to ye though, ye're on my good side now. */
+	== BJAHEIR @112 /* Your attempts at decency are almost sweet, were they not so wretched and dull. */
+	== JNBMONT @113 /* We're a merry little lot now, so ye better get used to me, heh. */
+	== BJAHEIR @114 /* *sigh* Very nice of you, now let's move on. */
 EXIT
 
 /* =====================================
