@@ -5,6 +5,7 @@
 /*
 	Progress Tracking
 
+	Jaheira - 1
 	Korgan - 1
 	Edwin - 2
 	Keldorn - 2 (Conflict)
@@ -20,6 +21,26 @@
 */
 
 BEGIN JNBMONT
+
+/* =====================================
+================ Jaheira ===============
+===================================== */
+
+CHAIN IF ~
+	InParty("Jaheira")
+	See("Jaheira")
+	!StateCheck("Jaheira",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTJaheira1","GLOBAL",0)~
+THEN JNBMONT JNMONTJaheira1
+	@83 /* Why can't ye harpers mind yer own business. Ye always have to intrude into everyones life. */
+	DO ~SetGlobal("JNMONTJaheira1","GLOBAL",1)~
+	== BJAHEIR @84 /* Weren't you caught spying, by the harpers? */
+	== JNBMONT @85 /* *hrmphf* I've done what I'm told. Like a professional. */
+	== BJAHEIR @86 /* Like Xzar's dog you mean? */
+	== JNBMONT @87 /* Arrr! Yer blade better be as quick as yer wit, if ye keep to annoy me. */
+EXIT
+
 
 /* =====================================
 ================ Korgan ================
@@ -81,7 +102,7 @@ THEN BEDWIN JNMONTEdwin2
 	== JNBMONT @79 /* Useful I am indeed. There's no one equal to me, hah! */
 	== BEDWIN @80 /* Yes you are so very skilled. (We would have to search the whole of the local thug alley to find a replacement for you) */
 	== JNBMONT @81 /* So ye've come to yer senses wizard. Keep it up and ye won't have to fear getting cut. */
-	== BEDWIN @82 /* How very gracious of you. sigh.. */
+	== BEDWIN @82 /* How very gracious of you. *sigh* */
 EXIT
 
 /* =====================================
@@ -101,7 +122,7 @@ THEN BAERIE JNMONTAerie1
 	== BAERIE @37 /* <CHARNAME>! Can't you see? He will betray us the moment it benefits him. Please make him leave. */
 	== JNBMONT @38 /* Cease yer prattle girl or me dagger will silence ye. */
 	== BAERIE @39 /* See <CHARNAME>! */
-	== BMINSC IF ~InParty("Minsc") InMyArea("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @40 EXTERN JNBMONT JNMONTAerie1Misnc /* Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain. */
+	== BMINSC IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @40 EXTERN JNBMONT JNMONTAerie1Misnc /* Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain. */
 END
 + ~ReputationGT(Player1,15)~ + @41 EXTERN BAERIE JNMONTAerie1.good /* Calm down Aerie, I will make sure no harm comes to you. */
 + ~ReputationLT(Player1,16)~ + @41 EXTERN BAERIE JNMONTAerie1.bad /* Calm down Aerie, I will make sure no harm comes to you. */
@@ -178,7 +199,7 @@ THEN BNALIA JNMONTNalia2
 	== BNALIA @69 /* You're not speaking to your family? */
 	== JNBMONT @70 /* I'll put ye in a grave if ye keep talking! */
 	== BNALIA @71 /* Fine.. fine. */
-	== BKORGAN IF ~InParty("Korgan") InMyArea("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @72 /* He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him. */
+	== BKORGAN IF ~InParty("Korgan") !StateCheck("Korgan",CD_STATE_NOTVALID)~ THEN @72 /* He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him. */
 EXIT
 
 CHAIN IF ~
