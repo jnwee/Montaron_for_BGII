@@ -100,11 +100,9 @@
 @95 = ~Heh. I tried being nice an' all, since me and the harper are a lot now.~
 @96 = ~...~
 @97 = ~I.. I don't know what to say. You might not be a mind flayer after all.~
-@98 = ~Hah! Enough chatter now, we need to keep moving.~
 @99 = ~Ye try to be nice an' all and that's what ye get. Should've figured.~
 @100 = ~Try being nice? You?~
 @101 = ~Really..? I mean you're right of course. Let's keep going, Irenicus is out there somewhere.~
-@102 = ~Well, that was sad.~
 @103 = ~As ye wish, <CHARNAME>.~
 
 @104 = ~What are you going to do, when <CHARNAME> has no need of you anymore, Montaron?~
@@ -116,4 +114,9 @@
 @111 = ~No worries to ye though, ye're on my good side now.~
 @112 = ~Your attempts at decency are almost sweet, were they not so wretched and dull.~
 @113 = ~We're a merry little lot now, so ye better get used to me, heh.~
-@114 = ~*sigh* Very nice of you, now let's move on.~
+
+@115 = ~I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure.~
+@116 = ~There be no pleasure to this life, dwarf. There be power and the ones to weak to take it.~
+@117 = ~Nae. There be also a good drink after a good fight and.. other pleasures.~
+@118 = ~*ugh* You are a pig of a man, Korgan.~
+@119 = ~Har! Har! Har!~

@@ -6,7 +6,7 @@
 	Progress Tracking
 
 	Jaheira - 2 + 1R
-	Korgan - 1
+	Korgan - 2
 	Edwin - 2
 	Keldorn - 2 (Conflict)
 	Yoshimo - 1
@@ -51,19 +51,16 @@ CHAIN JNBMONT JNMONTJaheiraR.1
 	@95 /* Heh. I tried being nice an' all, since me and the harper are a lot now. */
 	== BJAHEIR @96 /* ... */
 	= @97 /* I.. I don't know what to say. You might not be a mind flayer after all. */
-	== JNBMONT @98 /* Hah! Enough chatter now, we need to keep moving. */
 EXIT
 
 CHAIN JNBMONT JNMONTJaheiraR.2
 	@99 /* Ye try to be nice an' all and that's what ye get. Should've figured. */
 	== BJAHEIR @100 /* Try being nice? You? */
 	= @97 /* I.. I don't know what to say. You might not be a mind flayer after all. */
-	== JNBMONT @98 /* Hah! Enough chatter now, we need to keep moving. */
 EXIT
 
 CHAIN BJAHEIR JNMONTJaheiraR.3
 	@101 /* Really..? I mean you're right of course. Let's keep going, Irenicus is out there somewhere. */
-	== JNBMONT @102 /* Well, that was sad. */
 EXIT
 
 CHAIN JNBMONT JNMONTJaheiraR.4
@@ -102,7 +99,6 @@ THEN BJAHEIR JNMONTJaheira1
 	= @111 /* No worries to ye though, ye're on my good side now. */
 	== BJAHEIR @112 /* Your attempts at decency are almost sweet, were they not so wretched and dull. */
 	== JNBMONT @113 /* We're a merry little lot now, so ye better get used to me, heh. */
-	== BJAHEIR @114 /* *sigh* Very nice of you, now let's move on. */
 EXIT
 
 /* =====================================
@@ -124,6 +120,20 @@ THEN BKORGAN JNMONTKorgan1
 	== BKORGAN @14 /* Hah! Ye be talkin' fine.. 'Tis a bummer ye speak so little. */
 	== JNBMONT @15 /* Tell me where be prey or leave me be. */
 	== BKORGAN @16 /* Aye, we'll find ye something.. I'll make sure of it! */
+EXIT
+
+CHAIN IF ~
+	InParty("Korgan")
+	See("Korgan")
+	!StateCheck("Korgan",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTKorgan2","GLOBAL",0)~
+THEN BKORGAN JNMONTKorgan2
+	@115  /* I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure. */
+	== JNBMONT @116 /* There be no pleasure to this life, dwarf. There be power and the ones to weak to take it. */
+	== BKORGAN @117 /* Nae. There be also a good drink after a good fight and.. other pleasures. */
+	== BMAZZY IF ~InParty("Mazzy") !StateCheck("Mazzy",CD_STATE_NOTVALID)~ THEN @118 /* *ugh* You are a pig of a man, Korgan. */
+	== BKORGAN IF ~InParty("Mazzy") !StateCheck("Mazzy",CD_STATE_NOTVALID)~ THEN @119 /* Har! Har! Har! */
 EXIT
 
 /* =====================================
