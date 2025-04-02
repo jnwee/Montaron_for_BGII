@@ -1,4 +1,4 @@
-/* ==========================================
+* ==========================================
 =========== Banters and Conflicts ===========
 ========================================== */
 
@@ -130,6 +130,7 @@ CHAIN IF ~
 	Global("JNMONTKorgan2","GLOBAL",0)~
 THEN BKORGAN JNMONTKorgan2
 	@115  /* I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure. */
+	DO ~SetGlobal("JNMONTKorgan2","GLOBAL",1)~
 	== JNBMONT @116 /* There be no pleasure to this life, dwarf. There be power and the ones to weak to take it. */
 	== BKORGAN @117 /* Nae. There be also a good drink after a good fight and.. other pleasures. */
 	== BMAZZY IF ~InParty("Mazzy") !StateCheck("Mazzy",CD_STATE_NOTVALID)~ THEN @118 /* *ugh* You are a pig of a man, Korgan. */
@@ -204,7 +205,6 @@ END
 
 CHAIN JNBMONT JNMONTAerie1Misnc
 	@44 /* Pah! Ye are no match for me. */
-	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",3)~
 	== BMINSC @45 /* Watch it villain! Boo knows the smell of treachery and which butt needs kicking! */
 	== JNBMONT @46 /* Ye be truly lost madman, keep yer distance from me! */
 	== BAERIE @47 /* Thank you Minsc, with you at my side I feel a lot better already. */
@@ -212,25 +212,45 @@ EXIT
 
 CHAIN BAERIE JNMONTAerie1.good
 	@48 /* I do not like this, but I trust you <CHARNAME>. I am sorry for my outburst. We can continue now. */
-	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",2)~
 EXIT
 
 CHAIN BAERIE JNMONTAerie1.bad
 	@49 /* You say that, but you choose to surround yourself with such evil. I'm sorry <CHARNAME>, but I can't keep going like this. */
 	= @50 /* You will have to go on without me. */
-	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",1) LeaveParty() EscapeAreaNoSee()~
+	DO ~LeaveParty() EscapeAreaNoSee()~
 	== JNBMONT @51 /* Finally I be rid of that whiny wench! */
 EXIT
 
 CHAIN BAERIE JNMONTAerie1.leave
 	@52 /* I did not expect you to be so cold <CHARNAME>. You will see no more of me. */
-	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",1) LeaveParty() EscapeAreaNoSee()~
+	DO ~LeaveParty() EscapeAreaNoSee()~
 	== JNBMONT @51 /* Finally I be rid of that whiny wench! */
 EXIT
 
 CHAIN JNBMONT JNMONTAerie1.stay
-	@53 /* Keep the whiny girl with ye then. You'll meet your end with these weaklings soon enough. */
-	DO ~SetGlobal("JNMONTAerieConflict","GLOBAL",4) LeaveParty() EscapeAreaNoSee()~
+	@54 /* Keep the whiny girl with ye then. You'll meet your end with these weaklings soon enough. */
+	DO ~LeaveParty() EscapeAreaNoSee()~
+EXIT
+
+CHAIN IF ~
+	InParty("Aerie")
+	See("Aerie")
+	!StateCheck("Aerie",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	Global("JNMONTAerie1","GLOBAL",1)~
+THEN JNBMONT JNMONTAerie2
+	@120 /* Ye annoy me with yer every breath, girl. */
+	DO ~SetGlobal("JNMONTAerie1","GLOBAL",2)~
+	== BMINSC IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @121 EXTERN JNBMONT JNMONTAerie2.Minsc/* Bite your tongue, villain. Me and Boo will not tolerate much more mean words to our gentle witch. */
+	== BAERIE @122 /* Then why do you have to keep bothering me? Are you jealous? Do you need someone to talk? */
+	== JNBMONT @123 /* Heh! At least ye don't whine for once. */
+	== BAERIE @124 /* You are insufferable. */
+EXIT
+
+CHAIN JNBMONT JNMONTAerie2.Minsc
+	@125 /* Shut yer trap, ye big dull loghead. */
+	== JNBMONT @123 /* Heh! At least ye don't whine for once. */
+	== BAERIE @124 /* You are insufferable. */
 EXIT
 
 /* =====================================
@@ -300,7 +320,7 @@ THEN JNBMONT JNMONTKeldorn1
 	@0 /* Eh, <CHARNAME>! What's for dinner? */
 	DO ~SetGlobal("JNMONTKeldorn1","GLOBAL",1)~
 	== BKELDOR @1 /* You dare demand dinner halfling! It is a disgrace you are breathing the same air as me! */
-	== JNBMONT @2 /* Pah! So what ye cretin! */
+	== JNBMONT @2 /* Pah! Go rot where I can no see ye! */
 	== BKELDOR @3 /* You dare to insult me. I have seen and heard enough! */
 	= @4 /* Send him on his way at once <CHARNAME>.. or even better join me to send him to his grave, for I will not much longer keep you company if this keeps up! */
 	== JNBMONT @5 /* I have no equal, old man. Ye'll regret putting this ultimatum on yerself. */
@@ -342,3 +362,10 @@ THEN BYOSHIM JNMONTYoshimo1
 	== JNBMONT @33 /* Yers be a lot sooner if ye keep asking me so many damn questions! */
 	== BYOSHIM @34 /* I meant no offense, my short friend. Let us continue onwards then. */
 EXIT
+
+/* =====================================
+================ Cernd =================
+===================================== */
+
+
+

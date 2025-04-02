@@ -8,7 +8,6 @@
 @7 = ~Hah! Flee ye coward. We've no need of an old fool.~
 @8 = ~I can only pray that you come to your senses, <CHARNAME>.~
 @9 = ~May we never meet again.~
-
 @10 = ~Halfing!~
 @11 = ~What need ye, dwarf?~
 @12 = ~Ye needn't always be so moody.~
@@ -16,7 +15,6 @@
 @14 = ~Hah! Ye be talkin' fine.. 'Tis a bummer ye speak so little.~
 @15 = ~Tell me where be prey or leave me be.~
 @16 = ~Aye, we'll find ye something.. I'll make sure of it!~
-
 @17 = ~Ye know red one.. I never cared for ye wizards.~
 @18 = ~To not understand the finer arts of battle is to be expected from the likes of you. (That I have to bear with such company.)~
 @19 = ~In battle ye might have yer worth, but a dagger to the chest while ye be sleeping sound..~
@@ -25,7 +23,6 @@
 @22 = ~If I catch you lacking wizard, a dagger in you sleep will relieve us all of you.~
 @23 = ~Pah! You're no more than a tool and will only relieve us of who <CHARNAME> tells you, simpleton.~
 @24 = ~Tell yourself that wizard. Now enough chatter! There be cutting to do.~
-
 @27 = ~I am curious Montaron. What was it like to come back from the dead?~
 @29 = ~'Twas a relief. It be a painful place.~
 @30 = ~If you truly were tortured in your afterlife, my fierce companion, maybe you should change your ways.~
@@ -33,7 +30,6 @@
 @32 = ~An ambitious goal... still one can never be too sure when death waits around the corner.~
 @33 = ~Yers be a lot sooner if ye keep asking me so many damn questions!~
 @34 = ~I meant no offense, my short friend. Let us continue onwards then.~
-
 @35 = ~Stop walking behind me!~
 @36 = ~Be ye scared? Why ye even travel with us be a mystery to me.~
 @37 = ~<CHARNAME>! Can't you see? He will betray us the moment it benefits him. Please make him leave.~
@@ -53,7 +49,6 @@
 @51 = ~Finally I be rid of that whiny wench!~
 @52 = ~I did not expect you to be so cold <CHARNAME>. You will see no more of me.~
 @53 = ~Keep the whiny girl with ye then. You'll meet your end with these weaklings soon enough.~
-
 @54 = ~Pretender girl, listen 'ere!~
 @55 = ~Are you talking to me?~
 @56 = ~Yes! Ye and yer noble goals. Instead of babblin' so much, ye could be of use for once.~
@@ -62,7 +57,6 @@
 @59 = ~Unlike ye, I be a natural. If ye'd not talk so much, maybe ye could even reach a small portion of my talent.~
 @60 = ~You are lying to me as you are lying to yourself, halfling. You obviously suffer and you choose to blame the world for it.~
 @61 = ~Pah! Ye be foolish to talk to me as such. Now sod off, 'fore me blade slips.~
-
 @62 = ~Do you have family somewhere, Montaron?~
 @63 = ~Shut it girl!~
 @64 = ~You must have parents. Are they still alive?~
@@ -73,7 +67,6 @@
 @70 = ~I'll put ye in a grave if ye keep talking!~
 @71 = ~Fine.. fine.~
 @72 = ~He's chatty as a rock, hah! I'm surprised ye even got one sentence out of him.~
-
 @73 = ~Montaron. Stop creeping around my back and make yourself useful.~
 @74 = ~Scout the area or whatever it is you thugs do.~
 @75 = ~There's no trusting a wizard! What says ye ain't slinging a spell at my back, if I walk ahead.~
@@ -83,13 +76,11 @@
 @80 = ~Yes you are so very skilled. (We would have to search the whole of the local thug alley to find a replacement for you)~
 @81 = ~So ye've come to yer senses wizard. Keep it up and ye won't have to fear getting cut.~
 @82 = ~How very gracious of you. *sigh*~
-
 @83 = ~Why can't ye harpers mind yer own business. Ye always have to intrude into everyones life.~
 @84 = ~Weren't you caught spying, by the harpers?~
 @85 = ~*hrmphf* I've done what I'm told. Like a professional.~
 @86 = ~Like Xzar's dog you mean?~
 @87 = ~Arrr! Yer blade better be as quick as yer wit, if ye keep to annoy me.~
-
 @88 = ~So ye want to do it with our leader, harper?~
 @89 = ~That is none of your business, Zhent.~
 @90 = ~Rude. If ye want to screw <CHARNAME>, go 'head, I'll no keep ye.~
@@ -104,7 +95,6 @@
 @100 = ~Try being nice? You?~
 @101 = ~Really..? I mean you're right of course. Let's keep going, Irenicus is out there somewhere.~
 @103 = ~As ye wish, <CHARNAME>.~
-
 @104 = ~What are you going to do, when <CHARNAME> has no need of you anymore, Montaron?~
 @105 = ~Ye want to know 'ere to find me, with yer lot o' harpers?~
 @106 = ~No such thing. Without the Zhentarim you are of no concern to me.~
@@ -114,9 +104,15 @@
 @111 = ~No worries to ye though, ye're on my good side now.~
 @112 = ~Your attempts at decency are almost sweet, were they not so wretched and dull.~
 @113 = ~We're a merry little lot now, so ye better get used to me, heh.~
-
 @115 = ~I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure.~
 @116 = ~There be no pleasure to this life, dwarf. There be power and the ones to weak to take it.~
 @117 = ~Nae. There be also a good drink after a good fight and.. other pleasures.~
 @118 = ~*ugh* You are a pig of a man, Korgan.~
 @119 = ~Har! Har! Har!~
+@120 = ~Ye annoy me with yer every breath, girl.~
+@121 = ~Bite your tongue, villain. Me and Boo will not tolerate much more mean words to our gentle witch.~
+@122 = ~Then why do you have to keep bothering me? Are you jealous? Do you need someone to talk?~
+@123 = ~Heh! At least ye don't whine for once.~
+@124 = ~You are insufferable.~
+@125 = ~Shut yer trap, ye big dull loghead.~
+@126 = ~Don't listen to him Minsc. He's just throwing a tantrum again.~
