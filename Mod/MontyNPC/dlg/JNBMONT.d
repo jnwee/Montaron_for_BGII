@@ -72,6 +72,7 @@ CHAIN IF ~
 	See("Jaheira")
 	!StateCheck("Jaheira",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTJaheira1","GLOBAL",0)~
 THEN JNBMONT JNMONTJaheira1
 	@83 /* Why can't ye harpers mind yer own business. Ye always have to intrude into everyones life. */
@@ -87,6 +88,7 @@ CHAIN IF ~
 	See("Jaheira")
 	!StateCheck("Jaheira",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTJaheira2","GLOBAL",0)~
 THEN BJAHEIR JNMONTJaheira1
 	@104 /* What are you going to do, when <CHARNAME> has no need of you anymore, Montaron? */
@@ -110,6 +112,7 @@ CHAIN IF ~
 	See("Korgan")
 	!StateCheck("Korgan",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTKorgan1","GLOBAL",0)~
 THEN BKORGAN JNMONTKorgan1
 	@10 /* Halfing! */
@@ -127,6 +130,7 @@ CHAIN IF ~
 	See("Korgan")
 	!StateCheck("Korgan",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTKorgan2","GLOBAL",0)~
 THEN BKORGAN JNMONTKorgan2
 	@115  /* I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure. */
@@ -146,6 +150,7 @@ CHAIN IF ~
 	See("Edwin")
 	!StateCheck("Edwin",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTEdwin1","GLOBAL",0)~
 THEN JNBMONT JNMONTEdwin1
 	@17 /* Ye know red one.. I never cared for ye wizards. */
@@ -164,6 +169,7 @@ CHAIN IF ~
 	See("Edwin")
 	!StateCheck("Edwin",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTEdwin1","GLOBAL",1)~
 THEN BEDWIN JNMONTEdwin2
 	@73 /* Montaron. Stop creeping around my back and make yourself useful. */
@@ -188,6 +194,7 @@ CHAIN IF ~
 	See("Aerie")
 	!StateCheck("Aerie",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTAerie1","GLOBAL",0)~
 THEN BAERIE JNMONTAerie1
 	@35 /* Stop walking behind me! */
@@ -237,6 +244,7 @@ CHAIN IF ~
 	See("Aerie")
 	!StateCheck("Aerie",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTAerie1","GLOBAL",1)~
 THEN JNBMONT JNMONTAerie2
 	@120 /* Ye annoy me with yer every breath, girl. */
@@ -262,6 +270,7 @@ CHAIN IF ~
 	See("Nalia")
 	!StateCheck("Nalia",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTNalia1","GLOBAL",0)~
 THEN JNBMONT JNMONTNalia1
 	@54 /* Pretender girl, listen 'ere! */
@@ -280,6 +289,7 @@ CHAIN IF ~
 	See("Nalia")
 	!StateCheck("Nalia",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTNalia2","GLOBAL",0)~
 THEN BNALIA JNMONTNalia2
 	@62 /* Do you have family somewhere, Montaron? */
@@ -300,6 +310,7 @@ CHAIN IF ~
 	See("Nalia")
 	!StateCheck("Nalia",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTNalia2","GLOBAL",1)~
 THEN BNALIA JNMONTNalia2.1
 	DO ~SetGlobal("JNMONTNalia2","GLOBAL",2)~
@@ -315,6 +326,7 @@ CHAIN IF ~
 	See("Keldorn")
 	!StateCheck("Keldorn",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTKeldorn1","GLOBAL",0)~
 THEN JNBMONT JNMONTKeldorn1
 	@0 /* Eh, <CHARNAME>! What's for dinner? */
@@ -331,6 +343,7 @@ CHAIN IF ~
 	See("Keldorn")
 	!StateCheck("Keldorn",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTKeldorn1","GLOBAL",1)~
 THEN BKELDOR JNMONTKeldorn2
 	@6 /* You seem ignorant to my objections towards the vile scoundrel you carry with you, <CHARNAME>. Thus I will no longer stay with you to endure this insult to my honor. */
@@ -351,6 +364,7 @@ CHAIN IF ~
 	See("Yoshimo")
 	!StateCheck("Yoshimo",CD_STATE_NOTVALID)
 	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
 	Global("JNMONTYoshimo1","GLOBAL",0)~
 THEN BYOSHIM JNMONTYoshimo1
 	@27 /* I am curious Montaron. What was it like to come back from the dead? */
@@ -367,5 +381,47 @@ EXIT
 ================ Cernd =================
 ===================================== */
 
+/* =====================================
+================ Imoen =================
+===================================== */
 
 
+CHAIN IF ~
+	InParty("imoen2")
+	See("imoen2")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("imoen2",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTImoen1","GLOBAL",0)~
+THEN BImoen2 JNMONTImoen1
+	@127 /* Hey Monty. Why are you traveling with us? */
+	DO ~SetGlobal("JNMONTImoen1","GLOBAL",1)~
+	== JNBMONT @128 /* What ye call me? */
+	== BImoen2 @129 /* Monty. Like your partner I think. Actually.. where is he? */
+	== JNBMONT @130 /* Rottin' on some street. And not to a small bit accountable to his lunacies, so ye better stop at once, or ye'll end up the same. */
+	== BImoen2 IF ~Global("JNMONTBg1","GLOBAL",1)~ THEN @131 EXTERN JNBMONT JNMONTImoen1.1 /* I see you're gnarly as ever. Why <CHARNAME> took you to travel with us, still seems odd to me. */
+	== BImoen2 IF ~!Global("JNMONTBg1","GLOBAL",1)~ THEN @133 EXTERN JNBMONT JNMONTImoen1.2 /* I see you're gnarly as ever. Makes sense that <CHARNAME> walked past you on that road to Candlekeep. */
+EXIT
+
+CHAIN JNBMONT JNMONTImoen1.1
+	@132 /* <CHARNAME>, unlike ye silly girl, knows <HE/SHE> needs me to do what he no likes, and I be the best at it. */
+EXIT
+
+CHAIN JNBMONT JNMONTImoen1.2
+	@134 /* Pah. But <HE/SHE> changed his mind as ye see. I be the best at cuttin' and <CHARNAME> needs lots of people cut, heh. */
+EXIT
+
+CHAIN IF ~
+	InParty("imoen2")
+	See("imoen2")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("imoen2",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTImoen2","GLOBAL",0)~
+THEN JNBMONT JNMONTImoen1
+	@135 /* *sigh* I beg ye, girl. Quit yer babblin', I can no take it for much longer. */
+	DO ~SetGlobal("JNMONTImoen2","GLOBAL",1)~
+	== BImoen2 @136 /* Come on, Monty. Just tell me how you died and I won't bother you for at least the rest of the day. */
+	== JNBMONT @137 /* If ye push it, you'll be able to tell such a tale soon 'nough. */
+	== BImoen2 @138 /* Have it your way. Next time you want something from me, you better have an apology ready. */
+EXIT

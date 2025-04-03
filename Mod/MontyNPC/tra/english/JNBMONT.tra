@@ -23,7 +23,10 @@
 @22 = ~If I catch you lacking wizard, a dagger in you sleep will relieve us all of you.~
 @23 = ~Pah! You're no more than a tool and will only relieve us of who <CHARNAME> tells you, simpleton.~
 @24 = ~Tell yourself that wizard. Now enough chatter! There be cutting to do.~
+
+
 @27 = ~I am curious Montaron. What was it like to come back from the dead?~
+
 @29 = ~'Twas a relief. It be a painful place.~
 @30 = ~If you truly were tortured in your afterlife, my fierce companion, maybe you should change your ways.~
 @31 = ~Pah! I'll no change anything, but I will make sure I'll nae go back to that blasted place!~
@@ -63,6 +66,7 @@
 @65 = ~I told ye to cut it out!~
 @66 = ~Come on. Tell me something and I'll stop bothering you.~
 @67 = ~My family be rottin' in either their graves or homes. All the same to me.~
+
 @69 = ~You're not speaking to your family?~
 @70 = ~I'll put ye in a grave if ye keep talking!~
 @71 = ~Fine.. fine.~
@@ -70,6 +74,7 @@
 @73 = ~Montaron. Stop creeping around my back and make yourself useful.~
 @74 = ~Scout the area or whatever it is you thugs do.~
 @75 = ~There's no trusting a wizard! What says ye ain't slinging a spell at my back, if I walk ahead.~
+
 @77 = ~It is comfortable right here behind ye, where my blade'll pierce ye 'fore ye can utter some nasty spell.~
 @78 = ~I can not believe I have to state the obvious again. I have no reason to waste energy on destroying a useful tool.~
 @79 = ~Useful I am indeed. There's no one equal to me, hah!~
@@ -91,19 +96,23 @@
 @95 = ~Heh. I tried being nice an' all, since me and the harper are a lot now.~
 @96 = ~...~
 @97 = ~I.. I don't know what to say. You might not be a mind flayer after all.~
+
 @99 = ~Ye try to be nice an' all and that's what ye get. Should've figured.~
 @100 = ~Try being nice? You?~
 @101 = ~Really..? I mean you're right of course. Let's keep going, Irenicus is out there somewhere.~
+
 @103 = ~As ye wish, <CHARNAME>.~
 @104 = ~What are you going to do, when <CHARNAME> has no need of you anymore, Montaron?~
 @105 = ~Ye want to know 'ere to find me, with yer lot o' harpers?~
 @106 = ~No such thing. Without the Zhentarim you are of no concern to me.~
 @107 = ~I be a powerful force, with or without them. When this be done, the richest will fight over who gets to pay me to most.~
+
 @109 = ~A disappointing answer. You really are just a heartless killer.~
 @110 = ~If ye like it or not.. someone has to do the killin' and I'm the best at it.~
 @111 = ~No worries to ye though, ye're on my good side now.~
 @112 = ~Your attempts at decency are almost sweet, were they not so wretched and dull.~
 @113 = ~We're a merry little lot now, so ye better get used to me, heh.~
+
 @115 = ~I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure.~
 @116 = ~There be no pleasure to this life, dwarf. There be power and the ones to weak to take it.~
 @117 = ~Nae. There be also a good drink after a good fight and.. other pleasures.~
@@ -116,3 +125,16 @@
 @124 = ~You are insufferable.~
 @125 = ~Shut yer trap, ye big dull loghead.~
 @126 = ~Don't listen to him Minsc. He's just throwing a tantrum again.~
+@127 = ~Hey Monty. Why are you traveling with us?~
+@128 = ~What ye call me?~
+@129 = ~Monty. Like your partner I think. Actually.. where is he?~
+@130 = ~Rottin' on some street. And not to a small bit accountable to his lunacies, so ye better stop at once, or ye'll end up the same.~
+@131 = ~I see you're gnarly as ever. Why <CHARNAME> took you to travel with us, still seems odd to me.~
+@132 = ~<CHARNAME>, unlike ye silly girl, knows <HE/SHE> needs me to do what he no likes, and I be the best at it.~
+@133 = ~I see you're gnarly as ever. Makes sense that <CHARNAME> walked past you on that road to Candlekeep.~
+@134 = ~Pah. But <HE/SHE> changed his mind as ye see. I be the best at cuttin' and <CHARNAME> needs lots of people cut, heh.~
+@135 = ~I beg ye, girl. Quit yer babblin', I can no take it for much longer.~
+@136 = ~Come on, Monty. Just tell me how you died and I won't bother you for at least the rest of the day.~
+@137 = ~If ye push it, you'll be able to tell such a tale soon 'nough.~
+@138 = ~Have it your way. Next time you want something from me, you better have an apology ready.~
+
