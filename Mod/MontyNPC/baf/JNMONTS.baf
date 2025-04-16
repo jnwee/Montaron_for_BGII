@@ -200,7 +200,7 @@ IF
 THEN
     RESPONSE #100
         SetGlobal("JNMONTChapter5","GLOBAL",1)
-        RealSetGlobalTimer("JNMONTChapter5Timer","GLOBAL",1800)
+        RealSetGlobalTimer("JNMONTChapter5Timer","GLOBAL",900)
 END
 
 IF

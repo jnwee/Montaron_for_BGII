@@ -14,16 +14,30 @@ and then alternative)
 ======== Mandatory Interceptions =======
 ===================================== */
 
+// Ribald
+
+CHAIN IF WEIGHT #-1
+~InParty("JNMONT")
+See("JNMONT")
+!StateCheck("JNMONT",STATE_SLEEPING)
+Global("RibaldJNMONT","LOCALS",0) ~ THEN RIBALD jnm1
+	@1005
+	== RIBALD @1006
+	== JNMONTJ IF ~Global("JNMONTXzarTalk", 9) @1007
+	== JNMONTJ IF ~!Global("JNMONTXzarTalk", 9) @1008
+	== RIBALD @1009
+EXIT
+
 
 // Trademeet fortune teller
 
 EXTEND_BOTTOM TRGYP02 2
-IF ~!InPartySlot(LastTalkedToBy,0) Name("JNMONT",LastTalkedToBy)~ EXTERN TRGYP02 g1
+	IF ~!InPartySlot(LastTalkedToBy,0) Name("JNMONT",LastTalkedToBy)~ EXTERN TRGYP02 g1
 END
 
 CHAIN TRGYP02 g1
-@1000 /* You are a... */
-== JNMONTJ @1001 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */
+	@1000 /* You are a... */
+	== JNMONTJ @1001 /* I have no time for yer nonsense. Quit babbling lest I cut yer tongue. */
 EXIT
 
 // Crazy Celvan

@@ -10,7 +10,7 @@
 	Edwin - 2
 	Keldorn - 2 (Conflict)
 	Yoshimo - 1
-	Aerie - 1
+	Aerie - 2
 	Nalia - 2
 
 	JNMONTAerieConflict Variable
@@ -18,6 +18,10 @@
 	3 = Minsc protects Aerie from Montaron
 	2 = Player protects Aerie from Montaron
 	1 = Aerie left because she is scared of Montaron
+
+	JNMONTNaliaFriendship Variable
+	JNMONTNaliaFriends = 1, means Nalia got to last Banter with Monty in SoA
+	-> alter Banters in ToB (Montaron becomes nicer)
 */
 
 BEGIN JNBMONT
@@ -189,6 +193,41 @@ EXIT
 ================ Aerie =================
 ===================================== */
 
+
+
+CHAIN IF ~InParty("Aerie")
+See("Aerie")
+!StateCheck("JNMONT",CD_STATE_NOTVALID)
+!StateCheck("Aerie",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("JNMONTAerieR","GLOBAL",0)
+Global("AerieMatch","GLOBAL",1)
+OR(2)
+Global("AerieRomanceActive","GLOBAL",0)
+Global("AerieRomanceActive","GLOBAL",1)~
+THEN JNBMONT JNMONTAerieR
+	@139 /* Ye workin yer charm on <CHARNAME> to save yer spot in our lot, are ye? */
+	DO ~SetGlobal("JNMONTAerieR","GLOBAL",1)~
+	== BAERIE @140 /* I do what I can to help <CHARNAME>, as <HE/SHE> helps me! I do not need another reason. */
+	== JNBMONT @141 /* *pff* ye are weak and pathetic. */
+END
+++ @142 EXTERN JNBMONT JNMONTAerieR.1 /* Leave her be or you will soon enough find yourself on your own, Montaron. */
+++ @143 EXTERN BAERIE JNMONTAerieR.2 /* Admit it Aerie, you can not help yourself, you just have to throw yourself at me. */
+++ @144 EXTERN JNBMONT JNMONTAerieR.3 /* Cut it out and keep walking, Montaron. I've no time for this right now. */
+
+CHAIN JNBMONT JNMONTAerieR.1
+	@145 /* Har. Seems our leader is just smitten with ye, elf. Your luck. */
+EXIT
+
+CHAIN BAERIE JNMONTAerieR.2
+	@146 /* I can't tell if you are being serious. Either way we will not talk about this now! */
+EXIT
+
+CHAIN JNBMONT JNMONTAerieR.3
+	@147 /* As ye wish. */
+EXIT
+
+
 CHAIN IF ~
 	InParty("Aerie")
 	See("Aerie")
@@ -251,12 +290,13 @@ THEN JNBMONT JNMONTAerie2
 	DO ~SetGlobal("JNMONTAerie1","GLOBAL",2)~
 	== BMINSC IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @121 EXTERN JNBMONT JNMONTAerie2.Minsc/* Bite your tongue, villain. Me and Boo will not tolerate much more mean words to our gentle witch. */
 	== BAERIE @122 /* Then why do you have to keep bothering me? Are you jealous? Do you need someone to talk? */
-	== JNBMONT @123 /* Heh! At least ye don't whine for once. */
+	== JNBMONT @123 /* Heh! At least ye don't just whine for once. */
 	== BAERIE @124 /* You are insufferable. */
 EXIT
 
 CHAIN JNBMONT JNMONTAerie2.Minsc
 	@125 /* Shut yer trap, ye big dull loghead. */
+	== BAERIE @126 /* Don't listen to him Minsc. He's just throwing a tantrum again. */
 	== JNBMONT @123 /* Heh! At least ye don't whine for once. */
 	== BAERIE @124 /* You are insufferable. */
 EXIT
@@ -313,7 +353,15 @@ CHAIN IF ~
 	CombatCounter(0)
 	Global("JNMONTNalia2","GLOBAL",1)~
 THEN BNALIA JNMONTNalia2.1
-	DO ~SetGlobal("JNMONTNalia2","GLOBAL",2)~
+	@148 /* Can I ask you something ,Montaron? */
+	DO ~SetGlobal("JNMONTNalia2","GLOBAL",2) SetGlobal("JNMONTNaliaFriends", "GLOBAL",1)~
+	== JNBMONT @149 /* *sigh* Ye sicken me, girl. Why do ye care so much to know about me. */
+	== BNALIA @150 /* You're out to kill all the time, and I can not understand why. What is so great about fighting, or even worse - killing, that it seems to be all you want. */
+	== JNBMONT @151 /* Let it rest already. There be many people, and little off'em are angles. */
+	== BNALIA @152 /* But there are good people. Stop hating everyone for whatever misersies happened to you. */
+	== JNBMONT @153 /* Pah. I've murdered many and in the end they all look the same, good or bad. Just dead flesh. */
+	== BNALIA @154 /* Think about what you really want in the future, because I am sure it is not murdering and fighting. */
+	== JNBMONT @155 /* Heh, whine on a bit more and I just might, princess. */
 EXIT
 
 
