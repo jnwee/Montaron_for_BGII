@@ -1,4 +1,4 @@
-* ==========================================
+/* ==========================================
 =========== Banters and Conflicts ===========
 ========================================== */
 
@@ -242,18 +242,19 @@ THEN BAERIE JNMONTAerie1
 	== BAERIE @37 /* <CHARNAME>! Can't you see? He will betray us the moment it benefits him. Please make him leave. */
 	== JNBMONT @38 /* Cease yer prattle girl or me dagger will silence ye. */
 	== BAERIE @39 /* See <CHARNAME>! */
-	== BMINSC IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @40 EXTERN JNBMONT JNMONTAerie1Misnc /* Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain. */
 END
-+ ~ReputationGT(Player1,15)~ + @41 EXTERN BAERIE JNMONTAerie1.good /* Calm down Aerie, I will make sure no harm comes to you. */
-+ ~ReputationLT(Player1,16)~ + @41 EXTERN BAERIE JNMONTAerie1.bad /* Calm down Aerie, I will make sure no harm comes to you. */
-++ @42 EXTERN BAERIE JNMONTAerie1.leave /* If you can't stand your ground you shouldn't be part of this group. */
-++ @43 EXTERN JNBMONT JNMONTAerie1.stay /* You are right Aerie. I will sleep a lot better without your company Montaron, leave at once. */
+IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN EXTERN BMINSC JNMONTAerie1.Minsc
++ ~!InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID) ReputationGT(Player1,15)~ + @41 EXTERN BAERIE JNMONTAerie1.good /* Calm down Aerie, I will make sure no harm comes to you. */
++ ~!InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID) ReputationLT(Player1,16)~ + @41 EXTERN BAERIE JNMONTAerie1.bad /* Calm down Aerie, I will make sure no harm comes to you. */
++ ~!InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID)~ + @42 EXTERN BAERIE JNMONTAerie1.leave /* If you can't stand your ground you shouldn't be part of this group. */
++ ~!InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID)~ + @43 EXTERN JNBMONT JNMONTAerie1.stay /* You are right Aerie. I will sleep a lot better without your company Montaron, leave at once. */
 
-CHAIN JNBMONT JNMONTAerie1Misnc
-	@44 /* Pah! Ye are no match for me. */
-	== BMINSC @45 /* Watch it villain! Boo knows the smell of treachery and which butt needs kicking! */
+CHAIN BMINSC JNMONTAerie1.Minsc
+	@40 /* Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain. */
+	== JNBMONT @44 /* Pah! Ye are no match for me. */
+	== BMINSC  @45 /* Watch it villain! Boo knows the smell of treachery and which butt needs kicking! */
 	== JNBMONT @46 /* Ye be truly lost madman, keep yer distance from me! */
-	== BAERIE @47 /* Thank you Minsc, with you at my side I feel a lot better already. */
+	== BAERIE  @47 /* Thank you Minsc, with you at my side I feel a lot better already. */
 EXIT
 
 CHAIN BAERIE JNMONTAerie1.good
@@ -288,16 +289,21 @@ CHAIN IF ~
 THEN JNBMONT JNMONTAerie2
 	@120 /* Ye annoy me with yer every breath, girl. */
 	DO ~SetGlobal("JNMONTAerie1","GLOBAL",2)~
-	== BMINSC IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN @121 EXTERN JNBMONT JNMONTAerie2.Minsc/* Bite your tongue, villain. Me and Boo will not tolerate much more mean words to our gentle witch. */
-	== BAERIE @122 /* Then why do you have to keep bothering me? Are you jealous? Do you need someone to talk? */
-	== JNBMONT @123 /* Heh! At least ye don't just whine for once. */
+END
+IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN EXTERN BMINSC JNMONTAerie2.Minsc
+IF ~!InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN EXTERN BAERIE JNMONTAerie2.1
+
+CHAIN BMINSC JNMONTAerie2.Minsc
+	@121 /* Bite your tongue, villain. Me and Boo will not tolerate much more mean words to our gentle witch. */
+	== JNBMONT @125 /* Shut yer trap, ye big dull loghead. */
+	== BAERIE @126 /* Don't listen to him Minsc. He's just throwing a tantrum again. */
+	== JNBMONT @123 /* Heh! At least ye don't whine for once. */
 	== BAERIE @124 /* You are insufferable. */
 EXIT
 
-CHAIN JNBMONT JNMONTAerie2.Minsc
-	@125 /* Shut yer trap, ye big dull loghead. */
-	== BAERIE @126 /* Don't listen to him Minsc. He's just throwing a tantrum again. */
-	== JNBMONT @123 /* Heh! At least ye don't whine for once. */
+CHAIN BAERIE JNMONTAerie2.1
+	@122 /* Then why do you have to keep bothering me? Are you jealous? Do you need someone to talk? */
+	== JNBMONT @123 /* Heh! At least ye don't just whine for once. */
 	== BAERIE @124 /* You are insufferable. */
 EXIT
 
@@ -447,9 +453,11 @@ THEN BImoen2 JNMONTImoen1
 	== JNBMONT @128 /* What ye call me? */
 	== BImoen2 @129 /* Monty. Like your partner I think. Actually.. where is he? */
 	== JNBMONT @130 /* Rottin' on some street. And not to a small bit accountable to his lunacies, so ye better stop at once, or ye'll end up the same. */
-	== BImoen2 IF ~Global("JNMONTBg1","GLOBAL",1)~ THEN @131 EXTERN JNBMONT JNMONTImoen1.1 /* I see you're gnarly as ever. Why <CHARNAME> took you to travel with us, still seems odd to me. */
-	== BImoen2 IF ~!Global("JNMONTBg1","GLOBAL",1)~ THEN @133 EXTERN JNBMONT JNMONTImoen1.2 /* I see you're gnarly as ever. Makes sense that <CHARNAME> walked past you on that road to Candlekeep. */
-EXIT
+	== BImoen2 IF ~Global("JNMONTBg1","GLOBAL",1)~ THEN @131 /* I see you're gnarly as ever. Why <CHARNAME> took you to travel with us, still seems odd to me. */
+	== BImoen2 IF ~!Global("JNMONTBg1","GLOBAL",1)~ THEN @133 /* I see you're gnarly as ever. Makes sense that <CHARNAME> walked past you on that road to Candlekeep. */
+END
+IF ~Global("JNMONTBg1","GLOBAL",1)~ THEN EXTERN JNBMONT JNMONTImoen1.1
+IF ~!Global("JNMONTBg1","GLOBAL",1)~ THEN EXTERN JNBMONT JNMONTImoen1.2
 
 CHAIN JNBMONT JNMONTImoen1.1
 	@132 /* <CHARNAME>, unlike ye silly girl, knows <HE/SHE> needs me to do what he no likes, and I be the best at it. */

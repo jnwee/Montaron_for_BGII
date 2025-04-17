@@ -16,7 +16,20 @@ Now mischief and death are his tools.~
 @1007 = ~Pah. Yer mage be lying in the street, so he will no pay ye anytime soon.~
 @1008 = ~Ye see yer mage 'round? Me neither, so bother me no more and sell yer goods.~
 @1009 = ~*sigh* Nothing I can do I suppose. Now where was I..~
-
+@1010 = ~Another madman! Let's get to cuttin' <CHARNAME>!~
+@1011 = ~As if not enough loonies are running the place! Next time I'll no wait for ye to start cuttin'.~
+@1012 = ~Ye seem to be in luck <CHARNAME>. This be the place to make some gold for us.~
+@1013 = ~I'll turn yer prattle into screams, loudmouth!~
+@1014 = ~Bring it on then!~
+@1015 = ~This better be the last whining lass we be hearin' out.~
+@1016 = ~Ye be scared by a little boys ghost? Har har.. waste of air ye are.~
+@1017 = ~There better be some money in those slavers coffers. I'll no work for free.~
+@1018 = ~Ye harpers just can not mind yer own business.. it'll bite ye all sooner or later.~
+@1019 = ~Think again <CHARNAME>. Ye miss on this, ye miss out on lots of gold, I be sure!~
+@1020 = ~Having the Shadow Thieves with us, we'll be rich in no time. Or maybe we'll just take over this place. Either way ye made a good choice for once <CHARNAME>.~
+@1021 = ~How've ye found me, ye nosy lot! Ye killed me once, I'll no let ye again!~
+@1022 = ~Whoever you are, you are of no concern to us. We're here for someone who was once one of our own.~
+@1023 = ~How's it feel to be on the receiving end, Jaheira? It'll feel better when their dead though, heh!~
 
 /* =====================================
 ========== Talk with Montaron ==========
@@ -36,7 +49,7 @@ Now mischief and death are his tools.~
 
 // Talk on Xzar's Deathplace
 @11 = ~You weren't lying after all. The madman truly be dead! A most joyous day!~
-@12 = ~One lunatic less <CHARNAME> can take in his company.~
+@12 = ~One lunatic less <CHARNAME> can take in <PRO_HISHER> company.~
 @13 = ~Xzar wanted us to rescue you, he cared for you. How can you be so cold towards his death?~
 @14 = ~Pah! In me partnership with the mad wizard I killed many.. but no kill was as tempting as the madman himself.~
 @15 = ~If only my boss hadn't took a liking to him.~
@@ -100,3 +113,15 @@ Now mischief and death are his tools.~
 @69 = ~Doesn't matter. He'll never know I'm still alive, so let's stop wasting time and move onwards, 'fore ye annoy me again.~
 @70 = ~Thanks to yer foolishness you'll likely meet him soon enough. Now get a move on 'fore ye annoy me even more!~
 @71 = ~Agreed.~
+
+
+// Talk over MaeVar
+@72 = ~This Mae'Var fella seems smart. A pity he's to be done soon.~
+@73 = ~He is a cruel man and needs to be stopped.~
+@74 = ~Taking Renals side is an easy choice, as he is higher in the guild.~
+@75 = ~I agree, but going against Renal is a bad idea for anyone.~
+@76 = ~I have no time for your scheming, we will resolve this quickly and be done with it.~
+@77 = ~Aren't ye a goodie goodie. Though ye are right to ally the more powerful side, so I'll no complain.~
+@78 = ~I'll no argue that. Let us finish our work quickly, then.~
+@79 = ~Right ye are. So we best not plot against Renal, at least for now.~
+@80 = ~Scheming? No. Killing Mae'Var is the only way, don't ye worry 'bout it.~

@@ -20,7 +20,7 @@ END
 /* Script to set XP */
 
 IF
-	InParty("JNMONT")
+	InParty(Myself)
 	Global("JNMONTExperienceSet","GLOBAL",0)
 	XPLT(Player1,160000)
 THEN
@@ -30,62 +30,62 @@ THEN
 END
 
 IF
-	InParty("JNMONT")
+	InParty(Myself)
 	Global("JNMONTExperienceSet","GLOBAL",0)
 	XPGT(Player1,159999)
 	XPLT(Player1,250000)
 THEN
 	RESPONSE #100
 		SetGlobal("JNMONTExperienceSet","GLOBAL",1)
-		AddXPObject("JNMONT",35000)
+		AddXPObject(Myself,35000)
 		Continue()
 END
 
 IF
-	InParty("JNMONT")
+	InParty(Myself)
 	Global("JNMONTExperienceSet","GLOBAL",0)
 	XPGT(Player1,249999)
 	XPLT(Player1,500000)
 THEN
 	RESPONSE #100
 		SetGlobal("JNMONTExperienceSet","GLOBAL",1)
-		AddXPObject("JNMONT",125000)
+		AddXPObject(Myself,125000)
 		Continue()
 END
 
 IF
-	InParty("JNMONT")
+	InParty(Myself)
 	Global("JNMONTExperienceSet","GLOBAL",0)
 	XPGT(Player1,499999)
 	XPLT(Player1,750000)
 THEN
 	RESPONSE #100
 		SetGlobal("JNMONTExperienceSet","GLOBAL",1)
-		AddXPObject("JNMONT",375000)
+		AddXPObject(Myself,375000)
 		Continue()
 END
 
 IF
-	InParty("JNMONT")
+	InParty(Myself)
 	Global("JNMONTExperienceSet","GLOBAL",0)
 	XPGT(Player1,749999)
 	XPLT(Player1,1000000)
 THEN
 	RESPONSE #100
 		SetGlobal("JNMONTExperienceSet","GLOBAL",1)
-		AddXPObject("JNMONT",625000)
+		AddXPObject(Myself,625000)
 		Continue()
 END
 
 IF
-	InParty("JNMONT")
+	InParty(Myself)
 	Global("JNMONTExperienceSet","GLOBAL",0)
 	XPGT(Player1,999999)
 	XPLT(Player1,1250000)
 THEN
 	RESPONSE #100
 		SetGlobal("JNMONTExperienceSet","GLOBAL",1)
-		AddXPObject("JNMONT",875000)
+		AddXPObject(Myself,875000)
 		Continue()
 END
 
@@ -185,9 +185,36 @@ IF
 	!StateCheck(Myself,CD_STATE_NOTVALID)
 	!Global("JNVESPLives","GLOBAL",0)
 	Global("JNMONTVespTalk","GLOBAL",0)
+	CombatCounter(0)
+	!See([ENEMY])
 THEN
 	RESPONSE #100
 		SetGlobal("JNMONTVespTalk","GLOBAL",1)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	!Global("MaeVarWork","GLOBAL",0)
+	Global("JNMONTMaeVarTalk","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("JNMONTMaeVarTalk","GLOBAL",1)
+		RealSetGlobalTimer("JNMONTMaeVarTalkTimer","GLOBAL",400)
+END
+
+IF
+	InParty(Myself)
+	RealGlobalTimerExpired("JNMONTMaeVarTalkTimer","GLOBAL")
+	See(Player1)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("JNMONTMaeVarTalk","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("JNMONTMaeVarTalk","GLOBAL",2)
 		StartDialogueNoSet(Player1)
 END
 	

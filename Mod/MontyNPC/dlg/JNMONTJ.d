@@ -22,12 +22,69 @@ See("JNMONT")
 !StateCheck("JNMONT",STATE_SLEEPING)
 Global("RibaldJNMONT","LOCALS",0) ~ THEN RIBALD jnm1
 	@1005
+	DO ~SetGlobal("RibaldJNMONT","LOCALS",1)~
 	== RIBALD @1006
-	== JNMONTJ IF ~Global("JNMONTXzarTalk", 9) @1007
-	== JNMONTJ IF ~!Global("JNMONTXzarTalk", 9) @1008
+	== JNMONTJ IF ~Global("JNMONTXzarTalk", "GLOBAL", 9)~ THEN  @1007
+	== JNMONTJ IF ~!Global("JNMONTXzarTalk", "GLOBAL", 9)~ THEN @1008
 	== RIBALD @1009
 EXIT
 
+// Mad Cleric (Docks)
+
+I_C_T DCLERIC 0 JNMONTMadCleric0
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1010
+END
+
+I_C_T2 DCLERIC 4 JNMONTMadCleric4
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1011
+END
+
+// Shadow Thief Sentry
+
+I_C_T STGUARD1 2 JNMONTStGuard2
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1012
+END
+
+// Bregg & Chorvale
+
+INTERJECT COHRVALE 1 JNMONTCohrvale1
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1013
+	== COHRVALE IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1014 DO ~Enemy()~
+EXIT
+
+// Nalia
+
+I_C_T NALIA 45 JNMONTNaliaInit45
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1015
+END
+
+// Lynis
+
+I_C_T LLYNIS 6 JNMONTLynis6
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1016
+END
+
+// Hendak
+
+I_C_T HENDAK 18 JNMONTHendak18
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1017
+END
+
+// Baron Ployer
+
+I_C_T BARONP 43 JNMONTPloyer43
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1018
+END
+
+// Renal Bloodscalp
+
+I_C_T RENAL 10 JNMONTRenal10
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID) Global("JNMONTRenal10Talk","GLOBAL",0)~ THEN @1019 DO ~SetGlobal("JNMONTRenal10Talk","GLOBAL",1)~
+END
+
+I_C_T RENAL 30 JNMONTRenal30
+	==JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1020
+END
 
 // Trademeet fortune teller
 
@@ -56,6 +113,19 @@ DO ~SetGlobal("JNMONTReactionCelvan","AR0300",1)~
 == JNMONTJ @1003 /* Shut yer trap, madman.. or you will get to see me tools soon enough. */
 END CELVAN 1
 
+I_C_T JAREVIA 0 JNMONTReviane0
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1021
+	== JAREVIA IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1022
+END
+
+I_C_T2 JAREVIA 7 JNMONTReviane7
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1023
+END
+
+I_C_T2 JAREVIA 9 JNMONTReviane9
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1023
+END
+
 I_C_T PLAYER1 5 JNMONTFirstSlayerChange1
 == JNMONTJ IF ~InParty("JNMONT") See("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1004 /* Ye make for a powerful ally. Almost worth me respect. */
 END
@@ -70,21 +140,21 @@ END
 CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",2)~ THEN JNMONTJ xt2
 	@1 /* <CHARNAME>! Ye promised me a dead lunatic. */
 	== JNMONTJ @2 /* Show him or you will take his place. */
-	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)~
+	DO ~IncrementGlobal("JNMONTXzarTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)~
 EXIT
 
 CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",4)~ THEN JNMONTJ xt3
 	@3 /* I'll no be played by ye any longer <CHARNAME>! You're lucky my dagger isn't with me. */
-	== JNMONJ @4 /* I be tellin' you to make way to Xzar or ye'll not have my company for much longer. */
+	== JNMONTJ @4 /* I be tellin' you to make way to Xzar or ye'll not have my company for much longer. */
 	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @5 /* Oh, what a dreadful future! To not have some bloodthirsty imbecile at our backs.. */
 	== JNMONTJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @6 /* Shut it cretin! If I no see a dead green wizard, a red one will have to do. */
 	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @7 /* Then let us make haste to some loons corpse at once <CHARNAME>. Before I have to relieve us of this cur. */
-	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)~
+	DO ~IncrementGlobal("JNMONTXzarTalk","GLOBAL",1) RealSetGlobalTimer("JNMONTVisitXzarTimer","GLOBAL",600)~
 EXIT
 
 CHAIN IF ~Global("JNMONTXzarTalk","GLOBAL",6)~ THEN JNMONTJ xt4
 	@8 /* I see now that ye're nothing, but a lying coward <CHARNAME>. I've no need of ye and yer lot anyway! */
-	DO ~IncrementGlobal("JNMONTTalk","GLOBAL",1) LeaveParty() EscapeArea()~
+	DO ~IncrementGlobal("JNMONTXzarTalk","GLOBAL",1) LeaveParty() EscapeArea()~
 	== EDWINJ IF ~InParty("Edwin") InMyArea("Edwin") !StateCheck("Edwin",CD_STATE_NOTVALID)~ THEN @9 /* Why you've even been dragging him along in the first place is a mystery to me. */
 	= @10 /* Anyways.. good riddance to bad rubbish. */
 EXIT
@@ -205,6 +275,32 @@ CHAIN JNMONTJ vt.4
 	@71 /* Agreed. */
 EXIT
 
+CHAIN IF ~Global("JNMONTMaeVarTalk","GLOBAL",2)~ THEN JNMONTJ jnmt
+	@72
+	DO ~SetGlobal("JNMONTMaeVarTalk","GLOBAL",3)~
+END
+++ @73 EXTERN JNMONTJ jnmt.1
+++ @74 EXTERN JNMONTJ jnmt.2
+++ @75 EXTERN JNMONTJ jnmt.3
+++ @76 EXTERN JNMONTJ jnmt.4
+
+CHAIN JNMONTJ jnmt.1
+	@77
+EXIT
+
+CHAIN JNMONTJ jnmt.2
+	@78
+EXIT
+
+CHAIN JNMONTJ jnmt.3
+	@79
+EXIT
+
+CHAIN JNMONTJ jnmt.4
+	@80
+EXIT
+
+
 /* =====================================
 ============== Dialogues ===============
 ===================================== */
@@ -222,8 +318,8 @@ CHAIN IF ~Global("JNMONTChapter5","GLOBAL",2)~ THEN JNMONTJ ut
     == VICONIJ IF ~InParty("Viconia") InMyArea("Viconia") !StateCheck("Viconia",CD_STATE_NOTVALID)~ THEN @48 /* Of course you say that, iblith. You wouldn't last a minute down here alone. You're nothing compared to the drow, pathetic halfman. */
     == AERIEJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @49 /* Don't you listen to him <CHARNAME>. Nothing good can come of us being down here. */
     == JNMONTJ IF ~InParty("Aerie") InMyArea("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @50 /* Shut yer trap girl! Yer whining makes me sick. */
-    == CERNDJ IF ~InParty("Cernd") InMyArea("Cernd") !StateCheck("Cernd",CD_STATE_NONVALID)~ THEN @51 /* I will be grateful when we are out of here and back under the sun. You truly need to find peace and balance in your heart, if you despise the daylight so much, you'd rather stay in this place. */
-    == JNMONTJ IF ~InParty("Cernd") InMyArea("Cernd") !StateCheck("Cernd",CD_STATE_NONVALID)~ THEN @52 /* Go find me some balance then and stop bothering me, dirtlover. */
+    == CERNDJ IF ~InParty("Cernd") InMyArea("Cernd") !StateCheck("Cernd",CD_STATE_NOTVALID)~ THEN @51 /* I will be grateful when we are out of here and back under the sun. You truly need to find peace and balance in your heart, if you despise the daylight so much, you'd rather stay in this place. */
+    == JNMONTJ IF ~InParty("Cernd") InMyArea("Cernd") !StateCheck("Cernd",CD_STATE_NOTVALID)~ THEN @52 /* Go find me some balance then and stop bothering me, dirtlover. */
 END
 ++ @53 EXTERN JNMONTJ ut.1 /* I'll not stay down here a second longer than needed. */
 ++ @54 EXTERN JNMONTJ ut.2 /* It is indeed nice down here, but I have to chase after Irenicus. */
