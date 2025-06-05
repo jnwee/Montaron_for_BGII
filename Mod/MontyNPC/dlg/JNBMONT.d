@@ -10,8 +10,13 @@
 	Edwin - 2
 	Keldorn - 2 (Conflict)
 	Yoshimo - 1
-	Aerie - 2
-	Nalia - 2
+	Aerie - 2 + 1R
+	Nalia - 3
+	Minsc - 1
+	Anomen - 1
+	Mazzy - 2
+	Cernd - 1
+	Viconia - 2
 
 	JNMONTAerieConflict Variable
 	4 = Montaron left
@@ -108,6 +113,81 @@ THEN BJAHEIR JNMONTJaheira1
 EXIT
 
 /* =====================================
+================ Anomen ================
+===================================== */
+
+CHAIN IF ~
+	InParty("Anomen")
+	See("Anomen")
+	!StateCheck("Anomen",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTAnomen1","GLOBAL",0)~
+THEN BANOMEN JNMONTAnomen1
+	@172
+	DO ~SetGlobal("JNMONTAnomen1","GLOBAL",1)~
+	== JNBMONT @173
+	== BANOMEN IF ~!Global("AnomenIsNotKnight","GLOBAL",1)~ THEN @174
+	== JNBMONT IF ~!Global("AnomenIsNotKnight","GLOBAL",1)~ THEN @175
+	== BANOMEN IF ~Global("AnomenIsNotKnight","GLOBAL",1)~ THEN @176
+	== JNBMONT IF ~Global("AnomenIsNotKnight","GLOBAL",1)~ THEN @177
+EXIT
+
+CHAIN IF ~
+	InParty("Anomen")
+	See("Anomen")
+	!StateCheck("Anomen",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTAnomen2","GLOBAL",0)
+	Global("AnomenIsNotKnight","GLOBAL",1)~
+THEN JNBMONT JNMONTAnomen2
+	@201
+	DO ~SetGlobal("JNMONTAnomen2","GLOBAL",1)~
+	== BANOMEN @202
+	== JNBMONT @203
+	== BANOMEN @204
+EXIT
+
+CHAIN IF ~
+	InParty("Anomen")
+	See("Anomen")
+	!StateCheck("Anomen",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTAnomen3","GLOBAL",0)
+	Global("AnomenIsKnight","GLOBAL",1)~
+THEN JNBMONT JNMONTAnomen3
+	@205
+	DO ~SetGlobal("JNMONTAnomen3","GLOBAL",1)~
+	== BANOMEN @206
+	== JNBMONT @207
+	== BANOMEN @208
+	== JNBMONT @209
+EXIT
+
+
+/* =====================================
+================= Jan ==================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Jan")
+	See("Jan")
+	!StateCheck("Jan",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTJan1","GLOBAL",0)~
+THEN JNBMONT JNMONTJan1
+	@178
+	DO ~SetGlobal("JNMONTJan1","GLOBAL",1)~
+	== BJAN @179
+	== JNBMONT @180
+	== BJAN @181
+EXIT	
+
+/* =====================================
 ================ Korgan ================
 ===================================== */
 
@@ -137,7 +217,7 @@ CHAIN IF ~
 	CombatCounter(0)
 	Global("JNMONTKorgan2","GLOBAL",0)~
 THEN BKORGAN JNMONTKorgan2
-	@115  /* I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure. */
+	@115 /* I can nae understand ye, halfling. Ye live to kill, but even in that ye take no pleasure. */
 	DO ~SetGlobal("JNMONTKorgan2","GLOBAL",1)~
 	== JNBMONT @116 /* There be no pleasure to this life, dwarf. There be power and the ones to weak to take it. */
 	== BKORGAN @117 /* Nae. There be also a good drink after a good fight and.. other pleasures. */
@@ -187,6 +267,45 @@ THEN BEDWIN JNMONTEdwin2
 	== BEDWIN @80 /* Yes you are so very skilled. (We would have to search the whole of the local thug alley to find a replacement for you) */
 	== JNBMONT @81 /* So ye've come to yer senses wizard. Keep it up and ye won't have to fear getting cut. */
 	== BEDWIN @82 /* How very gracious of you. *sigh* */
+EXIT
+
+/* =====================================
+=============== Viconia ================
+===================================== */
+
+CHAIN IF ~
+	InParty("Viconia")
+	See("Viconia")
+	!StateCheck("Viconia",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTViconia1","GLOBAL",0)~
+THEN BVICONI JNMONTViconia1
+	@189
+	DO ~SetGlobal("JNMONTViconia1","GLOBAL",1)~
+	== JNBMONT @190
+	== BVICONI @191
+	= @192
+	== JNBMONT @193
+	== BVICONI @194
+EXIT
+
+CHAIN IF ~
+	InParty("Viconia")
+	See("Viconia")
+	!StateCheck("Viconia",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTViconia1","GLOBAL",1)
+	Global("PlayerLooksLikeDrow","GLOBAL",1)~
+THEN JNBMONT JNMONTViconia2
+	@195
+	DO ~SetGlobal("JNMONTViconia1","GLOBAL",2)~
+	== BVICONI @196
+	== JNBMONT @197
+	== BVICONI @198
+	= @199
+	== JNBMONT @200
 EXIT
 
 /* =====================================
@@ -252,9 +371,9 @@ IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ THEN EXTERN BMINSC 
 CHAIN BMINSC JNMONTAerie1.Minsc
 	@40 /* Fear not Aerie! Me and Boo will be keeping a sharp eye on the small villain. */
 	== JNBMONT @44 /* Pah! Ye are no match for me. */
-	== BMINSC  @45 /* Watch it villain! Boo knows the smell of treachery and which butt needs kicking! */
+	== BMINSC @45 /* Watch it villain! Boo knows the smell of treachery and which butt needs kicking! */
 	== JNBMONT @46 /* Ye be truly lost madman, keep yer distance from me! */
-	== BAERIE  @47 /* Thank you Minsc, with you at my side I feel a lot better already. */
+	== BAERIE @47 /* Thank you Minsc, with you at my side I feel a lot better already. */
 EXIT
 
 CHAIN BAERIE JNMONTAerie1.good
@@ -435,6 +554,87 @@ EXIT
 ================ Cernd =================
 ===================================== */
 
+I_C_T BCERND 38 JNMONTCernd38
+	== JNBMONT IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @182
+	== BCERND IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @183
+END
+
+CHAIN IF ~
+	InParty("Cernd")
+	See("Cernd")
+	!StateCheck("Cernd",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTCernd1","GLOBAL",0)~
+THEN JNBMONT JNMONTCernd1
+	@184
+	DO ~SetGlobal("JNMONTCernd1","GLOBAL",1)~
+	== BCERND @185
+	= @186
+	== JNBMONT @187
+	== BCERND @188
+EXIT
+
+/* =====================================
+================ Minsc =================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Minsc")
+	See("Minsc")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("Minsc",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTMinsc1","GLOBAL",0)~
+THEN BMINSC JNMONTMinsc1
+	@156
+	DO ~SetGlobal("JNMONTMinsc1","GLOBAL",1)~
+	== JNBMONT @157
+	== BMINSC @158
+	== JNBMONT @159
+	= @160
+EXIT
+
+/* =====================================
+================ Mazzy =================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Mazzy")
+	See("Mazzy")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("Mazzy",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTMazzy1","GLOBAL",0)~
+THEN BMAZZY JNMONTMazzy1
+	@161
+	DO ~SetGlobal("JNMONTMazzy1","GLOBAL",1)~
+	== JNBMONT @162
+	== BMAZZY @163
+	== JNBMONT @164
+	== BMAZZY @165
+	== JNBMONT @166
+	== BMAZZY @167
+EXIT
+
+CHAIN IF ~
+	InParty("Mazzy")
+	See("Mazzy")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("Mazzy",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTMazzy2","GLOBAL",0)~
+THEN JNBMONT JNMONTMazzy2
+	@168
+	DO ~SetGlobal("JNMONTMazzy2","GLOBAL",1)
+	== BMAZZY @169
+	== JNBMONT @170
+	== BMAZZY @171
+EXIT
+
+
 /* =====================================
 ================ Imoen =================
 ===================================== */
@@ -474,10 +674,112 @@ CHAIN IF ~
 	!StateCheck("imoen2",CD_STATE_NOTVALID)
 	CombatCounter(0)
 	Global("JNMONTImoen2","GLOBAL",0)~
-THEN JNBMONT JNMONTImoen1
+THEN JNBMONT JNMONTImoen2
 	@135 /* *sigh* I beg ye, girl. Quit yer babblin', I can no take it for much longer. */
 	DO ~SetGlobal("JNMONTImoen2","GLOBAL",1)~
 	== BImoen2 @136 /* Come on, Monty. Just tell me how you died and I won't bother you for at least the rest of the day. */
 	== JNBMONT @137 /* If ye push it, you'll be able to tell such a tale soon 'nough. */
 	== BImoen2 @138 /* Have it your way. Next time you want something from me, you better have an apology ready. */
+EXIT
+
+/* =====================================
+================ Neera =================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Neera")
+	See("Neera")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("Neera",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTNeera1","GLOBAL",0)~
+THEN JNBMONT JNMONTNeera1
+	@210
+	DO ~SetGlobal("JNMONTNeera1","GLOBAL",1)~
+	== BNEERA @211
+	== JNBMONT @212
+	== BNEERA @213
+	== JNBMONT @214
+	== BNEERA @215
+EXIT
+
+/* =====================================
+================ Dorn ==================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Dorn")
+	See("Dorn")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("Dorn",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTDorn1","GLOBAL",0)~
+THEN JNBMONT JNMONTDorn1
+	@216
+	DO ~SetGlobal("JNMONTDorn1","GLOBAL",1)~
+	== BDORN @217
+	== JNBMONT @218
+	== BDORN @219
+	== JNBMONT @220
+EXIT
+
+/* =====================================
+=============== Hexxat =================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Hexxat")
+	See("Hexxat")
+	!StateCheck("Hexxat",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTHexxat1","GLOBAL",0)~
+THEN JNBMONT JNMONTHexxat1
+	@221
+	DO ~SetGlobal("JNMONTHexxat1","GLOBAL",1)~
+	== BHEXXAT @222
+	== JNBMONT @223
+	== BHEXXAT @224
+EXIT
+
+CHAIN IF ~
+	InParty("Hexxat")
+	See("Hexxat")
+	!StateCheck("Hexxat",CD_STATE_NOTVALID)
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTHexxat1","GLOBAL",1)~
+THEN BHEXXAT JNMONTHexxat2
+	@225
+	DO ~SetGlobal("JNMONTHexxat1","GLOBAL",2) SetGlobal("JNMONTVampireDeal","GLOBAL",1)~
+	== JNBMONT @226
+	== BHEXXAT @227
+	== JNBMONT @228
+	== BHEXXAT @229
+EXIT
+
+
+
+/* =====================================
+================ Rasaad =================
+===================================== */
+
+
+CHAIN IF ~
+	InParty("Rasaad")
+	See("Rasaad")
+	!StateCheck("JNMONT",CD_STATE_NOTVALID)
+	!StateCheck("Rasaad",CD_STATE_NOTVALID)
+	CombatCounter(0)
+	Global("JNMONTRasaad1","GLOBAL",0)~
+THEN JNBMONT JNMONTRasaad1
+	@230
+	DO ~SetGlobal("JNMONTRasaad1","GLOBAL",1)~
+	== BRASAAD @231
+	== JNBMONT @232
+	== BRASAAD @233
+	== JNBMONT @234
 EXIT

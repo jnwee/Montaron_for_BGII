@@ -113,6 +113,8 @@ DO ~SetGlobal("JNMONTReactionCelvan","AR0300",1)~
 == JNMONTJ @1003 /* Shut yer trap, madman.. or you will get to see me tools soon enough. */
 END CELVAN 1
 
+// Reviane (Harper)
+
 I_C_T JAREVIA 0 JNMONTReviane0
 	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1021
 	== JAREVIA IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1022
@@ -126,9 +128,94 @@ I_C_T2 JAREVIA 9 JNMONTReviane9
 	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1023
 END
 
-I_C_T PLAYER1 5 JNMONTFirstSlayerChange1
-== JNMONTJ IF ~InParty("JNMONT") See("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1004 /* Ye make for a powerful ally. Almost worth me respect. */
+// Bodhi
+
+I_C_T BODHI 6 JNMONTBodhi6
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1024
 END
+
+// Booter (Torturer Thieves Guild)
+
+I_C_T BOOTER 18 JNMONTBooter
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1025
+	== JAHEIRAJ IF ~InParty("JNMONT") InParty("Jaheira") !StateCheck("JNMONT",CD_STATE_NOTVALID) !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @1026
+	== JNMONTJ IF ~InParty("JNMONT") InParty("Jaheira") !StateCheck("JNMONT",CD_STATE_NOTVALID) !StateCheck("Jaheira",CD_STATE_NOTVALID)~ THEN @1027
+END
+
+// Aran Linvail
+
+I_C_T ARAN 54 JNMONTAran54
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1028
+END
+
+I_C_T ARAN 39 JNMONTAran39
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1029
+END
+
+// Saemon Havarian
+
+I_C_T2 PPSAEM 59 JNMONTSaemon59
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1030
+END
+
+I_C_T PPSAEM2 0 JNMONTSaemon0
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1031
+END
+
+I_C_T PPSAEM2 7 JNMONTSaemon7
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1032
+END
+
+I_C_T2 PPSAEM2 8 JNMONTSaemon8
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1033
+END
+
+// Spellhold
+
+I_C_T PLAYER1 5 JNMONTFirstSlayerChange1
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1004 
+END
+
+I_C_T PLAYER1 15 JNMONTFirstIrenicusBattle15
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1037
+END
+
+// Sahuagin Prince
+
+I_C_T SAHPR2 9 JNMONTSahuaginPrince9
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1034
+END
+
+// Szordrin
+
+I_C_T UDDROW04 4 JNMONTSzordrin4
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1035
+END
+
+// Simyaz
+
+I_C_T UDSIMYAZ 36 JNMONTSimyaz36
+	== JNMONTJ IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID)~ THEN @1036
+END
+
+// Before 2. Irenicus battle
+
+EXTEND_BOTTOM PLAYER1 33
+	IF ~InParty("JNMONT") !StateCheck("JNMONT",CD_STATE_NOTVALID) Global("JNMONTlbaTalk","GLOBAL",0)~ THEN EXTERN JNMONTJ JNMONTlb
+END
+
+CHAIN JNMONTJ JNMONTlb
+	@1038
+	DO ~SetGlobal("JNMONTlbaTalk","GLOBAL",1)~
+END
+++ @1039 EXTERN JNMONTJ JNMONTlba
+++ @1040 EXTERN JNMONTJ JNMONTlba
+++ @1041 EXTERN JNMONTJ JNMONTlba
+
+CHAIN JNMONTJ JNMONTlba
+	@1042
+END
+COPY_TRANS PLAYER1 33
 
 
 /* =====================================

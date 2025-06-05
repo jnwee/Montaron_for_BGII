@@ -10,7 +10,7 @@ In shadows he grew,
 With darkness he flew,
 Now mischief and death are his tools.~
 @1003 = ~Shut yer trap, madman.. or you will get to see me tools soon enough.~
-@1004 = ~Ye make for a powerful ally. Almost worth me respect.~
+@1004 = ~Ye make for a powerful ally <CHARNAME>. Our foes will tremble when they see yer true form!~
 @1005 = ~Ribald Barterman at yer-~
 @1006 = ~You dare come into my shop. Yer mage friend made off with some of my stock!~
 @1007 = ~Pah. Yer mage be lying in the street, so he will no pay ye anytime soon.~
@@ -30,6 +30,25 @@ Now mischief and death are his tools.~
 @1021 = ~How've ye found me, ye nosy lot! Ye killed me once, I'll no let ye again!~
 @1022 = ~Whoever you are, you are of no concern to us. We're here for someone who was once one of our own.~
 @1023 = ~How's it feel to be on the receiving end, Jaheira? It'll feel better when their dead though, heh!~
+@1024 = ~So this be the competition to the Shadow Thieves. We save gold and ally with the stronger side, a simple choice I say.~
+@1025 = ~If yer caught, ye deserve what's comin' to ye.~
+@1026 = ~So you say, your death was deserved.~
+@1027 = ~No, that's not.. That's not what I mean, ye.. *hrmpf* Arrr!~
+@1028 = ~I knew it! We should've taken the other side, I told ye <CHARNAME>.~
+@1029 = ~Why ye'd lock these loonies away to study them, I've no idea. Just cut 'em down.~
+@1030 = ~Heh! Ye best pray that yer friends win here, or ye'll find a blade in yer spine soon 'nough.~
+@1031 = ~A fool he be! And a dead one soon too, spill his guts on the floor I say!~
+@1032 = ~A more foolish plan I've never heard. We be strong <CHARNAME>, we'll crush that wizard, just after we spill this one's blood!~
+@1033 = ~Arrr! Why ye let him flee!~
+@1034 = ~Precisely. Why are we standing 'ere talkin' to fish people? Carve out his heart and be done with it!~
+@1035 = ~Do it <CHARNAME>. Me blade needs to be fed.~
+@1036 = ~They left us to rot in there! Let's pay'em back with a blade through the belly!~
+@1037 = ~Ye're mad <CHARNAME>. Now we'll have to kill a bunch of mad wizards after we've dealt with Irenicus.~
+@1038 = ~Montaron, the surprisingly bloodthirsty halfling, who proved himself effective over and over, even if just for the blood and gold.
+@1039 = ~Montaron, Irenicus is powerful, you've seen it yourself. If you want to leave, now might be the time.~
+@1040 = ~Montaron, I am sure you will find riches through some thieves guild. You don't need to follow me into this battle.~
+@1041 = ~Are you ready to fight, Montaron? I need to be sure you will fight with me to the end.~
+@1042 = ~I'll no miss a chance to push me blade into a wizard's spine. 'sides the gold I make with ye, I'll not find anywhere else.~
 
 /* =====================================
 ========== Talk with Montaron ==========
